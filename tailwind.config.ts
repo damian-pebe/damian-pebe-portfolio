@@ -8,6 +8,12 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        careny: ["Careny", "sans-serif"],
+        lobster: ["var(--font-lobster)"],
+        poppins: ["var(--font-poppins)"],
+        plaster: ['var(--font-plaster)'],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
