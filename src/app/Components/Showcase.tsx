@@ -2,7 +2,7 @@
 
 export default function Showcase() {
   return (
-    <div className="justify-items-center items-center flex justify-center pt-20">
+    <div className="justify-items-center items-center flex justify-center py-20">
       <Carousel
         autoplay={true}
         autoplayDelay={3000}
