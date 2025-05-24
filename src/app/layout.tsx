@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import {
-  Cherry_Bomb_One,
   Geist,
   Geist_Mono,
   Lobster,
