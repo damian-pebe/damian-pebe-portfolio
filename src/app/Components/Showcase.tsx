@@ -179,14 +179,15 @@ function Carousel({
         },
       };
 
-  const transforms = carouselItems.map((_, index) => {
-    const range = [
-      -(index + 1) * trackItemOffset,
-      -index * trackItemOffset,
-      -(index - 1) * trackItemOffset,
-    ];
-    return useTransform(x, range, [90, 0, -90], { clamp: false });
-  });
+const transforms = carouselItems.map((_, index) => {
+  const range = [
+    -(index + 1) * trackItemOffset,
+    -index * trackItemOffset,
+    -(index - 1) * trackItemOffset,
+  ] as [number, number, number]; // this ensures TypeScript knows it's a tuple
+
+  return useTransform(x, range, [90, 0, -90], { clamp: false });
+});
 
   return (
     <div
