@@ -179,6 +179,15 @@ function Carousel({
         },
       };
 
+  const transforms = carouselItems.map((_, index) => {
+    const range = [
+      -(index + 1) * trackItemOffset,
+      -index * trackItemOffset,
+      -(index - 1) * trackItemOffset,
+    ];
+    return useTransform(x, range, [90, 0, -90], { clamp: false });
+  });
+
   return (
     <div
       ref={containerRef}
@@ -210,13 +219,6 @@ function Carousel({
         onAnimationComplete={handleAnimationComplete}
       >
         {carouselItems.map((item, index) => {
-          const range = [
-            -(index + 1) * trackItemOffset,
-            -index * trackItemOffset,
-            -(index - 1) * trackItemOffset,
-          ];
-          const outputRange = [90, 0, -90];
-          const rotateY = useTransform(x, range, outputRange, { clamp: false });
           return (
             <motion.div
               key={index}
@@ -227,7 +229,7 @@ function Carousel({
               } overflow-hidden cursor-grab active:cursor-grabbing`}
               style={{
                 width: itemWidth,
-                rotateY: rotateY,
+                rotateY: transforms[index],
                 backgroundImage: `url(${item.image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
