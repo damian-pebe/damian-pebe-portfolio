@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import {
+  Ephesis,
   Geist,
   Geist_Mono,
   Lobster,
@@ -35,6 +36,13 @@ const plaster = Plaster({
   weight: "400",
   variable: "--font-plaster",
 });
+
+const ephesis = Ephesis({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-ephesis',
+})
+
 export const metadata: Metadata = {
   title: "Damian Pebe",
   description: "Damian Pebe's Portfolio Website",
@@ -48,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${lobster.variable} ${poppins.variable} ${plaster.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${lobster.variable} ${poppins.variable} ${plaster.variable} ${ephesis.variable} antialiased`}
       >
         <div
           className="fixed inset-0 -z-10 bg-white"

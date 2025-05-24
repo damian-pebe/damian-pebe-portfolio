@@ -16,8 +16,20 @@ export default function Showcase() {
 import { useEffect, useState, useRef, JSX } from "react";
 import { motion, PanInfo, useMotionValue, useTransform } from "framer-motion";
 import { Github } from "react-bootstrap-icons";
+import Link from "next/link";
+import { Link2 } from "lucide-react";
+import {
+  github_damian_pebe_portfolio,
+  github_auratejida,
+  github_luxoflex,
+  web_damian_pebe_portfolio,
+  web_auratejida,
+  web_luxoflex,
+} from "@/Environment/SocialsLinks";
 
 export interface CarouselItem {
+  githubRepo: string;
+  webPageLink: string;
   title: string;
   image: string;
   id: number;
@@ -34,32 +46,42 @@ export interface CarouselProps {
 
 const DEFAULT_ITEMS: CarouselItem[] = [
   {
-    title: "Text Animations",
+    githubRepo: github_damian_pebe_portfolio,
+    webPageLink: web_damian_pebe_portfolio,
+    title: "Personal Portfolio",
     image: "/portfolio.jpg",
     id: 1,
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
-    title: "Animations",
-    image: "/portfolio.jpg",
+    githubRepo: github_auratejida,
+    webPageLink: web_auratejida,
+    title: "Aura Tejida",
+    image: "/auraTejidaHero.jpg",
     id: 2,
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
-    title: "Components",
-    image: "/portfolio.jpg",
+    githubRepo: github_auratejida,
+    webPageLink: web_auratejida,
+    title: "Aura Tejida Catalog",
+    image: "/auraTejidaCatalog.jpg",
     id: 3,
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
-    title: "Backgrounds",
-    image: "/portfolio.jpg",
+    githubRepo: github_luxoflex,
+    webPageLink: web_luxoflex,
+    title: "Luxoflex",
+    image: "/luxoflexHero.jpg",
     id: 4,
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
-    title: "Common UI",
-    image: "/portfolio.jpg",
+    githubRepo: github_auratejida,
+    webPageLink: web_auratejida,
+    title: "Aura Tejida Showcase",
+    image: "/auraTejidaShowcase.jpg",
     id: 5,
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
@@ -179,16 +201,6 @@ function Carousel({
         },
       };
 
-const transforms = carouselItems.map((_, index) => {
-  const range = [
-    -(index + 1) * trackItemOffset,
-    -index * trackItemOffset,
-    -(index - 1) * trackItemOffset,
-  ] as [number, number, number]; // this ensures TypeScript knows it's a tuple
-
-  return useTransform(x, range, [90, 0, -90], { clamp: false });
-});
-
   return (
     <div
       ref={containerRef}
@@ -230,7 +242,6 @@ const transforms = carouselItems.map((_, index) => {
               } overflow-hidden cursor-grab active:cursor-grabbing`}
               style={{
                 width: itemWidth,
-                rotateY: transforms[index],
                 backgroundImage: `url(${item.image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -239,14 +250,24 @@ const transforms = carouselItems.map((_, index) => {
               transition={effectiveTransition}
             >
               <div className={`${round ? "p-0 m-0" : "mb-4 p-5"}`}>
-                <span className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#060606]">
+                <Link
+                  href={item.githubRepo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 text-xl items-center justify-center rounded-full bg-[#060606] transform hover:-translate-y-2 duration-700 hover:shadow-lg shadow-black/30 hover:shadow-black/60"
+                >
                   {item.icon}
-                </span>
+                </Link>
               </div>
-              <div className="absolute bottom-0 translate-y-full transition-all duration-1000 group-hover:translate-y-0 w-full p-5 bg-[#fafafa] rounded-t-3xl">
-                <div className="mb-1 font-plaster text-sm sm:text-base md:text-lg lg:text-xl text-black text-center">
-                  {item.title}
-                </div>
+              <div className="absolute bottom-0 translate-y-full transition-all duration-1000 group-hover:translate-y-0 w-full py-5 bg-[#fafafa82] rounded-t-3xl">
+                <Link
+                  href={item.webPageLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex justify-center items-center gap-x-5 mb-1 font-plaster text-sm sm:text-base md:text-lg lg:text-xl text-black text-center underline"
+                >
+                  {item.title} <Link2 />
+                </Link>
               </div>
             </motion.div>
           );

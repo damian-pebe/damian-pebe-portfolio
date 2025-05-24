@@ -12,8 +12,8 @@ export default function HomePage() {
 
 function Header() {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center w-full md:px-32 pt-4 px-2 md:p-8">
-      <div className="text-center md:text-left group w-full flex flex-col md:flex-row justify-center gap-2 items-center h-full hover:cursor-pointer">
+    <div className="flex flex-col md:flex-row justify-center items-center w-full md:px-32 pt-4 px-2 md:p-8">
+      <div className="group w-full flex flex-col md:flex-row justify-center gap-2 items-center h-full hover:cursor-pointer">
         <Image
           className="rounded-full group-hover:-rotate-6 duration-700"
           src="/damianCrop.jpg"
@@ -21,18 +21,18 @@ function Header() {
           height={60}
           alt="Profile Picture"
         />
-        <div className="w-full flex flex-col justify-start gap-1">
-          <h1 className="text-base text-black font-poppins uppercase group-hover:-translate-y-2 duration-700">
-        Damian Pebe
+        <div className="text-center md:text-left flex flex-col justify-start gap-1">
+          <h1 className="text-2xl text-black font-ephesis tracking-widest group-hover:-translate-y-1 duration-700">
+            Damian Pebe
           </h1>
-          <p className="text-xs text-gray-600 font-poppins font-extralight group-hover:translate-y-2 duration-700">
-        Full Stack Developer
+          <p className="text-sm text-gray-600 font-poppins font-extralight group-hover:translate-y-1 duration-700">
+            Full Stack Developer
           </p>
         </div>
       </div>
       <div className="flex flex-col md:hidden items-center justify-center gap-2">
-  <div className="h-0.5 w-52 bg-black/60 rounded-sm my-3"/>
-</div>
+        <div className="h-0.5 w-52 bg-black/60 rounded-sm my-3" />
+      </div>
 
       <div className="w-full flex flex-row items-center justify-center gap-3 h-full text-black">
         <div className="hidden md:flex flex-row items-center gap-3 pr-5">
@@ -43,7 +43,6 @@ function Header() {
           <span className="text-sm  pr-5">Available</span>
           <div className="h-14 w-0.5 bg-black/60 rounded-sm " />
         </div>
-
 
         <button className="flex justify-center items-center h-10 w-10 bg-[#FAFAFA] rounded-lg shadow-lg shadow-black/30 hover:shadow-black/60 transform transition-all hover:-translate-y-2 hover:-translate-x-1 hover:-rotate-3 duration-300">
           {" "}

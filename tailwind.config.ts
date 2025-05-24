@@ -13,6 +13,7 @@ export default {
         lobster: ["var(--font-lobster)"],
         poppins: ["var(--font-poppins)"],
         plaster: ["var(--font-plaster)"],
+        ephesis: ["var(--font-ephesis)"],
       },
       colors: {
         background: "var(--background)",
