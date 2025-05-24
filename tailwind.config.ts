@@ -12,7 +12,7 @@ export default {
         careny: ["Careny", "sans-serif"],
         lobster: ["var(--font-lobster)"],
         poppins: ["var(--font-poppins)"],
-        plaster: ['var(--font-plaster)'],
+        plaster: ["var(--font-plaster)"],
       },
       colors: {
         background: "var(--background)",
@@ -20,5 +20,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 } satisfies Config;

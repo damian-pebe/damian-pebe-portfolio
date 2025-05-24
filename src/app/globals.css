@@ -28,3 +28,7 @@ body {
   font-style: normal;
   font-display: swap;
 }
+
+.scrolling {
+  cursor: grabbing !important;
+}
