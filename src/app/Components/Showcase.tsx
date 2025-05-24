@@ -14,7 +14,7 @@ export default function Showcase() {
 }
 
 import { useEffect, useState, useRef, JSX } from "react";
-import { motion, PanInfo, useMotionValue, useTransform } from "framer-motion";
+import { motion, PanInfo, useMotionValue } from "framer-motion";
 import { Github } from "react-bootstrap-icons";
 import Link from "next/link";
 import { Link2 } from "lucide-react";

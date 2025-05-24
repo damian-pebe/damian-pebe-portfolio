@@ -1,11 +1,12 @@
 const SOCIAL_LINKS = {
   github: "https://github.com/damian-pebe",
-  linkedin: "https://www.linkedin.com/in/damian-pebe/",
-  twitter: "https://twitter.com/damian_pebe",
+  linkedin: "https://www.linkedin.com/in/damian-perez-becerril3322052692",
+  instagram: "https://www.instagram.com/damian_pebe/",
+  contact: "mailto:damian.pebe@gmail.com"
 };
 
 const github_damian_pebe_portfolio = "https://github.com/damian-pebe/damian-pebe-portfolio";
-const github_auratejida = "https://github.com/damian-pebe/auratejida";
+const github_auratejida = "https://github.com/damian-pebe/bouquetcrochet";
 const github_luxoflex = "https://github.com/damian-pebe/luxoflex";
 
 
