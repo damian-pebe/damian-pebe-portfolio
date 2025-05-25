@@ -1,4 +1,5 @@
 import HomePage from "./Components/HomePage";
+import Projects from "./Components/Projects";
 import Showcase from "./Components/Showcase";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-between h-full w-full">
       <HomePage />
       <Showcase/>
+      <Projects/>
     </div>
   );
 }
