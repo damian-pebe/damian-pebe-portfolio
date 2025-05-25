@@ -55,9 +55,9 @@ export default function Projects() {
             <img
               src={item.image}
               alt="Projects"
-              className="object-cover w-full rounded-3xl group-hover:scale-105 transition-transform duration-500"
+              className="object-cover w-full rounded-3xl group-hover:scale-105 transition-transform duration-1000"
             />
-            <div className="absolute bottom-0 left-0 right-0 px-2 sm:px-4 md:px-6 md:translate-y-full transition-all duration-500 group-hover:-translate-y-2">
+            <div className="absolute bottom-0 left-0 right-0 px-2 sm:px-4 md:px-6 md:translate-y-full transition-all duration-700 group-hover:-translate-y-2">
               <div className="flex items-center justify-between bg-white rounded-[40px] shadow-md px-4 sm:px-6 py-2 md:py-4 mb-1 w-full mt-4">
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black flex items-center justify-center overflow-hidden">
