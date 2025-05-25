@@ -82,7 +82,7 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="bg-gray-100 hover:bg-gray-200 text-black px-4 py-2 rounded-full font-medium flex items-center gap-2 transition-all transform hover:-translate-y-1 border hover:border-black/10 shadow-xl shadow-black/10 hover:shadow-black/30 duration-700 text-xs sm:text-sm"
                 >
-                  View <ArrowUpRight size={16} />
+                  View Project <ArrowUpRight size={16} />
                 </Link>
               </div>
             </div>
@@ -192,12 +192,12 @@ const BlurText: React.FC<BlurTextProps> = ({
       {elements.map((segment, index) => {
         const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
 
-        const spanTransition: Transition = {
-          duration: totalDuration,
-          times,
-          delay: (index * delay) / 1000,
-        };
-        (spanTransition as any).ease = easing;
+       const spanTransition: Transition & { ease: (t: number) => number } = {
+  duration: totalDuration,
+  times,
+  delay: (index * delay) / 1000,
+  ease: easing,
+};
 
         return (
           <motion.span
