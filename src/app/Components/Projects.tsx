@@ -1,55 +1,98 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+
+import { motion, Transition } from "framer-motion";
+import { useEffect, useRef, useState, useMemo } from "react";
+import { ArrowUpRight } from "react-bootstrap-icons";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 
 export default function Projects() {
   return (
-    <div className="flex flex-col items-center justify-center py-20">
-
-   
+    <div className="flex flex-col items-center justify-center md:pt-16 px-4 sm:px-6">
+      <Badge className="bg-gradient-to-r from-zinc-700 via-black to-zinc-700 text-white mb-10">
+        New Projects
+      </Badge>
       <BlurText
         text="Crafted to Impress,"
         delay={150}
         animateBy="words"
         direction="top"
-        className="text-black font-black font-careny text-6xl mb-8 text-center w-full flex justify-center items-center"
+        className="text-black font-black font-careny text-6xl mb-6 sm:mb-8 text-center w-full flex justify-center items-center"
       />
       <BlurText
         text="Build to Perform"
         delay={150}
         animateBy="words"
         direction="top"
-        className="text-black font-careny text-6xl mb-8 text-center w-full flex justify-center items-center"
+        className="text-black font-ephesis text-6xl mb-6 sm:mb-8 text-center w-full flex justify-center items-center"
       />
-
-      <div className="group relative flex flex-col items-center justify-center overflow-hidden rounded-3xl">
-        <Image
-          src="/auraTejidaHero.jpg"
-          alt="Projects"
-          width={600}
-          height={600}
-          className="rounded-3xl group-hover:scale-105 transition-transform duration-500"
+      <div className="h-0.5 w-1/3 bg-black/60 rounded-sm my-3" />
+<div>
+        <BlurText
+          text="Explore my latest projects that showcase my skills and creativity."
+          delay={150}
+          animateBy="words"
+          direction="top"
+          className="text-zinc-700 font-poppins tracking-widest text-base sm:text-sm mb-6 sm:mb-8 text-center w-full flex justify-center items-center"
         />
-        <div className="absolute bottom-0 flex justify-between items-center translate-y-full transition-all duration-500 group-hover:-translate-y-2 bg-[#FAFAFA] rounded-3xl p-4 w-[580px]">
-          <Image
-            className="rounded-full group-hover:-rotate-6 duration-700"
-            src="/damianCrop.jpg"
-            width={60}
-            height={60}
-            alt="Profile Picture"
-          />
-          <button className="flex justify-center items-center p-4 bg-gray-500 rounded-full font-careny h-full">
-            Visit Site <ChevronRight />
-          </button>
-        </div>
+</div>
+      <div className="py-16 sm:py-16 flex flex-wrap justify-center gap-10">
+        {[
+          {
+            id: 1,
+            title: "Luxoflex",
+            description: "A pretty website for label design",
+            image: "/luxoflexCrop.jpg",
+            logo: "/damianCrop.jpg",
+            link: "https://luxoflex.vercel.app",
+          },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="hover:cursor-pointer group relative flex flex-col items-center justify-center overflow-hidden rounded-[30px] w-full max-w-[95%] sm:max-w-[500px] md:max-w-[80%] lg:md:max-w-[60%]"
+          >
+            <img
+              src={item.image}
+              alt="Projects"
+              className="object-cover w-full rounded-3xl group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute bottom-0 left-0 right-0 px-2 sm:px-4 md:px-6 md:translate-y-full transition-all duration-500 group-hover:-translate-y-2">
+              <div className="flex items-center justify-between bg-white rounded-[40px] shadow-md px-4 sm:px-6 py-2 md:py-4 mb-1 w-full mt-4">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black flex items-center justify-center overflow-hidden">
+                    <img
+                      className="object-cover rounded-full w-full h-full"
+                      src={item.logo}
+                      alt={item.title}
+                    />
+                  </div>
+                  <div>
+                    <h2 className="font-semibold text-black text-base">
+                      {item.title}
+                    </h2>
+                    <p className="hidden md:flex text-gray-500 text-xs md:text-sm ">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gray-100 hover:bg-gray-200 text-black px-4 py-2 rounded-full font-medium flex items-center gap-2 transition-all transform hover:-translate-y-1 border hover:border-black/10 shadow-xl shadow-black/10 hover:shadow-black/30 duration-700 text-xs sm:text-sm"
+                >
+                  View <ArrowUpRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-import { motion, Transition } from "framer-motion";
-import { useEffect, useRef, useState, useMemo } from "react";
-import { ChevronRight } from "react-bootstrap-icons";
 
 type BlurTextProps = {
   text?: string;
