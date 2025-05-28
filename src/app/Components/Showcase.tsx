@@ -25,6 +25,8 @@ import {
   web_damian_pebe_portfolio,
   web_auratejida,
   web_luxoflex,
+  github_latteStore,
+  web_latteStore,
 } from "@/Environment/SocialsLinks";
 
 export interface CarouselItem {
@@ -45,20 +47,13 @@ export interface CarouselProps {
 }
 
 const DEFAULT_ITEMS: CarouselItem[] = [
-  {
-    githubRepo: github_damian_pebe_portfolio,
-    webPageLink: web_damian_pebe_portfolio,
-    title: "Personal Portfolio",
-    image: "/portfolio.jpg",
-    id: 1,
-    icon: <Github className="h-[16px] w-[16px] text-white" />,
-  },
+  
   {
     githubRepo: github_auratejida,
     webPageLink: web_auratejida,
     title: "Aura Tejida",
     image: "/auraTejidaHero.jpg",
-    id: 2,
+    id: 1,
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
@@ -66,6 +61,14 @@ const DEFAULT_ITEMS: CarouselItem[] = [
     webPageLink: web_auratejida,
     title: "Aura Tejida Catalog",
     image: "/auraTejidaCatalog.jpg",
+    id: 2,
+    icon: <Github className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    githubRepo: github_auratejida,
+    webPageLink: web_auratejida,
+    title: "Aura Tejida Showcase",
+    image: "/auraTejidaShowcase.jpg",
     id: 3,
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
@@ -78,11 +81,36 @@ const DEFAULT_ITEMS: CarouselItem[] = [
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
-    githubRepo: github_auratejida,
-    webPageLink: web_auratejida,
-    title: "Aura Tejida Showcase",
-    image: "/auraTejidaShowcase.jpg",
+    githubRepo: github_luxoflex,
+    webPageLink: web_luxoflex,
+    title: "Luxoflex Materiales",
+    image: "/luxoflexMateriales.jpg",
     id: 5,
+    icon: <Github className="h-[16px] w-[16px] text-white" />,
+  },
+  
+  {
+    githubRepo: github_latteStore,
+    webPageLink: web_latteStore,
+    title: "Latte Heaven",
+    image: "/latteHeaven.jpg",
+    id: 6,
+    icon: <Github className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    githubRepo: github_latteStore,
+    webPageLink: web_latteStore,
+    title: "Latte Heaven Menu",
+    image: "/latteHeavenMenu.jpg",
+    id:7,
+    icon: <Github className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    githubRepo: github_damian_pebe_portfolio,
+    webPageLink: web_damian_pebe_portfolio,
+    title: "Personal Portfolio",
+    image: "/portfolio.jpg",
+    id: 8,
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
 ];

@@ -6,6 +6,7 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import { ArrowUpRight } from "react-bootstrap-icons";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { web_auratejida, web_latteStore, web_luxoflex } from "@/Environment/SocialsLinks";
 
 export default function Projects() {
   const projects = [
@@ -14,21 +15,28 @@ export default function Projects() {
       description: "E-commerce website for handmade crochet products",
       image: "/auraTejidaHero.jpg",
       logo: "/damianCrop.jpg",
-      link: "https://luxoflex.vercel.app",
+      link: web_auratejida,
     },
     {
       title: "Luxoflex",
       description: "A pretty website for label design",
       image: "/luxoflexHero.jpg",
       logo: "/luxoflex.png",
-      link: "https://luxoflex.vercel.app",
+      link: web_luxoflex,
+    },
+    {
+      title: "Latte Heaven",
+      description: "Website for a pretty Coffee Store",
+      image: "/latteHeaven.jpg",
+      logo: "/latteHeavenLogo.jpg",
+      link: web_latteStore,
     },
     {
       title: "PetWalks",
       description: "Mobile app for pet walking",
       image: "/petwalks.png",
       logo: "/petwalksLogo.png",
-      link: "https://luxoflex.vercel.app",
+      link: "",
     },
   ];
   return (
@@ -74,9 +82,9 @@ export default function Projects() {
             <div className="absolute bottom-0 left-0 right-0 px-2 sm:px-4 md:px-6 md:translate-y-full transition-all duration-700 group-hover:-translate-y-2">
               <div className="flex items-center justify-between bg-[#FAFAFA] rounded-[40px] shadow-md px-4 sm:px-6 py-2 md:py-4 mb-1 w-full mt-4">
                 <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="h-10 sm:h-12 bg-gray-200 flex items-center justify-center overflow-hidden">
+                  <div className="h-10 sm:h-12 flex items-center justify-center overflow-hidden">
                     <img
-                      className="object-cover w-full h-full"
+                      className="object-cover w-full h-full rounded-3xl"
                       src={item.logo}
                       alt={item.title}
                     />
