@@ -27,6 +27,8 @@ import {
   web_luxoflex,
   github_latteStore,
   web_latteStore,
+  github_fancy,
+  web_fancy,
 } from "@/Environment/SocialsLinks";
 
 export interface CarouselItem {
@@ -34,7 +36,6 @@ export interface CarouselItem {
   webPageLink: string;
   title: string;
   image: string;
-  id: number;
   icon: JSX.Element;
 }
 
@@ -47,13 +48,12 @@ export interface CarouselProps {
 }
 
 const DEFAULT_ITEMS: CarouselItem[] = [
-  
   {
     githubRepo: github_auratejida,
     webPageLink: web_auratejida,
     title: "Aura Tejida",
     image: "/auraTejidaHero.jpg",
-    id: 1,
+
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
@@ -61,7 +61,7 @@ const DEFAULT_ITEMS: CarouselItem[] = [
     webPageLink: web_auratejida,
     title: "Aura Tejida Catalog",
     image: "/auraTejidaCatalog.jpg",
-    id: 2,
+
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
@@ -69,7 +69,7 @@ const DEFAULT_ITEMS: CarouselItem[] = [
     webPageLink: web_auratejida,
     title: "Aura Tejida Showcase",
     image: "/auraTejidaShowcase.jpg",
-    id: 3,
+
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
@@ -77,7 +77,7 @@ const DEFAULT_ITEMS: CarouselItem[] = [
     webPageLink: web_luxoflex,
     title: "Luxoflex",
     image: "/luxoflexHero.jpg",
-    id: 4,
+
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
@@ -85,16 +85,16 @@ const DEFAULT_ITEMS: CarouselItem[] = [
     webPageLink: web_luxoflex,
     title: "Luxoflex Materiales",
     image: "/luxoflexMateriales.jpg",
-    id: 5,
+
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
-  
+
   {
     githubRepo: github_latteStore,
     webPageLink: web_latteStore,
     title: "Latte Heaven",
     image: "/latteHeaven.jpg",
-    id: 6,
+
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
@@ -102,7 +102,27 @@ const DEFAULT_ITEMS: CarouselItem[] = [
     webPageLink: web_latteStore,
     title: "Latte Heaven Menu",
     image: "/latteHeavenMenu.jpg",
-    id:7,
+    icon: <Github className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    githubRepo: github_fancy,
+    webPageLink: web_fancy,
+    title: "Fancy Microblading",
+    image: "/fancyStudio.jpg",
+    icon: <Github className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    githubRepo: github_fancy,
+    webPageLink: web_fancy,
+    title: "Fancy Microblading",
+    image: "/fancyStudioServices.jpg",
+    icon: <Github className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    githubRepo: github_fancy,
+    webPageLink: web_fancy,
+    title: "Fancy Microblading",
+    image: "/fancyStudioTestimonials.jpg",
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
@@ -110,7 +130,7 @@ const DEFAULT_ITEMS: CarouselItem[] = [
     webPageLink: web_damian_pebe_portfolio,
     title: "Personal Portfolio",
     image: "/portfolio.jpg",
-    id: 8,
+
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
 ];
@@ -306,7 +326,7 @@ function Carousel({
           round ? "absolute z-20 bottom-12 left-1/2 -translate-x-1/2" : ""
         }`}
       >
-        <div className="mt-4 flex w-[150px] justify-between px-8">
+        <div className="mt-4 flex w-[150px] justify-between gap-2">
           {items.map((_, index) => (
             <motion.div
               key={index}

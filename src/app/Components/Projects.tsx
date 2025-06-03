@@ -6,21 +6,21 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import { ArrowUpRight } from "react-bootstrap-icons";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { web_auratejida, web_latteStore, web_luxoflex } from "@/Environment/SocialsLinks";
+import { web_auratejida, web_fancy, web_latteStore, web_luxoflex } from "@/Environment/SocialsLinks";
 
 export default function Projects() {
   const projects = [
     {
       title: "Aura Tejida",
-      description: "E-commerce website for handmade crochet products",
+      description: "Elegant handcrafted crochet store",
       image: "/auraTejidaHero.jpg",
       logo: "/damianCrop.jpg",
       link: web_auratejida,
     },
     {
       title: "Luxoflex",
-      description: "A pretty website for label design",
-      image: "/luxoflexHero.jpg",
+      description: "Innovative & stylish label designs",
+      image: "/luxoflexHero.jpg", 
       logo: "/luxoflex.png",
       link: web_luxoflex,
     },
@@ -28,12 +28,19 @@ export default function Projects() {
       title: "Latte Heaven",
       description: "Website for a pretty Coffee Store",
       image: "/latteHeaven.jpg",
-      logo: "/latteHeavenLogo.jpg",
+      logo: "/latteHeavenLogo.jpg", 
       link: web_latteStore,
     },
     {
+      title: "Fancy Microblading",
+      description: "Premium beauty enhancements",
+      image: "/fancyStudio.jpg",
+      logo: "/fancyLogo.jpg",
+      link: web_fancy,
+    },
+    {
       title: "PetWalks",
-      description: "Mobile app for pet walking",
+      description: "Your pet's perfect companion",
       image: "/petwalks.png",
       logo: "/petwalksLogo.png",
       link: "",
