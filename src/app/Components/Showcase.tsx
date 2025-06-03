@@ -5,7 +5,7 @@ export default function Showcase() {
     <div className="justify-items-center items-center flex justify-center py-20">
       <Carousel
         autoplay={true}
-        autoplayDelay={3000}
+        autoplayDelay={1000}
         loop={true}
         round={false}
       />
@@ -133,7 +133,7 @@ const DEFAULT_ITEMS: CarouselItem[] = [
 
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
-];
+].sort(() => Math.random() - 0.5);
 
 const DRAG_BUFFER = 0;
 const VELOCITY_THRESHOLD = 500;
@@ -142,9 +142,9 @@ const SPRING_OPTIONS = { type: "spring", stiffness: 300, damping: 30 };
 
 function Carousel({
   items = DEFAULT_ITEMS,
-  autoplay = false,
-  autoplayDelay = 3000,
-  loop = false,
+  autoplay = true,
+  autoplayDelay = 500,
+  loop = true,
   round = false,
 }: CarouselProps): JSX.Element {
   const [containerWidth, setContainerWidth] = useState(1000);
