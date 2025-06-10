@@ -39,8 +39,8 @@ export default function Projects() {
       link: web_fancy,
     },
     {
-      title: "Aura Tejida",
-      description: "Elegant handcrafted crochet store",
+      title: "Damian Pebe' Portfolio",
+      description: "Showcasing my creative journey & skills",
       image: "/damian-pebe.jpg",
       logo: "/damianCrop.jpg",
       link: web_damian_pebe_portfolio,
