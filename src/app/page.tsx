@@ -1,3 +1,4 @@
+import Footer from "./Components/Footer";
 import HomePage from "./Components/HomePage";
 import Projects from "./Components/Projects";
 import Showcase from "./Components/Showcase";
@@ -8,6 +9,7 @@ export default function Home() {
       <HomePage />
       <Showcase/>
       <Projects/>
+      <Footer/>
     </div>
   );
 }
