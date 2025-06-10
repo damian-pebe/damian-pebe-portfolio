@@ -39,7 +39,7 @@ export default function Projects() {
       link: web_fancy,
     },
     {
-      title: "Damian Pebe' Portfolio",
+      title: "Portfolio",
       description: "Showcasing my creative journey & skills",
       image: "/damian-pebe.jpg",
       logo: "/damianCrop.jpg",

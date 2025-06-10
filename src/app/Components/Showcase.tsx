@@ -147,42 +147,29 @@ function Carousel({
   loop = true,
   round = false,
 }: CarouselProps): JSX.Element {
-  const [containerWidth, setContainerWidth] = useState(1000);
-  const containerPadding = 16;
-  const itemWidth = containerWidth - containerPadding * 2;
-  const trackItemOffset = itemWidth + GAP;
+const itemWidth = window.innerWidth < 640 ? window.innerWidth - 60 : (window.innerWidth * 2) / 3;
+const trackItemOffset = itemWidth + GAP;
 
-  useEffect(() => {
-    const handleResize = () => {
-      const width = Math.min(1000, window.innerWidth - 32);
-      setContainerWidth(width);
+const carouselItems = loop ? [...items, items[0]] : items;
+const [currentIndex, setCurrentIndex] = useState<number>(0);
+const x = useMotionValue(0);
+const [isHovered, setIsHovered] = useState<boolean>(false);
+const [isResetting, setIsResetting] = useState<boolean>(false);
+
+const containerRef = useRef<HTMLDivElement>(null);
+useEffect(() => {
+  if (containerRef.current) {
+    const container = containerRef.current;
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => setIsHovered(false);
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
+    return () => {
+      container.removeEventListener("mouseenter", handleMouseEnter);
+      container.removeEventListener("mouseleave", handleMouseLeave);
     };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const carouselItems = loop ? [...items, items[0]] : items;
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const x = useMotionValue(0);
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [isResetting, setIsResetting] = useState<boolean>(false);
-
-  const containerRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (containerRef.current) {
-      const container = containerRef.current;
-      const handleMouseEnter = () => setIsHovered(true);
-      const handleMouseLeave = () => setIsHovered(false);
-      container.addEventListener("mouseenter", handleMouseEnter);
-      container.addEventListener("mouseleave", handleMouseLeave);
-      return () => {
-        container.removeEventListener("mouseenter", handleMouseEnter);
-        container.removeEventListener("mouseleave", handleMouseLeave);
-      };
-    }
-  }, []);
+  }
+}, []);
 
   useEffect(() => {
     if (autoplay && !isHovered) {
@@ -252,13 +239,13 @@ function Carousel({
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden p-4 w-full max-w-[1000px] ${
+      className={`relative overflow-hidden p-4 w-full ${
         round
           ? "rounded-full border border-white"
           : "rounded-[24px] border border-[#222]"
       }`}
       style={{
-        ...(round && { height: `${containerWidth / 2}px` }),
+        ...(round && containerRef.current && { height: `${containerRef.current.offsetWidth / 2}px` }),
       }}
     >
       <motion.div
@@ -283,7 +270,7 @@ function Carousel({
           return (
             <motion.div
               key={index}
-              className={`group relative shrink-0 flex flex-col h-[250px] md:h-[500px] ${
+              className={`group relative shrink-0 flex flex-col h-[150px] md:h-[500px] ${
                 round
                   ? "items-center justify-center text-center bg-[#060606] border-0"
                   : "items-start justify-between border border-[#222] rounded-[12px]"
@@ -351,3 +338,4 @@ function Carousel({
     </div>
   );
 }
+

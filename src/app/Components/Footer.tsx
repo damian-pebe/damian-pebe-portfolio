@@ -6,12 +6,12 @@ import { Linkedin, Whatsapp } from "react-bootstrap-icons";
 export default function Footer() {
   return (
     <footer className="text-[#121212] font-poppins">
-      <div className="max-w-7xl mx-auto flex justify-between items-center gap-16 px-8 py-20 pt-20 text-sm">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-16 px-8 py-20 pt-10 md:pt-20 text-sm">
         <Email />
         <SocialLinks />
       </div>
 
-      <div className="pb-14 text-center text-[4vw] md:text-[7vw] leading-none font-careny">
+      <div className="pb-14 text-center text-[10vw] md:text-[7vw] leading-none font-careny">
         Full Stack Developer
       </div>
     </footer>
@@ -33,7 +33,7 @@ function Email() {
             className="bg-black text-white rounded-full p-1 transition-transform duration-700 group-hover:rotate-[360deg]"
           />
         </Link>
-        <p className="text-lg font-light">damian.pebe@gmail.com</p>
+        <p className="text-[5vw] md:text-[1.5vw] font-light">damian.pebe@gmail.com</p>
       </div>
     </div>
   );
