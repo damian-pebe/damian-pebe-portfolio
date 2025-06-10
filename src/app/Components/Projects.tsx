@@ -6,42 +6,49 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import { ArrowUpRight } from "react-bootstrap-icons";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { web_auratejida, web_fancy, web_latteStore, web_luxoflex } from "@/Environment/SocialsLinks";
+import { web_auratejida, web_damian_pebe_portfolio, web_fancy, web_latteStore, web_luxoflex } from "@/Environment/SocialsLinks";
 
 export default function Projects() {
   const projects = [
     {
       title: "Aura Tejida",
       description: "Elegant handcrafted crochet store",
-      image: "/auraTejidaHero.jpg",
+      image: "/auratejida.jpg",
       logo: "/damianCrop.jpg",
       link: web_auratejida,
     },
     {
       title: "Luxoflex",
       description: "Innovative & stylish label designs",
-      image: "/luxoflexHero.jpg", 
+      image: "/luxoflex.jpg", 
       logo: "/luxoflex.png",
       link: web_luxoflex,
     },
     {
       title: "Latte Heaven",
       description: "Website for a pretty Coffee Store",
-      image: "/latteHeaven.jpg",
+      image: "/latte-heaven.jpg",
       logo: "/latteHeavenLogo.jpg", 
       link: web_latteStore,
     },
     {
       title: "Fancy Microblading",
       description: "Premium beauty enhancements",
-      image: "/fancyStudio.jpg",
+      image: "/fancy-studio.jpg",
       logo: "/fancyLogo.jpg",
       link: web_fancy,
     },
     {
+      title: "Aura Tejida",
+      description: "Elegant handcrafted crochet store",
+      image: "/damian-pebe.jpg",
+      logo: "/damianCrop.jpg",
+      link: web_damian_pebe_portfolio,
+    },
+    {
       title: "PetWalks",
       description: "Your pet's perfect companion",
-      image: "/petwalks.png",
+      image: "/petwalks_mockup.jpg",
       logo: "/petwalksLogo.png",
       link: "",
     },
