@@ -76,7 +76,7 @@ function SocialLinks() {
         <Linkedin className="w-full h-full p-3" />
       </Link>
       <Link
-        href={SOCIAL_LINKS.linkedin}
+        href={SOCIAL_LINKS.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
         className="flex justify-center items-center h-10 w-10 bg-[#FAFAFA] rounded-lg shadow-lg shadow-black/30 hover:shadow-black/60 transform transition-all hover:-translate-y-2 duration-300"
@@ -84,7 +84,7 @@ function SocialLinks() {
         <Whatsapp className="w-full h-full p-3" />
       </Link>
       <Link
-        href={SOCIAL_LINKS.linkedin}
+        href={SOCIAL_LINKS.contact}
         target="_blank"
         rel="noopener noreferrer"
         className="flex justify-center items-center h-10 w-10 bg-[#FAFAFA] rounded-lg shadow-lg shadow-black/30 hover:shadow-black/60 transform transition-all hover:-translate-y-2 hover:translate-x-1 hover:rotate-2 duration-300"

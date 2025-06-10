@@ -3,6 +3,7 @@ const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/damian-perez-becerril3322052692",
   instagram: "https://www.instagram.com/damian_pebe/",
   contact: "mailto:damian.pebe@gmail.com",
+  whatsapp: "https://wa.me/3322052692"
 };
 
 const github_damian_pebe_portfolio =
