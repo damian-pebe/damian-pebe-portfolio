@@ -95,7 +95,7 @@ function Header() {
 
 function HeroSection() {
   return (
-    <div className="flex flex-col items-center justify-center text-center px-4 md:pt-14">
+    <div className="flex flex-col items-center justify-center text-center px-4 pt-3 md:pt-14">
       <div className="bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 mb-6 hover:cursor-grab hover:-translate-y-2 transition duration-1000">
         <span className="text-black text-sm font-medium flex items-center justify-center h-full">
           {Array.from({ length: 5 }).map((_, index) => (
@@ -107,16 +107,16 @@ function HeroSection() {
         </span>
       </div>
 
-      <h1 className="text-5xl sm:text-7xl font-careny font-bold tracking-tight text-black leading-tight max-w-3xl">
+      <h1 className="text-[40px] sm:text-7xl font-careny font-bold tracking-tight text-black leading-tight max-w-3xl">
         I craft websites <br />
         that hustle as hard <br />
         as you do
       </h1>
 
-      <p className="text-gray-500 mt-6 max-w-md text-xl sm:text-base font-poppins">
-        I design innovative solutions that captivate audiences,
+      <p className="text-gray-600 mt-6 max-w-md text-xs md:text-base font-poppins">
+        I Design Innovative Solutions
         <br />
-        and every interaction inspires action
+        For The Best Companies
       </p>
 
       <Link

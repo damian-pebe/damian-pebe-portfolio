@@ -32,18 +32,17 @@ export default function InfiniteCarouselComponent() {
     "https://skillicons.dev/icons?i=postman",
   ];
   return (
-    <div className="relative w-full overflow-hidden py-6">
+    <div className="relative w-full overflow-hidden py-6 backdrop-blur-sm bg-white/10">
       <div className="flex animate-scroll whitespace-nowrap">
-        {[...logos, ...logos, ...logos].map((src, idx) => (
-          <img
-            key={idx}
-            src={src}
-            alt={`Tech logo ${idx}`}
-            className="h-12 sm:h-16 mx-4 sm:mx-6  transition-all duration-700 hover:-translate-y-2 hover:cursor-grab"
-          />
-        ))}
+      {[...logos, ...logos, ...logos].map((src, idx) => (
+        <img
+        key={idx}
+        src={src}
+        alt={`Tech logo ${idx}`}
+        className="h-12 sm:h-16 mx-4 sm:mx-6  transition-all duration-700 hover:-translate-y-2 hover:cursor-grab"
+        />
+      ))}
       </div>
-              
     </div>
   );
 }

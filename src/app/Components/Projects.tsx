@@ -96,7 +96,7 @@ export default function Projects() {
             <div className="absolute bottom-0 left-0 right-0 px-2 sm:px-4 md:px-6 md:translate-y-full transition-all duration-700 group-hover:-translate-y-2">
               <div className="flex items-center justify-between bg-[#FAFAFA] rounded-[40px] shadow-md px-4 sm:px-6 py-2 md:py-4 mb-1 w-full mt-4">
                 <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="h-10 sm:h-12 flex items-center justify-center overflow-hidden">
+                  <div className="h-6 md:h-12 flex items-center justify-center overflow-hidden">
                     <img
                       className="object-cover w-full h-full rounded-3xl"
                       src={item.logo}
@@ -104,7 +104,7 @@ export default function Projects() {
                     />
                   </div>
                   <div>
-                    <h2 className="font-semibold text-black text-base">
+                    <h2 className="font-semibold text-black text-xs md:text-base">
                       {item.title}
                     </h2>
                     <p className="hidden md:flex text-gray-500 text-xs md:text-sm ">
@@ -116,9 +116,12 @@ export default function Projects() {
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-100 hover:bg-gray-200 text-black px-4 py-2 rounded-full font-medium flex items-center gap-2 transition-all transform hover:-translate-y-1 border hover:border-black/10 shadow-xl shadow-black/10 hover:shadow-black/30 duration-700 text-xs sm:text-sm"
+                  className="bg-gray-100 hover:bg-gray-200 text-black px-6 md:px-4 md:py-2 rounded-full font-medium flex items-center gap-2 transition-all transform hover:-translate-y-1 border hover:border-black/10 shadow-xl shadow-black/10 hover:shadow-black/30 duration-700 text-xs sm:text-sm"
                 >
-                  View Project <ArrowUpRight size={16} />
+                  <div className="hidden md:block">
+                  View Project
+                    </div>
+                   <ArrowUpRight size={16} />
                 </Link>
               </div>
             </div>

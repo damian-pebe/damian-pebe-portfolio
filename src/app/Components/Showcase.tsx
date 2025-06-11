@@ -152,7 +152,7 @@ function Carousel({
   const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [isResetting, setIsResetting] = useState<boolean>(false);
-  const [itemWidth, setItemWidth] = useState(600);
+  const [itemWidth, setItemWidth] = useState(400);
   const trackItemOffset = itemWidth + GAP;
 
   useEffect(() => {
@@ -252,7 +252,7 @@ function Carousel({
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden p-4 w-full ${
+      className={`relative overflow-hidden p-2 md:p-4 w-full  ${
         round
           ? "rounded-full border border-white"
           : "rounded-[24px] border border-[#222]"
