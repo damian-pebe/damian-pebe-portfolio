@@ -52,7 +52,7 @@ const DEFAULT_ITEMS: CarouselItem[] = [
     githubRepo: github_auratejida,
     webPageLink: web_auratejida,
     title: "Aura Tejida",
-    image: "/auraTejidaHero.jpg",
+    image: "/auraHero.jpg",
 
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
@@ -147,40 +147,42 @@ function Carousel({
   loop = true,
   round = false,
 }: CarouselProps): JSX.Element {
+  const carouselItems = loop ? [...items, items[0]] : items;
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const x = useMotionValue(0);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isResetting, setIsResetting] = useState<boolean>(false);
+  const [itemWidth, setItemWidth] = useState(600);
+  const trackItemOffset = itemWidth + GAP;
 
-const carouselItems = loop ? [...items, items[0]] : items;
-const [currentIndex, setCurrentIndex] = useState<number>(0);
-const x = useMotionValue(0);
-const [isHovered, setIsHovered] = useState<boolean>(false);
-const [isResetting, setIsResetting] = useState<boolean>(false);
-const [itemWidth, setItemWidth] = useState(600); 
-const trackItemOffset = itemWidth + GAP;
-
-useEffect(() => {
-  const updateItemWidth = () => {
-    const width = window.innerWidth < 640 ? window.innerWidth - 60 : (window.innerWidth * 2) / 3;
-    setItemWidth(width);
-  };
-
-  updateItemWidth(); // Set on mount
-  window.addEventListener('resize', updateItemWidth); // Update on resize
-
-  return () => window.removeEventListener('resize', updateItemWidth);
-}, []);
-const containerRef = useRef<HTMLDivElement>(null);
-useEffect(() => {
-  if (containerRef.current) {
-    const container = containerRef.current;
-    const handleMouseEnter = () => setIsHovered(true);
-    const handleMouseLeave = () => setIsHovered(false);
-    container.addEventListener("mouseenter", handleMouseEnter);
-    container.addEventListener("mouseleave", handleMouseLeave);
-    return () => {
-      container.removeEventListener("mouseenter", handleMouseEnter);
-      container.removeEventListener("mouseleave", handleMouseLeave);
+  useEffect(() => {
+    const updateItemWidth = () => {
+      const width =
+        window.innerWidth < 640
+          ? window.innerWidth - 60
+          : (window.innerWidth * 2) / 3;
+      setItemWidth(width);
     };
-  }
-}, []);
+
+    updateItemWidth(); // Set on mount
+    window.addEventListener("resize", updateItemWidth); // Update on resize
+
+    return () => window.removeEventListener("resize", updateItemWidth);
+  }, []);
+  const containerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (containerRef.current) {
+      const container = containerRef.current;
+      const handleMouseEnter = () => setIsHovered(true);
+      const handleMouseLeave = () => setIsHovered(false);
+      container.addEventListener("mouseenter", handleMouseEnter);
+      container.addEventListener("mouseleave", handleMouseLeave);
+      return () => {
+        container.removeEventListener("mouseenter", handleMouseEnter);
+        container.removeEventListener("mouseleave", handleMouseLeave);
+      };
+    }
+  }, []);
 
   useEffect(() => {
     if (autoplay && !isHovered) {
@@ -256,7 +258,10 @@ useEffect(() => {
           : "rounded-[24px] border border-[#222]"
       }`}
       style={{
-        ...(round && containerRef.current && { height: `${containerRef.current.offsetWidth / 2}px` }),
+        ...(round &&
+          containerRef.current && {
+            height: `${containerRef.current.offsetWidth / 2}px`,
+          }),
       }}
     >
       <motion.div
@@ -349,4 +354,3 @@ useEffect(() => {
     </div>
   );
 }
-

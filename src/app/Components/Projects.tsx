@@ -13,7 +13,7 @@ export default function Projects() {
     {
       title: "Aura Tejida",
       description: "Elegant handcrafted crochet store",
-      image: "/auratejida.jpg",
+      image: "/aura-tejida.jpg",
       logo: "/damianCrop.jpg",
       link: web_auratejida,
     },
@@ -54,7 +54,7 @@ export default function Projects() {
     },
   ];
   return (
-    <div className="flex flex-col items-center justify-center md:pt-16 px-4 sm:px-6">
+    <div className="flex flex-col items-center justify-center pt-28 px-4 sm:px-6">
       <Badge className="bg-gradient-to-r from-zinc-700 via-black to-zinc-700 text-white mb-10">
         New Projects
       </Badge>

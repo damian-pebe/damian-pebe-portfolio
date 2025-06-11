@@ -11,7 +11,7 @@ const github_damian_pebe_portfolio =
 const github_auratejida = "https://github.com/damian-pebe/bouquetcrochet";
 const github_luxoflex = "https://github.com/damian-pebe/luxoflex";
 const github_latteStore = "https://github.com/damian-pebe/latte-store";
-const github_fancy = "https://https://github.com/damian-pebe/fancy-studio";
+const github_fancy = "https://github.com/damian-pebe/fancy-studio";
 
 const web_damian_pebe_portfolio = "https://damian-pebe.vercel.app";
 const web_auratejida = "https://auratejida.vercel.app";
