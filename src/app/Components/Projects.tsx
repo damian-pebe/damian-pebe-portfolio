@@ -6,7 +6,14 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import { ArrowUpRight } from "react-bootstrap-icons";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { web_auratejida, web_damian_pebe_portfolio, web_fancy, web_latteStore, web_luxoflex } from "@/Environment/SocialsLinks";
+import {
+  web_auratejida,
+  web_damian_pebe_portfolio,
+  web_fancy,
+  web_kuraby,
+  web_latteStore,
+  web_luxoflex,
+} from "@/Environment/SocialsLinks";
 
 export default function Projects() {
   const projects = [
@@ -17,10 +24,11 @@ export default function Projects() {
       logo: "/damianCrop.jpg",
       link: web_auratejida,
     },
+
     {
       title: "Luxoflex",
       description: "Innovative & stylish label designs",
-      image: "/luxoflex.jpg", 
+      image: "/luxoflex.jpg",
       logo: "/luxoflex.png",
       link: web_luxoflex,
     },
@@ -28,7 +36,7 @@ export default function Projects() {
       title: "Latte Heaven",
       description: "Website for a pretty Coffee Store",
       image: "/latte-heaven.jpg",
-      logo: "/latteHeavenLogo.jpg", 
+      logo: "/latteHeavenLogo.jpg",
       link: web_latteStore,
     },
     {
@@ -37,6 +45,13 @@ export default function Projects() {
       image: "/fancy-studio.jpg",
       logo: "/fancyLogo.jpg",
       link: web_fancy,
+    },
+    {
+      title: "Kuraby Sushi",
+      description: "Fresh sushi made with premium ingredients — taste perfection",
+      image: "/kuraby_mockup.jpg",
+      logo: "/kurabylogo.jpg",
+      link: web_kuraby,
     },
     {
       title: "Portfolio",
@@ -118,10 +133,8 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="bg-gray-100 hover:bg-gray-200 text-black px-6 md:px-4 md:py-2 rounded-full font-medium flex items-center gap-2 transition-all transform hover:-translate-y-1 border hover:border-black/10 shadow-xl shadow-black/10 hover:shadow-black/30 duration-700 text-xs sm:text-sm"
                 >
-                  <div className="hidden md:block">
-                  View Project
-                    </div>
-                   <ArrowUpRight size={16} />
+                  <div className="hidden md:block">View Project</div>
+                  <ArrowUpRight size={16} />
                 </Link>
               </div>
             </div>

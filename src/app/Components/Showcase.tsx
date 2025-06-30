@@ -29,6 +29,8 @@ import {
   web_latteStore,
   github_fancy,
   web_fancy,
+  web_kuraby,
+  github_kuraby,
 } from "@/Environment/SocialsLinks";
 
 export interface CarouselItem {
@@ -123,6 +125,34 @@ const DEFAULT_ITEMS: CarouselItem[] = [
     webPageLink: web_fancy,
     title: "Fancy Microblading",
     image: "/fancyStudioTestimonials.jpg",
+    icon: <Github className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    githubRepo: github_kuraby,
+    webPageLink: web_kuraby,
+    title: "Kuraby Sushi",
+    image: "/kuraby_menu.png",
+    icon: <Github className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    githubRepo: github_kuraby,
+    webPageLink: web_kuraby,
+    title: "Kuraby Sushi",
+    image: "/kuraby_landing.png",
+    icon: <Github className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    githubRepo: github_kuraby,
+    webPageLink: web_kuraby,
+    title: "Kuraby Sushi",
+    image: "/kuraby_getintouch.png",
+    icon: <Github className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    githubRepo: github_kuraby,
+    webPageLink: web_kuraby,
+    title: "Kuraby Sushi",
+    image: "/kuraby_about.png",
     icon: <Github className="h-[16px] w-[16px] text-white" />,
   },
   {
