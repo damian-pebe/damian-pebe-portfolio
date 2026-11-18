@@ -3,6 +3,7 @@ import { expect, test } from "@playwright/test";
 test("brand and page navigation return to the hero without fragment URLs", async ({
   page,
 }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
   await page.getByRole("link", { name: "Ver portafolio", exact: true }).click();
   await expect(page).toHaveURL(/\/portfolio\/$/);
@@ -68,5 +69,25 @@ test("mobile navigation closes on selection and Escape", async ({ page }) => {
     .getByRole("button", { name: "Hablemos" })
     .click();
   await expect(page.locator("#contact")).toBeInViewport();
+  expect(new URL(page.url()).hash).toBe("");
+});
+
+test("normal-motion navigation from a direct portfolio entry stays at the hero", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/portfolio/");
+  await page
+    .locator("header")
+    .getByRole("link", { name: "damian pérez — Inicio", exact: true })
+    .click();
+  await expect(page.locator("[data-theme-surface]")).toHaveAttribute(
+    "data-renderer",
+    "webgl",
+  );
+  // Observe after browser smooth scrolling would have finished, not only its first frame.
+  await page.waitForTimeout(900);
+  expect(await page.evaluate(() => scrollY)).toBe(0);
+  await expect(page.getByRole("heading", { level: 1 })).toBeInViewport();
   expect(new URL(page.url()).hash).toBe("");
 });

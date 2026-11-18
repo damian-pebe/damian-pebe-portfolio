@@ -10,6 +10,7 @@
 - Runtime audit reports zero advisories. The existing development-only picomatch finding remains unchanged (14 propagated high-severity entries; details below). No runtime dependency was added.
 - The first hosted measurement exposed expensive GPU initialization on the interaction thread. Rendering now uses a dedicated worker, with a tested main-thread fallback and paint acknowledgement for theme snapshots. Eight targeted browser checks cover worker disposal/recreation, fallback, animation and motion preferences.
 - Visual inspection caught OffscreenCanvas updating Chrome’s old transition capture. A temporary bitmap now preserves the old palette; a pixel-level browser regression checks both directions of the circle on mobile and desktop and verifies snapshot cleanup.
+- Normal-motion route verification caught Next 16 applying global smooth scrolling during page restoration. Removed that global rule while retaining explicit smooth scrolling for section buttons; browser coverage now checks the brand from a direct portfolio entry after scroll animations settle.
 - Hosted checks, Lighthouse results and deployment version IDs for this revision are recorded with the release artifacts. Earlier measurements below describe their own revisions.
 
 ## Compact Clyra revision

@@ -37,7 +37,6 @@ html[data-theme="dark"] {
   box-sizing: border-box;
 }
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 95px;
 }
 body {
