@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import type { Copy } from "@/i18n/copy";
 import { site } from "@/lib/site";
+import { LanguageText } from "../effects/LanguageText";
 import { Reveal } from "./Reveal";
 export function Contact({ t }: { t: Copy }) {
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">(
@@ -37,8 +38,16 @@ export function Contact({ t }: { t: Copy }) {
         <div className="shell">
           <Reveal>
             <p className="eyebrow">{t.contact.eyebrow}</p>
-            <h2 id="contact-title">{t.contact.title}</h2>
-            <p className="contact-intro">{t.contact.text}</p>
+            <h2 id="contact-title">
+              <LanguageText effect="turn" align="center">
+                {t.contact.title}
+              </LanguageText>
+            </h2>
+            <p className="contact-intro">
+              <LanguageText effect="fade" align="center">
+                {t.contact.text}
+              </LanguageText>
+            </p>
             <div className="contact-actions">
               <a href={"mailto:" + site.email} className="contact-email">
                 {site.email}

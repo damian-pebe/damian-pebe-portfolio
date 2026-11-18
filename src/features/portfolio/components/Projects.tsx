@@ -3,6 +3,7 @@ import { ArrowDown, ArrowUp } from "lucide-react";
 import type { Copy, Locale } from "@/i18n/copy";
 import { projects, type Category, type Project } from "../data/projects";
 import { ProjectCard } from "./ProjectCard";
+import { LanguageText } from "../effects/LanguageText";
 import { Reveal } from "./Reveal";
 export function Projects({
   t,
@@ -19,7 +20,7 @@ export function Projects({
     category === "all"
       ? expanded
         ? projects
-        : projects.slice(0, 6)
+        : projects.slice(0, 8)
       : projects.filter((project) => project.category === category);
   return (
     <section
@@ -30,8 +31,12 @@ export function Projects({
       <Reveal>
         <p className="eyebrow">{t.work.eyebrow}</p>
         <div className="section-heading">
-          <h2 id="work-title">{t.work.title}</h2>
-          <p>{t.work.subtitle}</p>
+          <h2 id="work-title">
+            <LanguageText effect="turn">{t.work.title}</LanguageText>
+          </h2>
+          <p>
+            <LanguageText effect="fade">{t.work.subtitle}</LanguageText>
+          </p>
         </div>
       </Reveal>
       <div className="project-filters" role="group" aria-label={t.nav.work}>
@@ -39,7 +44,7 @@ export function Projects({
           aria-pressed={category === "all"}
           onClick={() => setCategory("all")}
         >
-          {t.work.all}
+          <LanguageText>{t.work.all}</LanguageText>
           <span>23</span>
         </button>
         {(Object.entries(t.work.categories) as [Category, string][]).map(
@@ -49,7 +54,7 @@ export function Projects({
               aria-pressed={category === key}
               onClick={() => setCategory(key)}
             >
-              {label}
+              <LanguageText>{label}</LanguageText>
             </button>
           ),
         )}
@@ -66,7 +71,6 @@ export function Projects({
               project={project}
               t={t}
               locale={locale}
-              index={index}
               onSelect={onSelect}
             />
           </Reveal>

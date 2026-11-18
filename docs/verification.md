@@ -1,6 +1,14 @@
 # Verification — 2026-11-17
 
-## Monochrome redesign
+## Compact Clyra revision
+
+- Reused Clyra’s actual Threads shader, Stack Sans Headline font, glass control treatment, language animations and device-screen projection. The shader pauses for hidden/offscreen/reduced-motion states and caps pixel density and animation rate.
+- Reduced the hero, showcase, headings and contact section. The catalog uses four columns on desktop and two on mobile, with eight projects initially and all 23 available. Card controls no longer overlap device artwork.
+- 20 local browser checks passed on desktop and mobile. Additional coverage verifies normal-motion language changes, browser back/forward, metadata updates and preservation of the selected product, expanded catalog and mounted shader canvas. Console/hydration errors are asserted absent.
+- Both normal and reduced-motion paths were checked. A conditional sheen element originally caused a server/client markup mismatch for reduced-motion visitors; rendering stable markup with a CSS motion preference fixed it.
+- New hosted checks and measured performance will be recorded with this revision’s release artifacts.
+
+## Earlier monochrome redesign
 
 - Replaced the initial full-height hero and flat browser cards with a compact personal introduction, six-project showcase and Clyra device compositions. The interface has a white default and persistent black theme; original product captures keep their real colors.
 - 18 browser checks passed in desktop Chrome and an iPhone-sized Chromium viewport. New coverage exercises showcase controls and project selection, device/full-capture switching, theme persistence across ES/EN navigation, and both themes' automated WCAG AA checks.

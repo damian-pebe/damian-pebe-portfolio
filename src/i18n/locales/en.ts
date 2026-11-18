@@ -13,7 +13,7 @@ export const en: typeof es = {
     label: "SELECTED WORK",
     edition: "PORTFOLIO",
     carousel: "carousel",
-    discover: "Discover the project",
+    discover: "View project",
     previous: "Previous featured project",
     next: "Next featured project",
     choose: "Choose a featured project",
@@ -35,7 +35,7 @@ export const en: typeof es = {
     capture: "View full screenshot",
     mockup: "View in device",
     eyebrow: "01 / SELECTED WORK",
-    title: "Less talk. More product.",
+    title: "A closer look.",
     subtitle:
       "Products connected to the real world. A selection of what I build with Clyra.",
     all: "All",
@@ -61,27 +61,13 @@ export const en: typeof es = {
     },
   },
   approach: {
-    eyebrow: "02 / HOW I THINK",
-    title: "Product thinking.\nEvery detail, built.",
-    description:
-      "I connect design, engineering and AI to turn complex problems into products that feel simple.",
-    items: [
-      {
-        title: "From zero to product.",
-        text: "From architecture to interface. One continuous vision, from the first decision to launch.",
-        tag: "PRODUCT + ENGINEERING",
-      },
-      {
-        title: "AI that gets to work.",
-        text: "Agents, voice and automation connected to the tools and processes where the work happens.",
-        tag: "APPLIED INTELLIGENCE",
-      },
-      {
-        title: "Every detail matters.",
-        text: "Clear interactions, intentional motion and performance. What you see and what makes it work.",
-        tag: "DESIGN + PRECISION",
-      },
+    capabilities: [
+      "Product engineering",
+      "Artificial intelligence",
+      "Connected systems",
+      "Interface design",
     ],
+    eyebrow: "DESIGN & DEVELOPMENT",
   },
   contact: {
     eyebrow: "03 / WHAT’S NEXT",

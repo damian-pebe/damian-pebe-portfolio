@@ -1,8 +1,15 @@
 import { useState } from "react";
-import { AnimatePresence, m, useReducedMotion } from "framer-motion";
+import {
+  AnimatePresence,
+  m,
+  useReducedMotion,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Copy, Locale } from "@/i18n/copy";
 import { projects, thumbnail, type Project } from "../data/projects";
+import { LanguageText } from "../effects/LanguageText";
 import { DeviceMockup } from "./DeviceMockup";
 
 const featured = [
@@ -24,6 +31,10 @@ export function FeaturedProjects({
 }) {
   const [current, setCurrent] = useState(0);
   const reduced = useReducedMotion();
+  const pointerX = useMotionValue(0),
+    pointerY = useMotionValue(0);
+  const rotateX = useSpring(pointerY, { stiffness: 100, damping: 22 }),
+    rotateY = useSpring(pointerX, { stiffness: 100, damping: 22 });
   const project = featured[current];
   const move = (direction: number) =>
     setCurrent(
@@ -33,11 +44,25 @@ export function FeaturedProjects({
     <section className="featured shell" aria-labelledby="featured-title">
       <link rel="preload" as="image" href={thumbnail(featured[0])} />
       <div className="featured-caption">
-        <h2 id="featured-title">{t.featured.title}</h2>
+        <h2 id="featured-title">
+          <LanguageText>{t.featured.title}</LanguageText>
+        </h2>
         <span>{t.featured.label} / 06</span>
       </div>
       <div
         className="showcase"
+        onPointerMove={(event) => {
+          if (reduced || event.pointerType !== "mouse") return;
+          const rect = event.currentTarget.getBoundingClientRect();
+          pointerX.set(
+            ((event.clientX - rect.left - rect.width / 2) / rect.width) * 4,
+          );
+          pointerY.set((0.5 - (event.clientY - rect.top) / rect.height) * 3);
+        }}
+        onPointerLeave={() => {
+          pointerX.set(0);
+          pointerY.set(0);
+        }}
         role="region"
         aria-label={t.featured.title}
         aria-roledescription={t.featured.carousel}
@@ -50,17 +75,31 @@ export function FeaturedProjects({
       >
         <div className="showcase-top">
           <span className="project-pill">
-            {t.work.categories[project.category]}
+            <LanguageText>{t.work.categories[project.category]}</LanguageText>
           </span>
           <span className="showcase-edition">
             DAMIAN PÉREZ / {t.featured.edition}
           </span>
         </div>
+        <m.div
+          className="showcase-sheen"
+          aria-hidden="true"
+          initial={{ x: "-110%", opacity: 0 }}
+          animate={
+            reduced ? { opacity: 0 } : { x: "110%", opacity: [0, 0.6, 0] }
+          }
+          transition={{ duration: 1.5, delay: 0.3, ease: [0.2, 0.6, 0.3, 1] }}
+        />
         <div className="showcase-stage">
           <AnimatePresence initial={false} mode="sync">
             <m.div
               key={project.id}
               className="showcase-device"
+              style={{
+                rotateX: reduced ? 0 : rotateX,
+                rotateY: reduced ? 0 : rotateY,
+                transformPerspective: 1200,
+              }}
               initial={{
                 opacity: 0,
                 y: reduced ? 0 : 24,
@@ -85,7 +124,9 @@ export function FeaturedProjects({
             animate={reduced ? undefined : { y: [12, 0], opacity: [0.4, 1] }}
             transition={{ duration: 0.45 }}
           >
-            <p className="showcase-kicker">{project[locale].tagline}</p>
+            <p className="showcase-kicker">
+              <LanguageText>{project[locale].tagline}</LanguageText>
+            </p>
             <h3>{project.name}</h3>
             <p className="showcase-description">
               {project[locale].description.split(". ")[0]}.
@@ -95,7 +136,7 @@ export function FeaturedProjects({
             className="button button-primary"
             onClick={() => onSelect(project)}
           >
-            {t.featured.discover}
+            <LanguageText>{t.featured.discover}</LanguageText>
             <ArrowUpRight size={17} />
           </button>
         </div>

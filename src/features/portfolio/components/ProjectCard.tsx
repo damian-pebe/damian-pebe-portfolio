@@ -6,13 +6,11 @@ export function ProjectCard({
   project,
   locale,
   t,
-  index,
   onSelect,
 }: {
   project: Project;
   locale: Locale;
   t: Copy;
-  index: number;
   onSelect: (project: Project) => void;
 }) {
   return (
@@ -25,15 +23,9 @@ export function ProjectCard({
         <span className="project-pill">
           {t.work.categories[project.category]}
         </span>
-        <span className="project-open" aria-hidden="true">
-          <ArrowUpRight size={21} />
-        </span>
         <div className="project-device">
           <DeviceMockup project={project} />
         </div>
-        <span className="project-number" aria-hidden="true">
-          {String(index + 1).padStart(2, "0")} / {t.featured.discover}
-        </span>
         {project.stage && (
           <span className="stage-badge">
             {project.stage === "Prototype"
@@ -55,6 +47,9 @@ export function ProjectCard({
           </span>
           <p>{project[locale].tagline}</p>
         </div>
+        <span className="project-open" aria-hidden="true">
+          <ArrowUpRight size={16} />
+        </span>
       </div>
     </button>
   );

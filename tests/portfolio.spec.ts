@@ -42,7 +42,7 @@ test("catalog filters expose real projects and every cover decodes", async ({
   page,
 }) => {
   await page.goto("/");
-  await expect(page.locator(".project-card")).toHaveCount(6);
+  await expect(page.locator(".project-card")).toHaveCount(8);
   await page
     .getByRole("button", { name: "Explorar los 23 proyectos", exact: true })
     .click();
@@ -73,6 +73,58 @@ test("catalog filters expose real projects and every cover decodes", async ({
       () => document.documentElement.scrollWidth <= innerWidth,
     ),
   ).toBe(true);
+});
+
+test("animated language changes preserve the selected product and browser history", async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  page.on("console", (message) => {
+    if (message.type() === "error") errors.push(message.text());
+  });
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  const canvas = page.locator('[data-effect="clyra-threads"]');
+  await expect(canvas).toHaveAttribute("data-renderer", "webgl");
+  const mountedCanvas = await canvas.elementHandle();
+  await page
+    .getByRole("group", { name: "Elegir proyecto destacado" })
+    .getByRole("button", { name: /Neurocity/ })
+    .click();
+  await page
+    .getByRole("button", { name: "Explorar los 23 proyectos", exact: true })
+    .click();
+  await page.getByRole("link", { name: "Switch to English" }).click();
+  await expect(page).toHaveURL(/\/en\//);
+  await expect(page.locator(".showcase h3")).toHaveText("Neurocity");
+  await expect(page.locator(".project-card")).toHaveCount(23);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://damianperez.dev/en/",
+  );
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+    "content",
+    "Damian Pérez — Design, code and product.",
+  );
+  expect(await mountedCanvas?.evaluate((element) => element.isConnected)).toBe(
+    true,
+  );
+  await page.goBack();
+  await expect(page.locator("html")).toHaveAttribute("lang", "es");
+  await expect(page.locator(".showcase h3")).toHaveText("Neurocity");
+  await expect(page.locator(".project-card")).toHaveCount(23);
+  await page.goForward();
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await page.evaluate(() => scrollTo(0, 0));
+  await expect(page.locator("html")).not.toHaveAttribute(
+    "data-language-transition",
+    "running",
+  );
+  await expect(page.locator(".hero-description")).toHaveText(
+    "I design and build digital products.\nFrom the first idea to the finest detail.",
+  );
+  expect(errors).toEqual([]);
 });
 test("project dialog contains focus, switches captures and restores the trigger", async ({
   page,
@@ -146,7 +198,7 @@ test("motion preference is respected live and the background pauses offscreen", 
   page,
 }) => {
   await page.goto("/");
-  const canvas = page.locator('[data-effect="background-paths"]');
+  const canvas = page.locator('[data-effect="clyra-threads"]');
   await expect(canvas).toHaveAttribute("data-running", "false");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await expect(canvas).toHaveAttribute("data-running", "true");
@@ -224,7 +276,7 @@ test("featured products respond to controls and open the matching project", asyn
   await expect(showcase.getByRole("heading", { level: 3 })).toHaveText(
     "Neurocity",
   );
-  await showcase.getByRole("button", { name: "Descubrir el proyecto" }).click();
+  await showcase.getByRole("button", { name: "Ver proyecto" }).click();
   const dialog = page.getByRole("dialog");
   await expect(
     dialog.getByRole("heading", { name: "Neurocity", exact: true }),
@@ -242,7 +294,7 @@ test("featured products respond to controls and open the matching project", asyn
   );
   await page.keyboard.press("Escape");
   await expect(
-    showcase.getByRole("button", { name: "Descubrir el proyecto" }),
+    showcase.getByRole("button", { name: "Ver proyecto" }),
   ).toBeFocused();
 });
 

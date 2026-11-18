@@ -1,12 +1,13 @@
-import { Geist } from "next/font/google";
+import { Stack_Sans_Headline } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const geist = Geist({
+const typeface = Stack_Sans_Headline({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-geist",
+  variable: "--font-portfolio",
+  adjustFontFallback: false,
 });
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -46,7 +47,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={geist.variable}>
+      <body className={typeface.variable}>
         <script
           dangerouslySetInnerHTML={{
             __html: `try{document.documentElement.dataset.theme=localStorage.getItem("portfolio-theme")==="dark"?"dark":"light"}catch{document.documentElement.dataset.theme="light"}`,

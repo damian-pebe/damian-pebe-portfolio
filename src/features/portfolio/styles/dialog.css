@@ -1,5 +1,5 @@
 .project-dialog {
-  width: min(1240px, calc(100% - 64px));
+  width: min(1080px, calc(100% - 64px));
   max-height: 90svh;
   padding: 0;
   border: 1px solid var(--line);
@@ -15,7 +15,7 @@
 }
 .dialog-inner {
   position: relative;
-  padding: 42px 50px;
+  padding: 32px 38px;
 }
 .dialog-close {
   position: sticky;
@@ -32,7 +32,7 @@
 .dialog-heading h2 {
   margin: 15px 0 10px;
   font-weight: 500;
-  font-size: 64px;
+  font-size: 42px;
   letter-spacing: -2px;
 }
 .dialog-heading > p:last-child {
@@ -119,7 +119,7 @@
     padding-right: 30px;
   }
   .dialog-heading h2 {
-    font-size: 38px;
+    font-size: 30px;
     letter-spacing: -1.5px;
   }
   .dialog-heading .eyebrow {
@@ -147,7 +147,7 @@
 }
 
 .dialog-mockup {
-  height: min(52svh, 540px);
+  height: min(48svh, 470px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,7 +157,7 @@
     var(--surface);
 }
 .dialog-mockup > .device-mockup {
-  width: min(100%, calc(min(52svh, 540px) * var(--device-ratio)));
+  width: min(100%, calc(min(48svh, 470px) * var(--device-ratio)));
   filter: drop-shadow(0 22px 18px var(--shadow));
 }
 .gallery-toggle {

@@ -12,7 +12,7 @@ export const es = {
     label: "TRABAJO SELECCIONADO",
     edition: "PORTAFOLIO",
     carousel: "carrusel",
-    discover: "Descubrir el proyecto",
+    discover: "Ver proyecto",
     previous: "Proyecto destacado anterior",
     next: "Siguiente proyecto destacado",
     choose: "Elegir proyecto destacado",
@@ -34,7 +34,7 @@ export const es = {
     capture: "Ver captura completa",
     mockup: "Ver en dispositivo",
     eyebrow: "01 / TRABAJO SELECCIONADO",
-    title: "Menos promesas. Más producto.",
+    title: "Productos, en detalle.",
     subtitle:
       "Productos conectados al mundo real. Una selección de lo que construyo con Clyra.",
     all: "Todos",
@@ -60,27 +60,13 @@ export const es = {
     },
   },
   approach: {
-    eyebrow: "02 / CÓMO PIENSO",
-    title: "Pienso en producto.\nConstruyo cada detalle.",
-    description:
-      "Conecto diseño, ingeniería e inteligencia artificial para convertir problemas complejos en productos que se sienten simples.",
-    items: [
-      {
-        title: "De cero a producto.",
-        text: "De la arquitectura a la interfaz. Una visión continua, desde la primera decisión hasta el lanzamiento.",
-        tag: "PRODUCTO + INGENIERÍA",
-      },
-      {
-        title: "IA que hace cosas.",
-        text: "Agentes, voz y automatizaciones conectados a las herramientas y los procesos donde ocurre el trabajo.",
-        tag: "INTELIGENCIA APLICADA",
-      },
-      {
-        title: "Cada detalle cuenta.",
-        text: "Interacciones claras, movimiento con intención y rendimiento. Lo que se ve y lo que lo hace funcionar.",
-        tag: "DISEÑO + PRECISIÓN",
-      },
+    capabilities: [
+      "Software de producto",
+      "Inteligencia artificial",
+      "Sistemas conectados",
+      "Diseño de interfaces",
     ],
+    eyebrow: "DISEÑO Y DESARROLLO",
   },
   contact: {
     eyebrow: "03 / LO SIGUIENTE",

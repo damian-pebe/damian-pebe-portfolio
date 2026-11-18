@@ -14,10 +14,10 @@
   color: var(--muted);
 }
 .showcase {
-  --stage-height: 490px;
+  --stage-height: 410px;
   position: relative;
   height: var(--stage-height);
-  border-radius: 20px;
+  border-radius: 17px;
   border: 1px solid var(--line);
   background:
     radial-gradient(ellipse at 65% 20%, var(--surface-top), transparent 70%),
@@ -77,14 +77,14 @@
   margin-bottom: 8px;
 }
 .showcase h3 {
-  font-size: clamp(38px, 4.3vw, 64px);
+  font-size: clamp(32px, 3.3vw, 46px);
   font-weight: 500;
   letter-spacing: -0.07em;
   line-height: 1.05;
   margin-bottom: 17px;
 }
 .showcase-description {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--muted);
   line-height: 1.8;
   max-width: 340px;
@@ -152,7 +152,7 @@
 }
 @media (max-width: 1100px) and (min-width: 701px) {
   .showcase {
-    --stage-height: 440px;
+    --stage-height: 380px;
   }
   .showcase-copy {
     left: 24px;
@@ -163,7 +163,7 @@
     right: -3%;
   }
   .showcase h3 {
-    font-size: 44px;
+    font-size: 36px;
   }
   .showcase-description {
     font-size: 11px;
@@ -208,7 +208,7 @@
   .showcase-stage {
     position: relative;
     inset: auto;
-    height: clamp(185px, 58vw, 350px);
+    height: clamp(165px, 50vw, 290px);
     width: calc(100% + 30px);
     margin-inline: -15px;
   }
@@ -219,7 +219,7 @@
     margin-top: 6px;
   }
   .showcase h3 {
-    font-size: 46px;
+    font-size: 34px;
     margin-bottom: 12px;
   }
   .showcase-kicker {
@@ -227,19 +227,17 @@
     margin-bottom: 6px;
   }
   .showcase-description {
-    font-size: 11px;
-    line-height: 1.8;
-    max-width: none;
+    display: none;
   }
   .showcase-copy .button {
-    margin-top: 19px;
-    font-size: 11px;
+    margin-top: 16px;
+    font-size: 10px;
   }
   .showcase-controls {
-    position: relative;
-    inset: auto;
+    position: absolute;
+    bottom: 18px;
+    right: 16px;
     justify-content: flex-end;
-    margin-top: 18px;
   }
   .featured-tabs {
     display: flex;
@@ -251,5 +249,19 @@
     min-width: 125px;
     padding: 17px 12px;
     font-size: 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .showcase-controls > span {
+    display: none;
+  }
+  .showcase-controls .icon-button {
+    width: 34px;
+    height: 34px;
+  }
+  .showcase-copy .button {
+    gap: 15px;
+    padding-inline: 15px;
   }
 }

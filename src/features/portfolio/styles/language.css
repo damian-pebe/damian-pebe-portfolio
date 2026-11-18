@@ -1,0 +1,44 @@
+.clyra-language-text {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.clyra-language-layer {
+  display: block;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+  text-wrap: inherit;
+}
+
+.clyra-language-layer[data-motion-pop-id] {
+  min-width: var(--language-measured-width, 0px);
+}
+
+/* Keep the outgoing sentence centered when its translation is shorter. */
+.clyra-language-text[data-language-align="center"]
+  > .clyra-language-layer[data-motion-pop-id] {
+  left: 50% !important;
+  right: auto !important;
+  translate: -50% 0;
+}
+
+/* Two faces of the same drum: they share an edge throughout the quarter-turn.
+   Their complete sentences stay centered and never dissolve into one another. */
+.clyra-language-text[data-language-effect="turn"] {
+  perspective: 900px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+.clyra-language-text[data-language-effect="turn"] > .clyra-language-layer {
+  backface-visibility: hidden;
+  transform-origin: 50% 50% calc(-1 * var(--language-depth, 0.5lh));
+}
+html[data-language-transition="running"]
+  .clyra-language-text[data-language-effect="turn"]
+  > .clyra-language-layer {
+  will-change: transform, filter;
+}
