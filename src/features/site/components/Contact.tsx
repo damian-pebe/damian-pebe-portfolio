@@ -31,24 +31,17 @@ export function Contact({ t }: { t: Copy }) {
   }
   return (
     <>
-      <section
-        id="contact"
-        className="contact section"
-        aria-labelledby="contact-title"
-      >
-        <div className="contact-orbit" aria-hidden="true" />
-        <div className="shell">
+      <section id="contact" className="contact" aria-labelledby="contact-title">
+        <div className="contact-layout">
           <Reveal>
             <p className="eyebrow">{t.contact.eyebrow}</p>
             <h2 id="contact-title">
-              <LanguageText effect="turn" align="center">
-                {t.contact.title}
-              </LanguageText>
+              <LanguageText effect="turn">{t.contact.title}</LanguageText>
             </h2>
+          </Reveal>
+          <Reveal>
             <p className="contact-intro">
-              <LanguageText effect="fade" align="center">
-                {t.contact.text}
-              </LanguageText>
+              <LanguageText effect="fade">{t.contact.text}</LanguageText>
             </p>
             <div className="contact-actions">
               <a href={"mailto:" + site.email} className="contact-email">
@@ -79,7 +72,7 @@ export function Contact({ t }: { t: Copy }) {
           </Reveal>
         </div>
       </section>
-      <footer className="site-footer shell">
+      <footer className="site-footer">
         <BrandLink className="footer-brand" />
         <p>
           © {new Date().getFullYear()} Damian Pérez — {t.contact.footer}

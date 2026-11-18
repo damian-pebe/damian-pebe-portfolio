@@ -6,7 +6,6 @@ import { LanguageText } from "@/features/language/LanguageText";
 import type { Project } from "./data/projects";
 import { FeaturedProjects } from "./components/FeaturedProjects";
 import { Projects } from "./components/Projects";
-import { Capabilities } from "@/features/site/Capabilities";
 const ProjectDialog = dynamic(
   () =>
     import("./components/ProjectDialog").then((module) => module.ProjectDialog),
@@ -35,7 +34,6 @@ export function Portfolio() {
       </section>
       <FeaturedProjects t={t} locale={locale} onSelect={setSelected} />
       <Projects t={t} locale={locale} onSelect={setSelected} />
-      <Capabilities t={t} />
       {selected && (
         <ProjectDialog
           key={selected.id}

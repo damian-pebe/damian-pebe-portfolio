@@ -74,7 +74,7 @@ export const en: typeof es = {
     eyebrow: "DESIGN & DEVELOPMENT",
   },
   contact: {
-    eyebrow: "03 / WHAT’S NEXT",
+    eyebrow: "LET’S TALK",
     title: "Let’s make\nit happen.",
     text: "Have something ambitious in mind? I’d like to hear it.",
     email: "Get in touch",

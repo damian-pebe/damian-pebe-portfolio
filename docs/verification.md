@@ -1,5 +1,14 @@
 # Verification — 2026-11-17
 
+## Continuous glass closing panel
+
+- The user screenshots exposed opaque backgrounds on capabilities, contact and the shell-width footer. They hid the fixed shader in separate rectangles and left sharp metal fragments around their edges.
+- Grouped the three sections in one shared, rounded translucent panel with a 26px backdrop blur. Removed each inner opaque fill and the obsolete contact gradient. Contact now uses two compact columns on desktop, stacking on mobile, with a smaller heading and a plain Hablemos/Let’s talk label.
+- Strengthened the scrolled header veil to keep the content below it from competing with navigation, retaining visible keyboard focus with rounded link corners.
+- Inspected the bottom of both home and portfolio in Brave, light/dark and desktop/mobile (eight views). The new panel measures about 420px tall on desktop and 549px on the mobile viewport; there are no console errors or horizontal overflows in those views.
+- Twelve relevant existing browser checks passed against the production export: contact-copy success/failure, accessibility, narrow ES/EN layouts, theme persistence, native palette transition and return-to-hero navigation. ESLint, TypeScript, formatting and production build passed; runtime audit reports zero findings. No dependency changed.
+- Release evidence and hosted checks live in `~/.codex/artifacts/damian-portfolio-closing-20261117/`. No new Lighthouse score is claimed for this footer correction.
+
 ## Shader Metal and transparent projects
 
 - Replaced the Clyra radial effect with the actual MIT-licensed Shader Metal source from Jay Sharma / 23rd.dev. The hero now uses an asymmetrical layout, compact solid/text actions and a short refractive language effect. Removed the punctuation suffix from both brand links and the footer credit.

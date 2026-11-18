@@ -6,7 +6,7 @@ export function Capabilities({ t }: { t: Copy }) {
   return (
     <section
       id="approach"
-      className="approach shell"
+      className="approach"
       aria-labelledby="approach-title"
     >
       <div className="approach-header">

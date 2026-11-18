@@ -17,6 +17,7 @@ import { useLegacyFragments } from "./hooks/useLegacyFragments";
 import { Header } from "./components/Header";
 import { MetalBackdrop } from "@/features/background/components/MetalBackdrop";
 import { Contact } from "./components/Contact";
+import { Capabilities } from "./Capabilities";
 export function SiteShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const page = pageFromPath(pathname);
@@ -52,7 +53,10 @@ export function SiteShell({ children }: { children: ReactNode }) {
               <main id="main" tabIndex={-1}>
                 {children}
               </main>
-              <Contact t={t} />
+              <div className="site-closing shell">
+                <Capabilities t={t} />
+                <Contact t={t} />
+              </div>
             </div>
           </LayoutGroup>
         </MotionConfig>

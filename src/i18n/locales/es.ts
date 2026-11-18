@@ -73,7 +73,7 @@ export const es = {
     eyebrow: "DISEÑO Y DESARROLLO",
   },
   contact: {
-    eyebrow: "03 / LO SIGUIENTE",
+    eyebrow: "HABLEMOS",
     title: "¿Lo hacemos\nrealidad?",
     text: "¿Algo ambicioso en mente? Me interesa escucharlo.",
     email: "Escríbeme",

@@ -1,3 +1,6 @@
+.work.section {
+  padding-bottom: 30px;
+}
 .section-heading {
   display: flex;
   justify-content: space-between;

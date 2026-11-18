@@ -104,11 +104,6 @@ main:focus {
 .hero-scroll svg {
   animation: hero-scroll-cue 2.5s ease-in-out infinite;
 }
-.landing-capabilities {
-  position: relative;
-  padding-top: 45px;
-  background: var(--bg);
-}
 @keyframes hero-scroll-cue {
   0%,
   100% {
@@ -167,8 +162,5 @@ main:focus {
   .hero-scroll {
     font-size: 9px;
     gap: 10px;
-  }
-  .landing-capabilities {
-    padding-top: 32px;
   }
 }
