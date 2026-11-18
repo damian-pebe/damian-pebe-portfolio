@@ -1,3 +1,7 @@
+import {
+  themeSnapshotEvent,
+  type ThemeSnapshotRequest,
+} from "@/features/theme/freezeThemeSurfaces";
 import { useEffect, useRef } from "react";
 import { createHeroRenderer } from "../effects/createHeroRenderer";
 export function useHeroShader() {
@@ -80,6 +84,14 @@ export function useHeroShader() {
         sync();
       });
       const theme = new MutationObserver(synchronizeTheme);
+      const snapshot = (event: Event) => {
+        const request = event as CustomEvent<ThemeSnapshotRequest>;
+        request.detail.capture = renderer.snapshot?.(
+          time,
+          document.documentElement.dataset.theme === "dark",
+        );
+      };
+      canvas.addEventListener(themeSnapshotEvent, snapshot);
       const contextLost = (event: Event) => {
         event.preventDefault();
         lost = true;
@@ -104,6 +116,7 @@ export function useHeroShader() {
         size.disconnect();
         view.disconnect();
         theme.disconnect();
+        canvas.removeEventListener(themeSnapshotEvent, snapshot);
         renderer.dispose();
         canvas.removeEventListener("webglcontextlost", contextLost);
         document.removeEventListener("visibilitychange", sync);

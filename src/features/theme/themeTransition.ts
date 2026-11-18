@@ -1,3 +1,4 @@
+import { freezeThemeSurfaces } from "./freezeThemeSurfaces";
 import { waitForThemePaint } from "./waitForThemePaint";
 export type ThemeOrigin = { x: number; y: number };
 
@@ -19,10 +20,12 @@ export function revealTheme(update: () => void, origin?: ThemeOrigin) {
     Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y)) + 2;
   root.dataset.themeTransition = "reveal";
   let committed = false;
+  let releaseSurfaces = () => {};
   const commit = () => {
     if (committed) return;
     committed = true;
     update();
+    releaseSurfaces();
     // Keep the old snapshot until visible theme-specific captures can paint.
     // Preloading fetches the other variant; decode completes its preparation.
     const captures = Array.from(
@@ -41,19 +44,17 @@ export function revealTheme(update: () => void, origin?: ThemeOrigin) {
       ...captures.map((image) => image.decode()),
     ]).then(() => {});
   };
-  let transition: ViewTransition;
-  try {
-    transition = document.startViewTransition(commit);
-  } catch {
-    delete root.dataset.themeTransition;
-    commit();
-    return { finished: Promise.resolve(), cancel: () => {} };
-  }
-
+  let transition: ViewTransition | undefined;
   let animation: Animation | undefined;
   let cancelled = false;
   const finished = (async () => {
     try {
+      releaseSurfaces = await freezeThemeSurfaces();
+      if (cancelled) {
+        await commit();
+        return;
+      }
+      transition = document.startViewTransition(commit);
       await transition.ready;
       if (cancelled) return;
       animation = root.animate(
@@ -75,8 +76,9 @@ export function revealTheme(update: () => void, origin?: ThemeOrigin) {
       // A hidden tab, resize or route change can legitimately skip the capture.
       commit();
     } finally {
-      transition.skipTransition();
-      await transition.finished.catch(() => {});
+      releaseSurfaces();
+      transition?.skipTransition();
+      await transition?.finished.catch(() => {});
       animation?.cancel();
       delete root.dataset.themeTransition;
     }
@@ -87,7 +89,7 @@ export function revealTheme(update: () => void, origin?: ThemeOrigin) {
     cancel: () => {
       cancelled = true;
       animation?.cancel();
-      transition.skipTransition();
+      transition?.skipTransition();
     },
   };
 }

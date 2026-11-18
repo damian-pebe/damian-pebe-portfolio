@@ -116,3 +116,71 @@ test("the background retains its static fallback without worker support", async 
   await page.getByRole("button", { name: "Cambiar a tema oscuro" }).click();
   await expect(canvas).toHaveAttribute("data-painted-theme", "dark");
 });
+
+test("theme circle keeps the previous canvas palette outside its reveal", async ({
+  page,
+}) => {
+  const { default: sharp } = await import("sharp");
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  await expect(page.locator("[data-theme-surface]")).toHaveAttribute(
+    "data-painted-theme",
+    "light",
+  );
+  for (const target of ["dark", "light"] as const) {
+    await page
+      .getByRole("button", {
+        name:
+          target === "dark" ? "Cambiar a tema oscuro" : "Cambiar a tema claro",
+      })
+      .click();
+    await page.waitForFunction(() =>
+      document
+        .getAnimations()
+        .some(
+          (a) =>
+            (a.effect as KeyframeEffect | null)?.pseudoElement ===
+            "::view-transition-new(root)",
+        ),
+    );
+    await page.evaluate(() => {
+      const animation = document
+        .getAnimations()
+        .find(
+          (a) =>
+            (a.effect as KeyframeEffect | null)?.pseudoElement ===
+            "::view-transition-new(root)",
+        )!;
+      animation.pause();
+      animation.currentTime = 420;
+    });
+    const { data, info } = await sharp(await page.screenshot())
+      .raw()
+      .toBuffer({ resolveWithObject: true });
+    const outside =
+      data[(Math.floor(info.height * 0.45) * info.width + 15) * info.channels];
+    const inside = data[(120 * info.width + info.width - 20) * info.channels];
+    if (target === "dark") {
+      expect(outside).toBeGreaterThan(200);
+      expect(inside).toBeLessThan(80);
+    } else {
+      expect(outside).toBeLessThan(80);
+      expect(inside).toBeGreaterThan(200);
+    }
+    await page.evaluate(() =>
+      document
+        .getAnimations()
+        .filter(
+          (a) =>
+            (a.effect as KeyframeEffect | null)?.pseudoElement ===
+            "::view-transition-new(root)",
+        )
+        .forEach((a) => a.finish()),
+    );
+    await expect(page.locator("html")).not.toHaveAttribute(
+      "data-theme-transition",
+      "reveal",
+    );
+    await expect(page.locator("[data-theme-snapshot]")).toHaveCount(0);
+  }
+});

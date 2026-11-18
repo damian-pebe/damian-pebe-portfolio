@@ -35,12 +35,15 @@ export async function createHeroRenderer(
     let settled = false,
       sequence = 0;
     const pending = new Map<number, () => void>();
+    const snapshots = new Map<number, (bitmap: ImageBitmap | null) => void>();
     const send = (message: HeroCommand) => worker.postMessage(message);
     const dispose = () => {
       signal.removeEventListener("abort", abort);
       worker.terminate();
       pending.forEach((finish) => finish());
       pending.clear();
+      snapshots.forEach((finish) => finish(null));
+      snapshots.clear();
     };
     const fail = (report: boolean) => {
       dispose();
@@ -56,6 +59,13 @@ export async function createHeroRenderer(
     signal.addEventListener("abort", abort, { once: true });
     worker.onerror = () => fail(true);
     worker.onmessage = ({ data }: MessageEvent<HeroResponse>) => {
+      if (data.type === "snapshot") {
+        const finish = snapshots.get(data.request);
+        if (finish) finish(data.bitmap);
+        else data.bitmap.close();
+        snapshots.delete(data.request);
+        return;
+      }
       if (data.type === "lost") {
         fail(true);
         return;
@@ -80,6 +90,19 @@ export async function createHeroRenderer(
             const request = ++sequence;
             pending.set(request, finish);
             send({ type: "paint", time, dark, request });
+          }),
+        snapshot: (time, dark) =>
+          new Promise<ImageBitmap | null>((finish) => {
+            const request = ++sequence;
+            const timeout = setTimeout(() => {
+              snapshots.delete(request);
+              finish(null);
+            }, 400);
+            snapshots.set(request, (bitmap) => {
+              clearTimeout(timeout);
+              finish(bitmap);
+            });
+            send({ type: "snapshot", time, dark, request });
           }),
         dispose,
       });
