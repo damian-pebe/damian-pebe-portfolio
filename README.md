@@ -2,6 +2,8 @@
 
 Bilingual personal portfolio at **https://damianperez.dev**. Built with Next.js, React and Framer Motion; exported as static files and hosted in Damian's personal Cloudflare account.
 
+The landing lives at `/`; the project catalog lives at `/portfolio/`. English equivalents are `/en/` and `/en/portfolio/`. Navigation does not add URL fragments.
+
 ## Development
 
 ```sh
@@ -39,7 +41,8 @@ Staging: https://damian-pebe-portfolio-staging.damian-pebe.workers.dev
 After verification and explicit authorization for the production release, promote the reviewed revision to main and deploy the same `out/` files:
 
 ```sh
-npx wrangler deploy
+npx wrangler deploy --env=''
+# Only if changing the separate www redirect:
 npx wrangler deploy --config wrangler.redirect.jsonc
 ```
 

@@ -1,4 +1,6 @@
-import { Portfolio } from "@/features/portfolio/Portfolio";
-export default function Home() {
-  return <Portfolio locale="es" />;
+import { Landing } from "@/features/landing/Landing";
+import { pageMetadata } from "@/lib/pageMetadata";
+export const metadata = pageMetadata("es", "home");
+export default function Page() {
+  return <Landing />;
 }

@@ -1,0 +1,40 @@
+.theme-icon {
+  display: grid;
+  place-items: center;
+}
+.theme-icon svg {
+  grid-area: 1 / 1;
+  transition: opacity 0.2s;
+}
+.theme-icon svg.is-hidden {
+  opacity: 0;
+}
+.theme-icon .lucide-moon {
+  rotate: -180deg;
+}
+
+html[data-theme-transition]::view-transition-group(root) {
+  animation: none;
+}
+html[data-theme-transition]::view-transition-image-pair(root) {
+  isolation: auto;
+}
+html[data-theme-transition]::view-transition-old(root),
+html[data-theme-transition]::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  height: 100%;
+  object-fit: none;
+}
+html[data-theme-transition]::view-transition-old(root) {
+  z-index: 1;
+}
+html[data-theme-transition]::view-transition-new(root) {
+  z-index: 2;
+}
+html[data-theme-transition]::view-transition {
+  pointer-events: none;
+}
+html[data-theme-transition] * {
+  transition-duration: 0s !important;
+}

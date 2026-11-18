@@ -9,7 +9,7 @@ import {
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Copy, Locale } from "@/i18n/copy";
 import { projects, thumbnail, type Project } from "../data/projects";
-import { LanguageText } from "../effects/LanguageText";
+import { LanguageText } from "@/features/language/LanguageText";
 import { DeviceMockup } from "./DeviceMockup";
 
 const featured = [

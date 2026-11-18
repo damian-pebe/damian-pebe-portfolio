@@ -1,13 +1,13 @@
 import { useEffect, useRef } from "react";
-import { createThreadsRenderer } from "./createThreadsRenderer";
-export function ClyraThreads() {
+import { createHeroRenderer } from "../effects/createHeroRenderer";
+export function useHeroShader() {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
     const abort = new AbortController();
     let teardown = () => {};
-    void createThreadsRenderer(canvas, abort.signal).then((renderer) => {
+    void createHeroRenderer(canvas, abort.signal).then((renderer) => {
       if (abort.signal.aborted) {
         renderer?.dispose();
         return;
@@ -21,36 +21,32 @@ export function ClyraThreads() {
       const saveData = (
         navigator as Navigator & { connection?: { saveData?: boolean } }
       ).connection?.saveData;
-      const mouse: [number, number] = [0.5, 0.5],
-        target: [number, number] = [0.5, 0.5];
       let raf = 0,
-        time = 10,
+        time = 6,
         last = 0,
         onscreen = true,
         lost = false;
       const allowed = () =>
         onscreen && !document.hidden && !motion.matches && !saveData && !lost;
-      const paint = () =>
-        renderer.paint(
-          time,
-          mouse,
-          document.documentElement.dataset.theme === "dark",
-        );
+      const paint = () => {
+        if (!lost)
+          renderer.paint(
+            time,
+            document.documentElement.dataset.theme === "dark",
+          );
+      };
       const tick = (now: number) => {
         raf = 0;
         if (!allowed()) return;
         if (now - last >= 1000 / 30) {
-          time += Math.min((now - last) / 1000, 0.05);
+          time += Math.min((now - last) / 1000, 0.05) * 3;
           last = now;
-          mouse[0] += (target[0] - mouse[0]) * 0.06;
-          mouse[1] += (target[1] - mouse[1]) * 0.06;
           paint();
         }
         raf = requestAnimationFrame(tick);
       };
       const sync = () => {
         cancelAnimationFrame(raf);
-        raf = 0;
         canvas.dataset.running = String(allowed());
         paint();
         if (allowed()) {
@@ -69,16 +65,6 @@ export function ClyraThreads() {
         sync();
       });
       const theme = new MutationObserver(paint);
-      const move = (event: PointerEvent) => {
-        if (event.pointerType !== "mouse" || motion.matches) return;
-        const rect = canvas.getBoundingClientRect();
-        target[0] = (event.clientX - rect.left) / rect.width;
-        target[1] = 1 - (event.clientY - rect.top) / rect.height;
-      };
-      const leave = () => {
-        target[0] = 0.5;
-        target[1] = 0.5;
-      };
       const contextLost = (event: Event) => {
         event.preventDefault();
         lost = true;
@@ -86,7 +72,6 @@ export function ClyraThreads() {
         canvas.dataset.running = "false";
         canvas.dataset.renderer = "fallback";
       };
-      const section = canvas.closest("section");
       resize();
       size.observe(canvas);
       view.observe(canvas);
@@ -94,8 +79,6 @@ export function ClyraThreads() {
         attributes: true,
         attributeFilter: ["data-theme"],
       });
-      section?.addEventListener("pointermove", move);
-      section?.addEventListener("pointerleave", leave);
       canvas.addEventListener("webglcontextlost", contextLost);
       document.addEventListener("visibilitychange", sync);
       motion.addEventListener("change", sync);
@@ -106,8 +89,6 @@ export function ClyraThreads() {
         view.disconnect();
         theme.disconnect();
         renderer.dispose();
-        section?.removeEventListener("pointermove", move);
-        section?.removeEventListener("pointerleave", leave);
         canvas.removeEventListener("webglcontextlost", contextLost);
         document.removeEventListener("visibilitychange", sync);
         motion.removeEventListener("change", sync);
@@ -118,9 +99,5 @@ export function ClyraThreads() {
       teardown();
     };
   }, []);
-  return (
-    <div className="clyra-threads" aria-hidden="true">
-      <canvas ref={ref} data-effect="clyra-threads" data-running="false" />
-    </div>
-  );
+  return ref;
 }

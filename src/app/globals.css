@@ -1,10 +1,13 @@
-@import "../features/portfolio/styles/hero.css";
-@import "../features/portfolio/styles/language.css";
-@import "../features/portfolio/styles/glass.css";
+@import "../features/site/styles/header.css";
+@import "../features/landing/styles/hero.css";
+@import "../features/portfolio/styles/intro.css";
+@import "../features/theme/theme.css";
+@import "../features/language/language.css";
+@import "../features/site/styles/glass.css";
 @import "../features/portfolio/styles/showcase.css";
 @import "../features/portfolio/styles/devices.css";
 @import "../features/portfolio/styles/projects.css";
-@import "../features/portfolio/styles/sections.css";
+@import "../features/site/styles/sections.css";
 @import "../features/portfolio/styles/dialog.css";
 :root {
   color-scheme: light;

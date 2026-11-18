@@ -9,8 +9,10 @@ import {
 } from "lucide-react";
 import type { Copy } from "@/i18n/copy";
 import { site } from "@/lib/site";
-import { LanguageText } from "../effects/LanguageText";
-import { Reveal } from "./Reveal";
+import { LanguageText } from "@/features/language/LanguageText";
+import { Reveal } from "@/components/Reveal";
+import { BrandLink } from "./BrandLink";
+import { scrollToSection } from "@/features/navigation/scrollToSection";
 export function Contact({ t }: { t: Copy }) {
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">(
     "idle",
@@ -78,9 +80,7 @@ export function Contact({ t }: { t: Copy }) {
         </div>
       </section>
       <footer className="site-footer shell">
-        <a className="footer-brand" href="#top">
-          damian pebe<span>✳</span>
-        </a>
+        <BrandLink className="footer-brand" />
         <p>
           © {new Date().getFullYear()} Damian Pérez. {t.contact.footer}
         </p>
@@ -103,9 +103,13 @@ export function Contact({ t }: { t: Copy }) {
           >
             <Linkedin size={19} />
           </a>
-          <a className="icon-button" href="#top" aria-label={t.contact.back}>
+          <button
+            className="icon-button"
+            onClick={() => scrollToSection("main", true)}
+            aria-label={t.contact.back}
+          >
             <ArrowUp size={19} />
-          </a>
+          </button>
         </div>
       </footer>
     </>

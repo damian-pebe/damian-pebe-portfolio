@@ -1,8 +1,8 @@
-import { fragmentShader, vertexShader } from "./threadShaders";
+import { fragmentShader, vertexShader } from "./heroShaderSource";
 import { waitForShader } from "./waitForShader";
 
-/** Clyra's Threads shader, rendered locally without a third-party WebGL runtime. */
-export async function createThreadsRenderer(
+/** Clyra's landing shader, rendered locally without a third-party WebGL runtime. */
+export async function createHeroRenderer(
   canvas: HTMLCanvasElement,
   signal: AbortSignal,
 ) {
@@ -57,30 +57,22 @@ export async function createThreadsRenderer(
   gl.enableVertexAttribArray(position);
   gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
   const uniforms = Object.fromEntries(
-    ["iTime", "iResolution", "uColor", "uAmplitude", "uDistance", "uMouse"].map(
-      (name) => [name, gl.getUniformLocation(program, name)],
-    ),
+    ["time", "resolution", "darkMode"].map((name) => [
+      name,
+      gl.getUniformLocation(program, name),
+    ]),
   );
-  gl.uniform1f(uniforms.uAmplitude, 0.7);
-  gl.uniform1f(uniforms.uDistance, 0.3);
   return {
     resize(width: number, height: number) {
       const ratio = Math.min(devicePixelRatio || 1, 1);
       canvas.width = Math.max(1, Math.round(width * ratio));
       canvas.height = Math.max(1, Math.round(height * ratio));
       gl.viewport(0, 0, canvas.width, canvas.height);
-      gl.uniform3f(
-        uniforms.iResolution,
-        canvas.width,
-        canvas.height,
-        canvas.width / canvas.height,
-      );
+      gl.uniform2f(uniforms.resolution, canvas.width, canvas.height);
     },
-    paint(time: number, mouse: [number, number], dark: boolean) {
-      const color = dark ? 0.9 : 0.12;
-      gl.uniform1f(uniforms.iTime, time);
-      gl.uniform2f(uniforms.uMouse, mouse[0], mouse[1]);
-      gl.uniform3f(uniforms.uColor, color, color, color);
+    paint(time: number, dark: boolean) {
+      gl.uniform1f(uniforms.time, time);
+      gl.uniform1f(uniforms.darkMode, dark ? 1 : 0);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     },
     dispose,

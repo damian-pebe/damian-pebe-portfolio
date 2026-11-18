@@ -1,53 +1,50 @@
 "use client";
 import { useState } from "react";
-import { LazyMotion, domAnimation, MotionConfig } from "framer-motion";
 import dynamic from "next/dynamic";
-import { copy, type Locale } from "@/i18n/copy";
+import { useSite } from "@/features/site/SiteContext";
+import { LanguageText } from "@/features/language/LanguageText";
 import type { Project } from "./data/projects";
-import { GlassFilter } from "./components/GlassFilter";
-import { useLocale } from "./hooks/useLocale";
-import { Header } from "./components/Header";
-import { Hero } from "./components/Hero";
 import { FeaturedProjects } from "./components/FeaturedProjects";
 import { Projects } from "./components/Projects";
-import { Approach } from "./components/Approach";
-import { Contact } from "./components/Contact";
+import { Capabilities } from "@/features/site/Capabilities";
 const ProjectDialog = dynamic(
   () =>
     import("./components/ProjectDialog").then((module) => module.ProjectDialog),
   { ssr: false },
 );
-export function Portfolio({ locale: initialLocale }: { locale: Locale }) {
-  const { locale, change } = useLocale(initialLocale);
-  const t = copy[locale];
+export function Portfolio() {
+  const { t, locale } = useSite();
   const [selected, setSelected] = useState<Project | null>(null);
   return (
-    <LazyMotion features={domAnimation} strict>
-      <MotionConfig reducedMotion="user">
-        <div id="top">
-          <GlassFilter />
-          <a className="skip-link" href="#main">
-            {t.skip}
-          </a>
-          <Header locale={locale} t={t} onLocaleChange={change} />
-          <main id="main">
-            <Hero t={t} locale={locale} />
-            <FeaturedProjects t={t} locale={locale} onSelect={setSelected} />
-            <Projects locale={locale} t={t} onSelect={setSelected} />
-            <Approach t={t} />
-            <Contact t={t} />
-          </main>
-          {selected && (
-            <ProjectDialog
-              key={selected.id}
-              project={selected}
-              locale={locale}
-              t={t}
-              onClose={() => setSelected(null)}
-            />
-          )}
+    <>
+      <section
+        id="portfolio-intro"
+        className="portfolio-intro shell"
+        tabIndex={-1}
+        aria-labelledby="portfolio-title"
+      >
+        <p className="eyebrow">{t.portfolio.eyebrow}</p>
+        <div>
+          <h1 id="portfolio-title">
+            <LanguageText effect="turn">{t.portfolio.title}</LanguageText>
+          </h1>
+          <p>
+            <LanguageText effect="fade">{t.work.subtitle}</LanguageText>
+          </p>
         </div>
-      </MotionConfig>
-    </LazyMotion>
+      </section>
+      <FeaturedProjects t={t} locale={locale} onSelect={setSelected} />
+      <Projects t={t} locale={locale} onSelect={setSelected} />
+      <Capabilities t={t} />
+      {selected && (
+        <ProjectDialog
+          key={selected.id}
+          project={selected}
+          locale={locale}
+          t={t}
+          onClose={() => setSelected(null)}
+        />
+      )}
+    </>
   );
 }

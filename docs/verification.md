@@ -1,5 +1,15 @@
 # Verification — 2026-11-17
 
+## Dedicated landing and clean navigation
+
+- Replaced the compact introduction with a full-height monochrome hero based on Clyra's actual landing ShaderLines effect. Kept readable negative space behind the name, added magnetic movement and the original language orbit, and unified the visible identity as Damian Pérez.
+- Split home and the compact project catalog into four static ES/EN routes. Added a transparent shared navbar, a working home/brand link and section buttons that do not create fragments; legacy fragment bookmarks migrate to clean paths.
+- Clyra's native circular theme reveal and 3D language transition were inspected at intermediate frames in desktop Chrome. Screenshots show the expanding palette circle and rotated wordmark. Mobile and both final palettes were inspected separately.
+- All 30 browser checks passed against the production static export in desktop Chrome and an iPhone-sized Chromium viewport. Coverage includes all four direct routes, brand navigation, mobile menu behavior, legacy fragments, browser history, metadata, real animation transforms, retained page state, reduced motion, offscreen shader suspension, denied storage, project filters/galleries, clipboard feedback, narrow viewports and automated WCAG AA checks.
+- Build, TypeScript, ESLint and formatting passed. All four static documents have the correct language, canonical URL and page title. Their Cloudflare HTML cache policies prevent edge script injection and retain the generated CSP.
+- Runtime audit reports zero advisories. The existing development-only picomatch finding remains unchanged (14 propagated high-severity entries; details below). No runtime dependency was added.
+- Hosted checks, Lighthouse results and deployment version IDs for this revision are recorded with the release artifacts. Earlier measurements below describe their own revisions.
+
 ## Compact Clyra revision
 
 - Reused Clyra’s actual Threads shader, Stack Sans Headline font, glass control treatment, language animations and device-screen projection. The shader pauses for hidden/offscreen/reduced-motion states and caps pixel density and animation rate.

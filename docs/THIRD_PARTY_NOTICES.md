@@ -2,7 +2,7 @@
 
 ## Kokonut UI Background Paths
 
-Author: Dorian Baffier (@dorianbaffier). Adapted from Background Paths, available through 21st.dev and https://kokonutui.com/r/background-paths.json. The original implementation used its ribbon geometry. The current design uses React Bits Threads instead; this notice is retained for the original integration and lifecycle provenance.
+Author: Dorian Baffier (@dorianbaffier). Adapted from Background Paths, available through 21st.dev and https://kokonutui.com/r/background-paths.json. The original implementation used its ribbon geometry. The current design uses Clyra’s radial landing shader; this notice is retained for the original integration provenance.
 
 MIT License
 
@@ -30,9 +30,13 @@ SOFTWARE.
 
 Device frame images, screen corner coordinates and the projection helper originate from the owner’s `clyra-dev/clyra` portfolio. Reused for Damian Pérez’s personal portfolio at his request. Product screenshots retain their public redactions and stage labels. Device frames are resized WebP renditions; original source files remain in Clyra.
 
-## React Bits Threads
+## Clyra landing presentation
 
-The Threads shader originates from David Haz’s React Bits and is reused through Clyra’s implementation as part of this portfolio website. Source: https://github.com/DavidHDev/react-bits. The original notice and license follow. A copy is also distributed at `/third-party-notices.txt`.
+The radial GLSL shader is adapted from `src/pages/landing/components/ShaderLines.tsx` in the owner’s Clyra repository. The palette and central contrast are adjusted for this monochrome portfolio, and the implementation uses local native WebGL instead of loading Three.js from a CDN. The theme reveal, language text motion and hero wordmark orbit also derive from Clyra’s presentation code, reused at the owner’s request.
+
+## React Bits Threads (previous revision)
+
+The previous Threads shader originates from David Haz’s React Bits and was reused through Clyra’s implementation in an earlier revision. It is no longer included in the current renderer; this attribution is retained for provenance. Source: https://github.com/DavidHDev/react-bits. The original notice and license follow. A copy is also distributed at `/third-party-notices.txt`.
 
 ```text
 MIT + Commons Clause License Condition v1.0

@@ -3,8 +3,8 @@ import { ArrowDown, ArrowUp } from "lucide-react";
 import type { Copy, Locale } from "@/i18n/copy";
 import { projects, type Category, type Project } from "../data/projects";
 import { ProjectCard } from "./ProjectCard";
-import { LanguageText } from "../effects/LanguageText";
-import { Reveal } from "./Reveal";
+import { LanguageText } from "@/features/language/LanguageText";
+import { Reveal } from "@/components/Reveal";
 export function Projects({
   t,
   locale,

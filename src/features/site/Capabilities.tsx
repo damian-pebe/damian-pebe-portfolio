@@ -1,8 +1,8 @@
 import { ArrowUpRight, Boxes, Code2, Orbit, PenTool } from "lucide-react";
 import type { Copy } from "@/i18n/copy";
-import { LanguageText } from "../effects/LanguageText";
+import { LanguageText } from "@/features/language/LanguageText";
 const icons = [Code2, Orbit, Boxes, PenTool];
-export function Approach({ t }: { t: Copy }) {
+export function Capabilities({ t }: { t: Copy }) {
   return (
     <section
       id="approach"

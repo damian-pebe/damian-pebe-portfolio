@@ -1,0 +1,201 @@
+.landing-hero {
+  position: relative;
+  isolation: isolate;
+  height: 100svh;
+  min-height: 650px;
+  overflow: hidden;
+}
+.landing-hero:focus,
+.portfolio-intro:focus,
+main:focus {
+  outline: none;
+}
+.hero-shader {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg);
+  pointer-events: none;
+}
+.hero-shader canvas {
+  width: 100%;
+  height: 100%;
+}
+.hero-shader::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--bg),
+    transparent 18%,
+    transparent 80%,
+    var(--bg)
+  );
+}
+.landing-hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: 50% 45%;
+}
+.hero-chip {
+  position: absolute !important;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  min-height: 32px !important;
+  font-size: 10px !important;
+  gap: 9px !important;
+  padding: 8px 16px !important;
+  pointer-events: none;
+}
+.hero-brand-position {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.hero-brand-position h1 {
+  font-size: clamp(57px, 5.5vw, 82px);
+  font-weight: 600;
+  letter-spacing: -0.065em;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+.hero-brand-position h1 > span {
+  display: block;
+}
+.hero-hairline {
+  display: block;
+  margin: 24px auto 0;
+  width: 180px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--muted), transparent);
+  opacity: 0.35;
+}
+.hero-description {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(90%, 640px);
+  text-shadow:
+    0 1px 12px var(--bg),
+    0 0 5px var(--bg);
+  font-size: clamp(17px, 1.5vw, 23px);
+  letter-spacing: -0.025em;
+  line-height: 1.5;
+  text-align: center;
+}
+.hero-description em {
+  font-style: normal;
+  font-weight: 500;
+}
+.hero-actions {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+.hero-actions .button {
+  min-height: 48px;
+  min-width: 165px;
+  font-size: 12px;
+  padding-inline: 24px;
+  gap: 24px;
+  white-space: nowrap;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 10px;
+}
+.hero-scroll svg {
+  animation: hero-scroll-cue 2.5s ease-in-out infinite;
+}
+.hero-location {
+  position: absolute;
+  bottom: 34px;
+  left: 48px;
+  color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+}
+.landing-capabilities {
+  padding-top: 72px;
+}
+@keyframes hero-scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+@media (max-width: 700px) {
+  .landing-hero {
+    min-height: 600px;
+  }
+  .hero-brand-position h1 {
+    font-size: clamp(44px, 11.5vw, 68px);
+  }
+  .hero-chip {
+    font-size: 9px !important;
+    padding-inline: 12px !important;
+    gap: 7px !important;
+  }
+  .hero-chip svg {
+    width: 12px;
+  }
+  .hero-description {
+    font-size: 18px;
+    max-width: 290px;
+  }
+  .hero-actions {
+    width: calc(100% - 48px);
+    gap: 12px;
+  }
+  .hero-actions .button {
+    min-width: 0;
+    flex: 1;
+    padding-inline: 14px;
+    gap: 14px;
+    font-size: 11px;
+  }
+  .hero-location {
+    display: none;
+  }
+  .hero-scroll {
+    bottom: 19px;
+    font-size: 9px;
+  }
+  .landing-capabilities {
+    padding-top: 45px;
+  }
+}
+@media (max-height: 680px) and (min-width: 701px) {
+  .landing-hero {
+    min-height: 600px;
+  }
+  .hero-scroll {
+    bottom: 10px;
+  }
+}

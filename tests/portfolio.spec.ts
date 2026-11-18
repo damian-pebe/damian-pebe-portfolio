@@ -10,25 +10,27 @@ test("Spanish and English stay coherent through navigation and reload", async ({
   });
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Damian Pérez.",
+    "damian pérez",
   );
-  await page.getByRole("link", { name: "Switch to English" }).click();
+  await page.getByRole("link", { name: /Switch to English/ }).click();
   await expect(page).toHaveURL(/\/en\//);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Damian Pérez.",
+    "damian pérez",
   );
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(page.locator(".hero-description")).toContainText(
-    "I design and build digital products.",
+    "From the first idea to a real product.",
   );
   await page.reload();
   await expect(
-    page.getByRole("button", {
-      name: "Explore project: AgentOS",
-      exact: false,
-    }),
+    page.getByRole("link", { name: "View portfolio", exact: true }),
   ).toBeVisible();
-  await page.getByRole("link", { name: "Cambiar a español" }).click();
+  await page.getByRole("link", { name: "View portfolio", exact: true }).click();
+  await expect(page).toHaveURL(/\/en\/portfolio\/$/);
+  await expect(
+    page.getByRole("button", { name: /Explore project: AgentOS/ }),
+  ).toBeVisible();
+  await page.getByRole("link", { name: /Cambiar a español/ }).click();
   await expect(page.locator("html")).toHaveAttribute("lang", "es");
   await expect(
     page.getByRole("button", {
@@ -41,7 +43,7 @@ test("Spanish and English stay coherent through navigation and reload", async ({
 test("catalog filters expose real projects and every cover decodes", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("/portfolio/");
   await expect(page.locator(".project-card")).toHaveCount(8);
   await page
     .getByRole("button", { name: "Explorar los 23 proyectos", exact: true })
@@ -84,10 +86,7 @@ test("animated language changes preserve the selected product and browser histor
     if (message.type() === "error") errors.push(message.text());
   });
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.goto("/");
-  const canvas = page.locator('[data-effect="clyra-threads"]');
-  await expect(canvas).toHaveAttribute("data-renderer", "webgl");
-  const mountedCanvas = await canvas.elementHandle();
+  await page.goto("/portfolio/");
   await page
     .getByRole("group", { name: "Elegir proyecto destacado" })
     .getByRole("button", { name: /Neurocity/ })
@@ -95,20 +94,17 @@ test("animated language changes preserve the selected product and browser histor
   await page
     .getByRole("button", { name: "Explorar los 23 proyectos", exact: true })
     .click();
-  await page.getByRole("link", { name: "Switch to English" }).click();
+  await page.getByRole("link", { name: /Switch to English/ }).click();
   await expect(page).toHaveURL(/\/en\//);
   await expect(page.locator(".showcase h3")).toHaveText("Neurocity");
   await expect(page.locator(".project-card")).toHaveCount(23);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://damianperez.dev/en/",
+    "https://damianperez.dev/en/portfolio/",
   );
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     "content",
-    "Damian Pérez — Design, code and product.",
-  );
-  expect(await mountedCanvas?.evaluate((element) => element.isConnected)).toBe(
-    true,
+    "Damian Pérez — Selected work",
   );
   await page.goBack();
   await expect(page.locator("html")).toHaveAttribute("lang", "es");
@@ -121,15 +117,15 @@ test("animated language changes preserve the selected product and browser histor
     "data-language-transition",
     "running",
   );
-  await expect(page.locator(".hero-description")).toHaveText(
-    "I design and build digital products.\nFrom the first idea to the finest detail.",
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "From code to the real world.",
   );
   expect(errors).toEqual([]);
 });
 test("project dialog contains focus, switches captures and restores the trigger", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("/portfolio/");
   const trigger = page.getByRole("button", {
     name: "Explorar proyecto: AgentOS",
     exact: false,
@@ -197,12 +193,17 @@ test("contact copy has working success and failure feedback", async ({
 test("motion preference is respected live and the background pauses offscreen", async ({
   page,
 }) => {
+  await page.setViewportSize({
+    width: page.viewportSize()?.width ?? 1440,
+    height: 480,
+  });
   await page.goto("/");
-  const canvas = page.locator('[data-effect="clyra-threads"]');
+  const canvas = page.locator('[data-effect="clyra-radial"]');
   await expect(canvas).toHaveAttribute("data-running", "false");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await expect(canvas).toHaveAttribute("data-running", "true");
   await page.locator("#contact").scrollIntoViewIfNeeded();
+  await expect(canvas).not.toBeInViewport();
   await expect(canvas).toHaveAttribute("data-running", "false");
   await page.evaluate(() => scrollTo(0, 0));
   await expect(canvas).toHaveAttribute("data-running", "true");
@@ -213,6 +214,14 @@ test("page and project dialog have no automated WCAG AA violations", async ({
   page,
 }) => {
   await page.goto("/");
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
+  await page.goto("/portfolio/");
   expect(
     (
       await new AxeBuilder({ page })
@@ -237,7 +246,7 @@ test("small screens have no horizontal overflow in either language", async ({
 }) => {
   for (const width of [320, 375, 768]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const path of ["/", "/en/"]) {
+    for (const path of ["/", "/en/", "/portfolio/", "/en/portfolio/"]) {
       await page.goto(path);
       expect(
         await page.evaluate(
@@ -252,7 +261,7 @@ test("small screens have no horizontal overflow in either language", async ({
 test("featured products respond to controls and open the matching project", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("/portfolio/");
   const showcase = page.getByRole("region", { name: "En primer plano" });
   await expect(showcase.getByRole("heading", { level: 3 })).toHaveText(
     "OmniCube",
@@ -305,7 +314,7 @@ test("monochrome themes persist across language navigation and reload", async ({
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
   await page.getByRole("button", { name: "Cambiar a tema oscuro" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
-  await page.getByRole("link", { name: "Switch to English" }).click();
+  await page.getByRole("link", { name: /Switch to English/ }).click();
   await expect(page).toHaveURL(/\/en\//);
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");

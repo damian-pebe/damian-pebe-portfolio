@@ -14,7 +14,7 @@ async function htmlFiles(directory) {
 const hashes = new Set();
 for (const file of await htmlFiles(output)) {
   let html = await readFile(file, "utf8");
-  if (file === path.join(output, "en", "index.html")) {
+  if (file.startsWith(path.join(output, "en") + path.sep)) {
     html = html.replace('<html lang="es"', '<html lang="en"');
     await writeFile(file, html);
   }
