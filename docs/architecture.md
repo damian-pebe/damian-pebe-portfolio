@@ -29,10 +29,10 @@ The 23 projects, EN/ES descriptions and permanently redacted captures come from 
 
 `wrangler.jsonc` pins personal Cloudflare account `ad8dddf36a3fc53dca424e763e4a153e`.
 
-- Production Worker: `damian-pebe-portfolio`, custom domains `damianperez.dev` and `www.damianperez.dev`.
+- Production Worker: `damian-pebe-portfolio`, custom domain `damianperez.dev`.
 - Staging Worker: `damian-pebe-portfolio-staging`, isolated workers.dev URL and no production domain routes.
 - Output: `out/`, static assets only, native 404 page and trailing slash handling.
-- `public/_redirects`: permanent www-to-apex redirect.
+- `src/workers/canonicalRedirect.ts` with `wrangler.redirect.jsonc`: separate `damian-portfolio-redirect` Worker, 308 www-to-apex redirect preserving path and query. Workers Static Assets does not support hostname conditions in `_redirects`; canonical requests remain assets-only.
 - `public/_headers`: TLS policy, frame denial, MIME-sniffing protection, bounded browser permissions and cache policy.
 - Hashed framework assets are immutable for one year. Project images are cached for a day with stale-while-revalidate. HTML revalidates.
 - No secrets, cookies, customer data, server processes or runtime dependencies are hosted.

@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "damian-portfolio-redirect",
+  "account_id": "ad8dddf36a3fc53dca424e763e4a153e",
+  "main": "src/workers/canonicalRedirect.ts",
+  "compatibility_date": "2026-11-17",
+  "workers_dev": false,
+  "routes": [{ "pattern": "www.damianperez.dev", "custom_domain": true }],
+}

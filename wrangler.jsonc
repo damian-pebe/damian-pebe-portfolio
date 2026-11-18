@@ -9,10 +9,7 @@
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page",
   },
-  "routes": [
-    { "pattern": "damianperez.dev", "custom_domain": true },
-    { "pattern": "www.damianperez.dev", "custom_domain": true },
-  ],
+  "routes": [{ "pattern": "damianperez.dev", "custom_domain": true }],
   "env": {
     "staging": {
       "name": "damian-pebe-portfolio-staging",

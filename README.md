@@ -40,10 +40,11 @@ After verification and explicit authorization for the production release, promot
 
 ```sh
 npx wrangler deploy
+npx wrangler deploy --config wrangler.redirect.jsonc
 ```
 
 Production: https://damianperez.dev. The `www` hostname redirects to the canonical domain. Custom-domain bindings provision DNS and HTTPS through Cloudflare Workers.
 
-This is an assets-only Worker: no application server, API keys, database or paid plan is needed.
+The main site is an assets-only Worker. A separate small Worker redirects www while preserving paths and query strings, so canonical asset requests do not invoke Worker code. No application server, API keys, database or paid plan is needed.
 
 See [architecture](docs/architecture.md), [verification](docs/verification.md) and [third-party notices](docs/THIRD_PARTY_NOTICES.md).
