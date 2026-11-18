@@ -46,7 +46,7 @@
   overflow: hidden;
   background: var(--surface);
 }
-.dialog-gallery > img {
+.dialog-gallery > picture > img {
   width: 100%;
   height: auto;
   max-height: 58svh;

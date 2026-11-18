@@ -3,15 +3,12 @@ import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { deviceFrames } from "../data/deviceFrames";
 import { getProjectScene } from "../data/projectScenes";
-import {
-  gallery,
-  galleryPreview,
-  thumbnail,
-  type Project,
-} from "../data/projects";
+import { gallery, galleryPreview, thumbnail } from "../data/projectMedia";
+import type { Project } from "../data/projects";
 import type { DeviceFrame } from "../types/devices";
 import { screenProjection } from "../utils/screenProjection";
 import { CaptureImage } from "./CaptureImage";
+import { frameSrcSet, frameSizes } from "../utils/responsiveImages";
 
 export function DeviceMockup({
   project,
@@ -19,12 +16,14 @@ export function DeviceMockup({
   priority = false,
   detail = false,
   alt = "",
+  variant = detail ? "detail" : priority ? "featured" : "card",
 }: {
   project: Project;
   slide?: number;
   priority?: boolean;
   detail?: boolean;
   alt?: string;
+  variant?: keyof typeof frameSizes;
 }) {
   const container = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
@@ -52,6 +51,7 @@ export function DeviceMockup({
             : thumbnail(project, "dark", !priority),
         }}
         alt={alt}
+        sizes={frameSizes[variant]}
         width={1600}
         height={1000}
         loading={priority ? "eager" : "lazy"}
@@ -75,21 +75,25 @@ export function DeviceMockup({
         } as CSSProperties
       }
     >
-      <Image
-        className="device-frame"
-        src={frame.src}
-        alt=""
-        width={frame.width}
-        height={frame.height}
-        loading={priority ? "eager" : "lazy"}
-        fetchPriority={priority ? "high" : undefined}
-      />
+      <picture>
+        <source srcSet={frameSrcSet(frame.src)} sizes={frameSizes[variant]} />
+        <Image
+          className="device-frame"
+          src={frame.src}
+          alt=""
+          width={frame.width}
+          height={frame.height}
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : undefined}
+        />
+      </picture>
       {width > 0 &&
         frame.screens.map((screen, index) => {
           const scale = width / frame.width;
           const primary = !!screen.primary;
           const imageIndex =
             (slide + (primary ? 0 : index)) % images.light.length;
+          const projection = screenProjection(screen.corners, scale);
           const sources = {
             light: detail
               ? images.light[imageIndex]
@@ -116,13 +120,14 @@ export function DeviceMockup({
               <div
                 className="device-display"
                 style={{
-                  ...screenProjection(screen.corners, scale),
+                  ...projection,
                   borderRadius: screen.radius * scale,
                 }}
               >
                 <CaptureImage
                   className="device-capture"
                   sources={sources}
+                  sizes={`${Math.ceil(projection.width)}px`}
                   alt={primary ? alt : ""}
                   width={1600}
                   height={1000}

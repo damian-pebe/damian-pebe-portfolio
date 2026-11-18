@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import type { Copy, Locale } from "@/i18n/copy";
-import { gallery, type Project } from "../data/projects";
+import { gallery } from "../data/projectMedia";
+import type { Project } from "../data/projects";
 import { DeviceMockup } from "./DeviceMockup";
 import { CaptureImage } from "./CaptureImage";
 export function ProjectDialog({

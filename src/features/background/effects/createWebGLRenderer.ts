@@ -62,21 +62,10 @@ export async function createWebGLRenderer(
   gl.enableVertexAttribArray(position);
   gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
   const uniforms = Object.fromEntries(
-    [
-      "u_time",
-      "u_resolution",
-      "u_dark",
-      "u_count",
-      "u_iridescence",
-      "u_pull",
-      "u_mouse",
-      "u_light",
-      "u_f0",
-    ].map((name) => [name, gl.getUniformLocation(program, name)]),
+    ["u_time", "u_resolution", "u_dark", "u_pull", "u_mouse", "u_light"].map(
+      (name) => [name, gl.getUniformLocation(program, name)],
+    ),
   );
-  gl.uniform1f(uniforms.u_count, 5);
-  gl.uniform1f(uniforms.u_iridescence, 0);
-  gl.uniform3f(uniforms.u_f0, 0.888, 0.888, 0.888);
   const target = { x: 0.5, y: 0.5, active: 0 };
   const pointer = { x: 0.5, y: 0.5, active: 0 };
   let previousTime = 0;

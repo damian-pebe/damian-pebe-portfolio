@@ -1,4 +1,3 @@
-import { createWebGLRenderer } from "./createWebGLRenderer";
 import type {
   MetalCommand,
   MetalRenderer,
@@ -8,6 +7,8 @@ async function mainThreadRenderer(
   canvas: HTMLCanvasElement,
   signal: AbortSignal,
 ): Promise<MetalRenderer | null> {
+  const { createWebGLRenderer } = await import("./createWebGLRenderer");
+  if (signal.aborted) return null;
   const renderer = await createWebGLRenderer(canvas, signal);
   return renderer
     ? {

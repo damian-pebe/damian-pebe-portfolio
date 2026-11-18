@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { m } from "framer-motion";
@@ -9,8 +10,9 @@ import { useSite } from "@/features/site/SiteContext";
 import { HeroWordmark } from "./HeroWordmark";
 import { HeroWork } from "./HeroWork";
 import { HeroBadges } from "./HeroBadges";
+import type { Project } from "@/features/portfolio/data/projects";
 
-export function Hero() {
+export function Hero({ highlights }: { highlights: Project[] }) {
   const { t, locale } = useSite();
   const { section, contentStyle } = useHeroMotion();
   return (
@@ -47,7 +49,7 @@ export function Hero() {
             </button>
           </div>
         </m.div>
-        <HeroWork />
+        <HeroWork highlights={highlights} />
         <div className="hero-bottom">
           <span className="hero-location">{t.hero.location}</span>
           <button

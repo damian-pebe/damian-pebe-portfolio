@@ -303,15 +303,13 @@ test("featured products respond to controls and open the matching project", asyn
   ).toBeVisible();
   await expect(dialog.locator('[data-mockup="city-command"]')).toBeVisible();
   await dialog.getByRole("button", { name: "Ver captura completa" }).click();
-  await expect(dialog.locator(".dialog-gallery > img")).toHaveAttribute(
-    "src",
-    /neurocity-01-light\.webp/,
-  );
+  await expect(
+    dialog.locator(".dialog-gallery > picture > img"),
+  ).toHaveAttribute("src", /neurocity-01-light\.webp/);
   await dialog.getByRole("button", { name: "Siguiente imagen" }).click();
-  await expect(dialog.locator(".dialog-gallery > img")).toHaveAttribute(
-    "src",
-    /neurocity-02-light\.webp/,
-  );
+  await expect(
+    dialog.locator(".dialog-gallery > picture > img"),
+  ).toHaveAttribute("src", /neurocity-02-light\.webp/);
   await page.keyboard.press("Escape");
   await expect(
     showcase.getByRole("button", { name: "Ver proyecto" }),

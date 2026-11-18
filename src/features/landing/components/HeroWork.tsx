@@ -3,14 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 import { LanguageText } from "@/features/language/LanguageText";
 import { pageHref } from "@/features/navigation/routes";
 import { DeviceMockup } from "@/features/portfolio/components/DeviceMockup";
-import { projects } from "@/features/portfolio/data/projects";
+import type { Project } from "@/features/portfolio/data/projects";
 import { useSite } from "@/features/site/SiteContext";
 
-const highlights = ["omnicube", "agentos"].flatMap((id) =>
-  projects.filter((project) => project.id === id),
-);
-
-export function HeroWork() {
+export function HeroWork({ highlights }: { highlights: Project[] }) {
   const { t, locale } = useSite();
 
   return (
@@ -26,7 +22,7 @@ export function HeroWork() {
           {highlights.map((project) => (
             <div className="hero-work-card" key={project.id}>
               <div className="hero-work-device" aria-hidden="true">
-                <DeviceMockup project={project} priority />
+                <DeviceMockup project={project} priority variant="hero" />
               </div>
               <div className="hero-work-caption">
                 <span>{project.name}</span>

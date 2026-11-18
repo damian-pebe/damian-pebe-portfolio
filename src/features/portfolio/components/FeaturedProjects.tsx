@@ -8,11 +8,13 @@ import {
 } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Copy, Locale } from "@/i18n/copy";
-import { projects, thumbnail, type Project } from "../data/projects";
+import { projects, type Project } from "../data/projects";
+import { thumbnail } from "../data/projectMedia";
 import { LanguageText } from "@/features/language/LanguageText";
 import { DeviceMockup } from "./DeviceMockup";
 import { site } from "@/lib/site";
 import { useSite } from "@/features/site/SiteContext";
+import { captureSrcSet } from "../utils/responsiveImages";
 
 const featured = [
   "omnicube",
@@ -49,6 +51,8 @@ export function FeaturedProjects({
         rel="preload"
         as="image"
         href={thumbnail(featured[0], theme)}
+        imageSrcSet={captureSrcSet(thumbnail(featured[0], theme))}
+        imageSizes="(max-width: 700px) calc(84vw - 42px), 480px"
         fetchPriority="high"
       />
       <div className="featured-caption">

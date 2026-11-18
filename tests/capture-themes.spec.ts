@@ -197,11 +197,10 @@ test("dialog mockups and full captures follow the theme without changing gallery
         await dialog
           .getByRole("button", { name: "Ver captura completa" })
           .click();
-        await expect(dialog.locator(".dialog-gallery > img")).toHaveAttribute(
-          "src",
-          new RegExp(filename.replace(".", "\\.")),
-        );
-        await decoded(dialog.locator(".dialog-gallery > img"));
+        await expect(
+          dialog.locator(".dialog-gallery > picture > img"),
+        ).toHaveAttribute("src", new RegExp(filename.replace(".", "\\.")));
+        await decoded(dialog.locator(".dialog-gallery > picture > img"));
         await dialog
           .getByRole("button", { name: "Ver en dispositivo" })
           .click();

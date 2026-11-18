@@ -9,6 +9,11 @@
   object-fit: contain;
   pointer-events: none;
 }
+.device-mockup > picture,
+.device-display > picture,
+.dialog-gallery > picture {
+  display: contents;
+}
 .device-plane {
   position: absolute;
   inset: 0;

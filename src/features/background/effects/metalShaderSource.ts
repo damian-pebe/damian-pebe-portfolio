@@ -14,15 +14,11 @@ precision highp float;
 
 uniform vec2 u_resolution;
 uniform float u_time;
-uniform float u_count;
-uniform float u_iridescence;
 uniform float u_pull;
 uniform float u_dark;
 uniform vec2 u_mouse;
 uniform vec2 u_light;
-uniform vec3 u_f0;
 
-const float TAU = 6.28318530718;
 const float TILT = -0.32;
 
 float hash(vec2 p) {
@@ -47,14 +43,18 @@ vec2 rotate(vec2 p, float a) {
 
 // The spine of ribbon k: three swells at different speeds, so it never
 // settles into a loop. Near the pointer it leans toward it.
-float spine(float x, float k, float lane, float t, vec2 m) {
+vec2 spine(float x, float k, float lane, float t, vec2 m) {
+  vec3 phase = vec3(1.15 * x + 0.55 * t + 2.1 * k,
+                    2.6 * x - 0.8 * t + 1.3 * k + 0.7,
+                    5.3 * x + 1.3 * t + 4.0 * k);
   float y = lane;
-  y += 0.13 * sin(1.15 * x + 0.55 * t + 2.1 * k);
-  y += 0.06 * sin(2.6 * x - 0.8 * t + 1.3 * k + 0.7);
-  y += 0.025 * sin(5.3 * x + 1.3 * t + 4.0 * k);
+  y += dot(vec3(0.13, 0.06, 0.025), sin(phase));
+  float derivative = dot(vec3(0.1495, 0.156, 0.1325), cos(phase));
   float near = exp(-(x - m.x) * (x - m.x) * 5.0);
-  y += (m.y - y) * 0.22 * u_pull * near;
-  return y;
+  float pull = 0.22 * u_pull * near;
+  float slope = derivative * (1.0 - pull) - (m.y - y) * pull * 10.0 * (x - m.x);
+  y += (m.y - y) * pull;
+  return vec2(y, slope);
 }
 
 // A studio to reflect: sky and floor meet at a crisp horizon, a big
@@ -108,9 +108,9 @@ void main() {
   float t = u_time;
 
   vec3 L = normalize(vec3(u_light, 0.85));
-  float count = u_count;
-  float spread = mix(0.0, 0.3, clamp((count - 1.0) / 4.0, 0.0, 1.0)) + 0.08 * step(1.5, count);
-  float baseWidth = mix(0.13, 0.075, clamp((count - 1.0) / 4.0, 0.0, 1.0));
+  // This portfolio always uses five neutral chrome ribbons.
+  const float spread = 0.38;
+  const float baseWidth = 0.075;
 
   // Premultiplied, composited back to front.
   vec3 col = vec3(0.0);
@@ -118,16 +118,16 @@ void main() {
 
   for (int i = 0; i < 5; i++) {
     float k = float(i);
-    if (k >= count) break;
-    float f = count > 1.0 ? k / (count - 1.0) : 0.5;
+    float f = k * 0.25;
     float lane = (f - 0.5) * spread;
     // Farther ribbons drift a touch slower: a hint of depth.
     float tk = t * mix(0.82, 1.0, f);
 
     float x = p.x;
-    float e = 0.004;
-    float c = spine(x, k, lane, tk, m);
-    float slope = (spine(x + e, k, lane, tk, m) - spine(x - e, k, lane, tk, m)) / (2.0 * e);
+    // Analytic tangent replaces three evaluations of the same ribbon spine.
+    vec2 curve = spine(x, k, lane, tk, m);
+    float c = curve.x;
+    float slope = curve.y;
     float stretch = inversesqrt(1.0 + slope * slope);
     float d = (p.y - c) * stretch;
 
@@ -175,17 +175,7 @@ void main() {
     vec3 env = studio(r, t);
 
     float facing = clamp(n.z, 0.0, 1.0);
-    vec3 F = u_f0 + (1.0 - u_f0) * pow(1.0 - facing, 5.0);
-
-    // Thin film: thickness drifts along the ribbon, and the colour shifts
-    // with the viewing angle, strongest on the turns.
-    float film = 0.5 + 0.5 * sin(x * 1.6 + v * 0.9 + tk * 0.35 + k * 1.9);
-    vec3 rainbow = 0.5 + 0.5 * cos(TAU * (film * 1.6 + facing * 1.1 + vec3(0.0, 0.33, 0.67)));
-    // Keep the film's brightness level, so it tints the metal, never dims it.
-    rainbow = 0.2 + 0.8 * rainbow;
-    rainbow /= max(dot(rainbow, vec3(0.2126, 0.7152, 0.0722)), 0.2);
-    float sheen = u_iridescence * (0.45 + 0.55 * (1.0 - facing));
-    F *= mix(vec3(1.0), rainbow, sheen);
+    vec3 F = vec3(0.888 + 0.112 * pow(1.0 - facing, 5.0));
 
     float rl = max(dot(r, L), 0.0);
     float spec = pow(rl, 90.0) * 5.0 + pow(rl, 14.0) * 0.55;
