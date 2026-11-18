@@ -1,0 +1,715 @@
+[
+  {
+    "id": "agentos",
+    "name": "AgentOS",
+    "category": "AI & intelligence",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/agentos",
+    "cover": "/portfolio/projects/agentos/02-dark.webp",
+    "second": "/portfolio/projects/agentos/03-dark.webp",
+    "position": "center top",
+    "alt": "AgentOS agent creation from a natural language prompt",
+    "en": {
+      "tagline": "Intelligence that gets to work.",
+      "description": "An operating layer for AI agents, tools and connected workspaces. AgentOS coordinates tasks across integrations and devices with permissions, human approvals and a durable activity record, bringing conversational interfaces and controlled execution into the same system.",
+      "capabilities": [
+        "Specialized agents and workspaces",
+        "Governed tool execution and approvals",
+        "Durable task and activity history",
+        "Web, desktop and mobile experiences"
+      ]
+    },
+    "es": {
+      "tagline": "Inteligencia que se pone a trabajar.",
+      "description": "Un sistema para coordinar agentes de IA, herramientas y espacios de trabajo conectados. AgentOS organiza tareas entre integraciones y dispositivos con permisos, aprobaciones humanas e historial persistente, reuniendo la conversación y la ejecución controlada en un mismo lugar.",
+      "capabilities": [
+        "Agentes especializados y espacios de trabajo",
+        "Ejecución de herramientas con controles y aprobaciones",
+        "Historial persistente de tareas y actividad",
+        "Experiencias web, de escritorio y móviles"
+      ]
+    }
+  },
+  {
+    "id": "omnicube",
+    "name": "OmniCube",
+    "category": "Connected systems",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/omnicube",
+    "cover": "/portfolio/projects/omnicube/03-dark.webp",
+    "second": "/portfolio/projects/omnicube/03-dark.webp",
+    "position": "center top",
+    "alt": "OmniCube operations dashboard and fleet indicators",
+    "en": {
+      "tagline": "Every asset. One live picture.",
+      "description": "A fleet intelligence platform that brings live vehicle positions, route history, geofences and alerts into one operational map. Web and mobile experiences connect the people managing assets with the telemetry coming from their devices.",
+      "capabilities": [
+        "Live GPS tracking and route history",
+        "Geofences and operational alerts",
+        "Fleet, device and SIM management",
+        "Reports and data exports"
+      ]
+    },
+    "es": {
+      "tagline": "Todos tus activos. Una sola vista en vivo.",
+      "description": "Una plataforma de inteligencia para flotas que reúne la ubicación de vehículos, el historial de recorridos, las geocercas y las alertas en un mapa operativo. Sus experiencias web y móvil conectan a quienes administran los activos con la telemetría de sus dispositivos.",
+      "capabilities": [
+        "Rastreo GPS en vivo e historial de recorridos",
+        "Geocercas y alertas operativas",
+        "Gestión de flotas, dispositivos y SIM",
+        "Reportes y exportación de datos"
+      ]
+    }
+  },
+  {
+    "id": "neurocity",
+    "name": "Neurocity",
+    "category": "Connected systems",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/neurocity",
+    "cover": "/portfolio/projects/neurocity/02-dark.webp",
+    "second": "/portfolio/projects/neurocity/03-dark.webp",
+    "position": "center top",
+    "alt": "Neurocity site map and connected camera previews",
+    "en": {
+      "tagline": "The city, connected.",
+      "description": "An operational platform that connects cameras, alarms, access points and field infrastructure on a shared map. Teams can review live video, recordings and alerts while moving between citywide awareness and the details of an individual location.",
+      "capabilities": [
+        "Map-based camera and infrastructure views",
+        "Live video and recording review",
+        "Alert and incident management",
+        "Mobile access and field setup"
+      ]
+    },
+    "es": {
+      "tagline": "La ciudad, conectada.",
+      "description": "Una plataforma operativa que conecta cámaras, alarmas, accesos e infraestructura en un mapa compartido. Los equipos pueden revisar video en vivo, grabaciones y alertas, pasando de una vista general de la ciudad al detalle de cada ubicación.",
+      "capabilities": [
+        "Cámaras e infraestructura en el mapa",
+        "Video en vivo y consulta de grabaciones",
+        "Gestión de alertas e incidentes",
+        "Acceso móvil y configuración en campo"
+      ]
+    }
+  },
+  {
+    "id": "fiscalite",
+    "name": "Fiscalité",
+    "category": "Business platforms",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/fiscalite",
+    "cover": "/portfolio/projects/fiscalite/01-dark.webp",
+    "second": "/portfolio/projects/fiscalite/03-dark.webp",
+    "position": "center top",
+    "alt": "fiscalite — One connected ecosystem",
+    "en": {
+      "tagline": "Turn compliance into clarity.",
+      "description": "A connected compliance workspace for company documents and tax information. Fiscalité brings collection, supplier checks and structured data together with tools for retrieval, notifications and analysis, helping teams move from scattered files to a usable information ecosystem.",
+      "capabilities": [
+        "Tax document collection and XML retrieval",
+        "Supplier and compliance information",
+        "Seven connected tax workflow tools",
+        "Data connections for reporting and analysis"
+      ]
+    },
+    "es": {
+      "tagline": "El cumplimiento, con claridad.",
+      "description": "Un espacio de trabajo que conecta documentos empresariales e información fiscal. Fiscalité reúne la recopilación de archivos, la revisión de proveedores y los datos estructurados con herramientas de consulta, notificaciones y análisis, para convertir archivos dispersos en información útil.",
+      "capabilities": [
+        "Recopilación de documentos fiscales y recuperación de XML",
+        "Información de proveedores y cumplimiento",
+        "Siete herramientas conectadas para procesos fiscales",
+        "Conexiones de datos para reportes y análisis"
+      ]
+    }
+  },
+  {
+    "id": "constella",
+    "name": "Constella Legal",
+    "category": "Business platforms",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/constella",
+    "cover": "/portfolio/projects/constella/01-dark.webp",
+    "second": "/portfolio/projects/constella/03-dark.webp",
+    "position": "center top",
+    "alt": "Constella practice dashboard and upcoming work",
+    "en": {
+      "tagline": "Your entire practice, connected.",
+      "description": "A private workspace for law firms to organize companies, contacts, documents and matters. Client requests, document templates and plan usage live alongside the work, with separate firm spaces and a focused portal for each client.",
+      "capabilities": [
+        "Companies, contacts and matter tracking",
+        "Document versions and Word templates",
+        "Client requests and private portal",
+        "Membership and service consumption"
+      ]
+    },
+    "es": {
+      "tagline": "Todo tu despacho, conectado.",
+      "description": "Un espacio privado para que los despachos organicen empresas, contactos, documentos y asuntos. Las solicitudes de clientes, las plantillas y el consumo del plan forman parte del trabajo cotidiano, con espacios separados por despacho y un portal propio para cada cliente.",
+      "capabilities": [
+        "Empresas, contactos y seguimiento de asuntos",
+        "Versiones de documentos y plantillas de Word",
+        "Solicitudes de clientes y portal privado",
+        "Membresías y consumo de servicios"
+      ]
+    }
+  },
+  {
+    "id": "rook",
+    "name": "Rook",
+    "category": "AI & intelligence",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/rook",
+    "cover": "/portfolio/projects/rook/01-light.webp",
+    "second": "/portfolio/projects/rook/03-dark.webp",
+    "position": "left top",
+    "alt": "Rook business consulting workspace",
+    "en": {
+      "tagline": "Bring intelligence into the room.",
+      "description": "A conversation workspace for meetings, individual consulting and interactive presentations. It brings meeting preparation, participant management and live voice sessions together, while AgentOS handles conversational intelligence, approved tools and the context that follows the discussion.",
+      "capabilities": [
+        "Meeting preparation and participant management",
+        "Live conversational meeting room",
+        "Individual consulting workspace",
+        "Aura conversational presentations"
+      ]
+    },
+    "es": {
+      "tagline": "Inteligencia dentro de la conversación.",
+      "description": "Un espacio para reuniones, consultoría individual y presentaciones interactivas. Reúne la preparación de sesiones, la gestión de participantes y la conversación por voz en vivo, mientras AgentOS aporta inteligencia, herramientas autorizadas y el contexto que acompaña cada conversación.",
+      "capabilities": [
+        "Preparación de reuniones y gestión de participantes",
+        "Sala de conversación en vivo",
+        "Espacio de consultoría individual",
+        "Presentaciones conversacionales con Aura"
+      ]
+    }
+  },
+  {
+    "id": "opticore",
+    "name": "OptiCore",
+    "category": "Connected systems",
+    "stage": "Prototype",
+    "source": "https://clyra.dev/portfolio/opticore",
+    "cover": "/portfolio/projects/opticore/01-dark.webp",
+    "second": "/portfolio/projects/opticore/03-dark.webp",
+    "position": "center top",
+    "alt": "opticore — Patterns start here.",
+    "en": {
+      "tagline": "Intelligence in every room.",
+      "description": "An AI-powered energy system for homes and buildings. OptiCore connects sensing, lighting and environmental control, learns the patterns of a space and coordinates its connected architecture to optimize energy use while keeping people in control.",
+      "capabilities": [
+        "Lighting and energy optimization",
+        "AI models that learn usage patterns",
+        "Connected sensors and room controllers",
+        "Coordinated control across the building"
+      ]
+    },
+    "es": {
+      "tagline": "Inteligencia en cada espacio.",
+      "description": "Un sistema de inteligencia energética para casas y edificios. OptiCore conecta sensores, iluminación y control ambiental, aprende los patrones de cada espacio y coordina su arquitectura conectada para optimizar el consumo, manteniendo a las personas al mando.",
+      "capabilities": [
+        "Optimización de iluminación y energía",
+        "Modelos de IA que aprenden patrones de uso",
+        "Sensores y controladores por habitación",
+        "Control coordinado de todo el edificio"
+      ]
+    }
+  },
+  {
+    "id": "gemelo",
+    "name": "Gemelo Digital",
+    "category": "Connected systems",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/gemelo",
+    "cover": "/portfolio/projects/gemelo/01-dark.webp",
+    "second": "/portfolio/projects/gemelo/03-dark.webp",
+    "position": "center top",
+    "alt": "gemelo — The city, connected.",
+    "en": {
+      "tagline": "A living view of the city.",
+      "description": "A digital twin that brings incidents, operational indicators, vehicle movement and connected kiosks into an immersive map. Live layers, historical exploration and a read-only AI interface help teams understand what is happening across the city.",
+      "capabilities": [
+        "Interactive 3D operational map",
+        "Incident trends and geographic analysis",
+        "CityTrip and kiosk data connections",
+        "Read-only AI tools for operational queries"
+      ]
+    },
+    "es": {
+      "tagline": "Una vista viva de la ciudad.",
+      "description": "Un gemelo digital que reúne incidentes, indicadores operativos, movimiento de vehículos y kioscos conectados en un mapa inmersivo. Las capas en vivo, la exploración histórica y una interfaz de IA de solo lectura ayudan a comprender lo que ocurre en la ciudad.",
+      "capabilities": [
+        "Mapa operativo 3D interactivo",
+        "Tendencias de incidentes y análisis geográfico",
+        "Conexión con datos de CityTrip y kioscos",
+        "Consultas operativas con IA de solo lectura"
+      ]
+    }
+  },
+  {
+    "id": "clyra-meet",
+    "name": "Clyra Meet",
+    "category": "Business platforms",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/clyra-meet",
+    "cover": "/portfolio/projects/clyra-meet/01-dark.webp",
+    "second": "/portfolio/projects/clyra-meet/03-dark.webp",
+    "position": "center top",
+    "alt": "Clyra Meet meeting dashboard and invitations",
+    "en": {
+      "tagline": "Good conversations, closer together.",
+      "description": "A meeting experience for video calls, guests and shared screens across web and desktop. Scheduling, admission controls and a companion agent connect the conversation to collaborative work, including remote control that requires the participant’s consent.",
+      "capabilities": [
+        "Web and desktop video meetings",
+        "Guest admission and meeting scheduling",
+        "Screen sharing",
+        "Consent-based remote control"
+      ]
+    },
+    "es": {
+      "tagline": "Buenas conversaciones. Más cerca.",
+      "description": "Una experiencia de reuniones con videollamadas, invitados y pantalla compartida en web y escritorio. La programación, los controles de acceso y un agente acompañante conectan la conversación con el trabajo colaborativo, incluido el control remoto con consentimiento del participante.",
+      "capabilities": [
+        "Videollamadas en web y escritorio",
+        "Acceso de invitados y programación de reuniones",
+        "Pantalla compartida",
+        "Control remoto con consentimiento"
+      ]
+    }
+  },
+  {
+    "id": "workspace",
+    "name": "Clyra Workspace",
+    "category": "Business platforms",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/workspace",
+    "cover": "/portfolio/projects/workspace/01-dark.webp",
+    "second": "/portfolio/projects/workspace/03-dark.webp",
+    "position": "center top",
+    "alt": "Workspace visual application hub",
+    "en": {
+      "tagline": "One sign-in. An entire universe.",
+      "description": "A shared entry point for Clyra applications, with a product gallery and access based on the user’s assigned tools. The connected Nexo mobile experience adds native conversations and a consistent way to reach each application.",
+      "capabilities": [
+        "Single sign-on across assigned applications",
+        "Visual product gallery and previews",
+        "Account-scoped application access",
+        "Nexo mobile conversations and voice"
+      ]
+    },
+    "es": {
+      "tagline": "Un solo acceso. Todo un universo.",
+      "description": "Un punto de entrada compartido a las aplicaciones de Clyra, con una galería de productos y acceso según las herramientas asignadas a cada persona. La experiencia móvil Nexo añade conversaciones nativas y una forma consistente de llegar a cada aplicación.",
+      "capabilities": [
+        "Inicio de sesión único para las aplicaciones asignadas",
+        "Galería visual de productos y vistas previas",
+        "Acceso a aplicaciones según la cuenta",
+        "Conversaciones y voz en Nexo móvil"
+      ]
+    }
+  },
+  {
+    "id": "omnios",
+    "name": "omniOS",
+    "category": "Connected systems",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/omnios",
+    "cover": "/portfolio/projects/omnios/01-dark.webp",
+    "second": "/portfolio/projects/omnios/03-dark.webp",
+    "position": "center top",
+    "alt": "omnios — Every touchpoint. Connected.",
+    "en": {
+      "tagline": "Make every screen part of the experience.",
+      "description": "A management platform for connected kiosks, digital displays and public-facing experiences. Organizations can coordinate content, campaigns, device assignments and operational requests while bringing cameras, alerts and service touchpoints into the same administration environment.",
+      "capabilities": [
+        "Kiosks, displays and device assignments",
+        "Content layouts and campaigns",
+        "Organization and location management",
+        "Operational alerts and service requests"
+      ]
+    },
+    "es": {
+      "tagline": "Cada pantalla, parte de la experiencia.",
+      "description": "Una plataforma para administrar kioscos conectados, pantallas digitales y experiencias de atención al público. Las organizaciones coordinan contenido, campañas, asignaciones de dispositivos y solicitudes operativas, junto con cámaras, alertas y puntos de servicio en un mismo entorno.",
+      "capabilities": [
+        "Kioscos, pantallas y asignación de dispositivos",
+        "Diseños de contenido y campañas",
+        "Gestión de organizaciones y ubicaciones",
+        "Alertas operativas y solicitudes de servicio"
+      ]
+    }
+  },
+  {
+    "id": "kioskos",
+    "name": "KioskOS",
+    "category": "Connected systems",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/kioskos",
+    "cover": "/portfolio/projects/kioskos/01-dark.webp",
+    "second": "/portfolio/projects/kioskos/03-dark.webp",
+    "position": "center top",
+    "alt": "kioskos — The entire fleet. In view.",
+    "en": {
+      "tagline": "A whole fleet, within reach.",
+      "description": "A device operations workspace for distributed kiosks and totems. Teams can monitor device status, inspect captures and logs, schedule commands and manage remote support across groups and organizations, with dedicated clients for different device platforms.",
+      "capabilities": [
+        "Device inventory and live operational views",
+        "Remote commands and scheduled actions",
+        "Screenshots, logs and support workflows",
+        "Android, Windows and Raspberry Pi clients"
+      ]
+    },
+    "es": {
+      "tagline": "Toda tu flota, al alcance.",
+      "description": "Un espacio de operaciones para kioscos y tótems distribuidos. Los equipos pueden consultar el estado de los dispositivos, revisar capturas y registros, programar comandos y gestionar el soporte remoto por grupo y organización, con clientes para distintas plataformas.",
+      "capabilities": [
+        "Inventario de dispositivos y vistas operativas en vivo",
+        "Comandos remotos y acciones programadas",
+        "Capturas, registros y procesos de soporte",
+        "Clientes para Android, Windows y Raspberry Pi"
+      ]
+    }
+  },
+  {
+    "id": "citytrip",
+    "name": "CityTrip",
+    "category": "Connected systems",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/citytrip",
+    "cover": "/portfolio/projects/citytrip/01-dark.webp",
+    "second": "/portfolio/projects/citytrip/03-dark.webp",
+    "position": "center top",
+    "alt": "citytrip — Mobility, in your hand",
+    "en": {
+      "tagline": "Every journey, connected.",
+      "description": "A mobility platform connecting riders, drivers and operations teams. Ride requests, live trip tracking and payments work alongside an administrative console, while an onboard tablet experience adds another touchpoint between the passenger and the journey.",
+      "capabilities": [
+        "Rider and driver mobile experiences",
+        "Ride requests and live tracking",
+        "Payments and operations console",
+        "Onboard tablet experience"
+      ]
+    },
+    "es": {
+      "tagline": "Cada trayecto, conectado.",
+      "description": "Una plataforma de movilidad que conecta pasajeros, conductores y equipos de operación. Las solicitudes de viaje, el seguimiento en vivo y los pagos se integran con una consola administrativa, mientras una experiencia en tablet a bordo acompaña al pasajero durante el trayecto.",
+      "capabilities": [
+        "Aplicaciones móviles para pasajeros y conductores",
+        "Solicitudes de viaje y seguimiento en vivo",
+        "Pagos y consola de operaciones",
+        "Experiencia en tablet a bordo"
+      ]
+    }
+  },
+  {
+    "id": "teddy",
+    "name": "Teddy",
+    "category": "Connected systems",
+    "stage": "In development",
+    "source": "https://clyra.dev/portfolio/teddy",
+    "cover": "/portfolio/concepts/teddy.webp",
+    "second": null,
+    "position": "center top",
+    "alt": "Teddy",
+    "en": {
+      "tagline": "A little bear. A world of possibility.",
+      "description": "A technology-filled bear in development, designed to bring AI agents into a familiar, physical companion. Teddy explores how conversation, play and curiosity could support children through an experience that reaches beyond a screen.",
+      "capabilities": [
+        "Physical bear with embedded technology",
+        "Specialized AI agents",
+        "Conversational and playful experiences",
+        "Hardware and software development"
+      ]
+    },
+    "es": {
+      "tagline": "Un pequeño oso. Un mundo por descubrir.",
+      "description": "Un oso con tecnología en su interior, actualmente en desarrollo, que busca llevar agentes de IA a un compañero físico y cercano. Teddy explora cómo la conversación, el juego y la curiosidad podrían acompañar a los niños en una experiencia que va más allá de una pantalla.",
+      "capabilities": [
+        "Oso físico con tecnología integrada",
+        "Agentes de IA especializados",
+        "Experiencias de conversación y juego",
+        "Desarrollo de hardware y software"
+      ]
+    }
+  },
+  {
+    "id": "medadvisor",
+    "name": "MedAdvisor",
+    "category": "Health & lifestyle",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/medadvisor",
+    "cover": "/portfolio/projects/medadvisor/01-light.webp",
+    "second": "/portfolio/projects/medadvisor/03-light.webp",
+    "position": "center top",
+    "alt": "MedAdvisor public platform introduction",
+    "en": {
+      "tagline": "Healthcare, better connected.",
+      "description": "A healthcare communication platform connecting professionals, patients and service providers. Appointment management, direct messaging and role-specific profiles bring the different participants of the healthcare ecosystem into a coordinated digital experience across web and connected services.",
+      "capabilities": [
+        "Appointment management",
+        "Direct messaging and attachments",
+        "Role-specific healthcare profiles",
+        "Professional and appointment analytics"
+      ]
+    },
+    "es": {
+      "tagline": "La atención médica, mejor conectada.",
+      "description": "Una plataforma de comunicación que conecta profesionales de la salud, pacientes y prestadores de servicios. La gestión de citas, los mensajes directos y los perfiles por función reúnen a los participantes del sector en una experiencia coordinada entre web y servicios conectados.",
+      "capabilities": [
+        "Gestión de citas",
+        "Mensajes directos y archivos adjuntos",
+        "Perfiles según la función de cada participante",
+        "Analítica de profesionales y citas"
+      ]
+    }
+  },
+  {
+    "id": "metrica",
+    "name": "Métrica",
+    "category": "Connected systems",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/metrica",
+    "cover": "/portfolio/concepts/metrica.webp",
+    "second": null,
+    "position": "center top",
+    "alt": "Métrica",
+    "en": {
+      "tagline": "See the patterns behind the numbers.",
+      "description": "An executive intelligence dashboard that combines incident aggregates, geographic exploration and historical data. A connected conversational interface helps authorized users ask questions about the same operational information, with read-only tools and the user’s existing data scope.",
+      "capabilities": [
+        "Executive incident dashboards",
+        "Geographic and historical exploration",
+        "Read-only operational data tools",
+        "Integrated conversational analytics"
+      ]
+    },
+    "es": {
+      "tagline": "Los patrones detrás de los números.",
+      "description": "Un tablero ejecutivo que combina datos agregados de incidentes, exploración geográfica e información histórica. Su interfaz conversacional permite a las personas autorizadas consultar esos mismos datos operativos, con herramientas de solo lectura y el alcance de acceso de su cuenta.",
+      "capabilities": [
+        "Tableros ejecutivos de incidentes",
+        "Exploración geográfica e histórica",
+        "Herramientas de consulta operativa de solo lectura",
+        "Analítica conversacional integrada"
+      ]
+    }
+  },
+  {
+    "id": "politiqsync",
+    "name": "PolitiqSync",
+    "category": "Business platforms",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/politiqsync",
+    "cover": "/portfolio/projects/politiqsync/01-dark.webp",
+    "second": "/portfolio/projects/politiqsync/03-dark.webp",
+    "position": "center top",
+    "alt": "politiqsync — Territory, connected",
+    "en": {
+      "tagline": "Keep field teams in sync.",
+      "description": "A field operations platform that connects contact capture, questionnaires, attendance and geographic activity. Web and mobile tools give administrators, coordinators and field teams a shared view of their work, with roles and access organized by territory.",
+      "capabilities": [
+        "Field contacts and questionnaires",
+        "Attendance and team coordination",
+        "Maps and operational results",
+        "Connected web and mobile experiences"
+      ]
+    },
+    "es": {
+      "tagline": "Equipos de campo, en sintonía.",
+      "description": "Una plataforma de operaciones en campo que conecta el registro de contactos, los cuestionarios, la asistencia y la actividad geográfica. Las herramientas web y móviles ofrecen una vista compartida a administradores, coordinadores y equipos, con funciones y accesos organizados por territorio.",
+      "capabilities": [
+        "Contactos y cuestionarios en campo",
+        "Asistencia y coordinación de equipos",
+        "Mapas y resultados operativos",
+        "Experiencias web y móviles conectadas"
+      ]
+    }
+  },
+  {
+    "id": "luxoflex",
+    "name": "Luxoflex",
+    "category": "Business platforms",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/luxoflex",
+    "cover": "/portfolio/projects/luxoflex/01-dark.webp",
+    "second": "/portfolio/projects/luxoflex/03-dark.webp",
+    "position": "center top",
+    "alt": "luxoflex — Craft, on display",
+    "en": {
+      "tagline": "A sharper first impression.",
+      "description": "A digital brand experience for a specialist in labels and printing. Product collections, material exploration and a visual prepress workflow bring the service offering online, guiding visitors from discovering the work to making a project enquiry.",
+      "capabilities": [
+        "Product and materials showcase",
+        "Visual prepress process",
+        "Service-specific landing pages",
+        "Project enquiry and contact"
+      ]
+    },
+    "es": {
+      "tagline": "Una primera impresión que destaca.",
+      "description": "Una experiencia digital para una marca especializada en etiquetas e impresión. Las colecciones de productos, la exploración de materiales y un proceso visual de preprensa presentan sus servicios en línea y acompañan al visitante desde el descubrimiento hasta la consulta de un proyecto.",
+      "capabilities": [
+        "Catálogo visual de productos y materiales",
+        "Proceso visual de preprensa",
+        "Páginas específicas por servicio",
+        "Consulta de proyectos y contacto"
+      ]
+    }
+  },
+  {
+    "id": "promptlab",
+    "name": "PromptLab",
+    "category": "AI & intelligence",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/promptlab",
+    "cover": "/portfolio/projects/promptlab/01-dark.webp",
+    "second": "/portfolio/projects/promptlab/03-dark.webp",
+    "position": "center top",
+    "alt": "promptlab — Start with a better question",
+    "en": {
+      "tagline": "Better prompts. Clearer possibilities.",
+      "description": "A workspace for developing clearer, more structured AI instructions. Conversations, saved work and development-context settings help users refine what they ask, while account plans and credit tracking support an ongoing prompt-building workflow.",
+      "capabilities": [
+        "Prompt improvement and structuring",
+        "Conversations and saved history",
+        "Development-context configuration",
+        "Plans and credit management"
+      ]
+    },
+    "es": {
+      "tagline": "Mejores prompts. Más posibilidades.",
+      "description": "Un espacio para desarrollar instrucciones de IA más claras y estructuradas. Las conversaciones, el trabajo guardado y la configuración del contexto de desarrollo ayudan a refinar cada solicitud, con planes de cuenta y seguimiento de créditos para acompañar el uso continuo.",
+      "capabilities": [
+        "Mejora y estructuración de prompts",
+        "Conversaciones e historial guardado",
+        "Configuración del contexto de desarrollo",
+        "Gestión de planes y créditos"
+      ]
+    }
+  },
+  {
+    "id": "reportscan",
+    "name": "Clyra Extract",
+    "category": "Business platforms",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/reportscan",
+    "cover": "/portfolio/concepts/reportscan.webp",
+    "second": null,
+    "position": "center top",
+    "alt": "Clyra Extract",
+    "en": {
+      "tagline": "From documents to usable information.",
+      "description": "A document-processing service that extracts images and structured text from administrative PDF templates. Individual and batch workflows organize the results with extraction metadata, making the output available to other systems through an API and command-line tools.",
+      "capabilities": [
+        "Template-based PDF extraction",
+        "Structured text and image output",
+        "Batch and individual processing",
+        "Extraction metadata and integration API"
+      ]
+    },
+    "es": {
+      "tagline": "De documentos a información útil.",
+      "description": "Un servicio que extrae imágenes y texto estructurado de plantillas administrativas en PDF. Los procesos individuales y por lotes organizan los resultados con metadatos de extracción y los ponen a disposición de otros sistemas mediante una API y herramientas de línea de comandos.",
+      "capabilities": [
+        "Extracción de PDF basada en plantillas",
+        "Salida de texto estructurado e imágenes",
+        "Procesamiento individual y por lotes",
+        "Metadatos de extracción y API de integración"
+      ]
+    }
+  },
+  {
+    "id": "3d-converter",
+    "name": "3D Converter",
+    "category": "Creative tools",
+    "stage": "Prototype",
+    "source": "https://clyra.dev/portfolio/3d-converter",
+    "cover": "/portfolio/projects/3d-converter/01-dark.webp",
+    "second": "/portfolio/projects/3d-converter/03-dark.webp",
+    "position": "center top",
+    "alt": "3d-converter — Shape, in focus",
+    "en": {
+      "tagline": "From four views to a new dimension.",
+      "description": "A photo-to-3D prototype that turns four canonical object views into an interactive model preview and print-oriented exports. A queued processing pipeline separates the browser experience from inference, with different engines for approximation, testing and local GPU workflows.",
+      "capabilities": [
+        "Four-view image workflow",
+        "Interactive 3D preview",
+        "Queued inference processing",
+        "Print-oriented model exports"
+      ]
+    },
+    "es": {
+      "tagline": "De cuatro vistas a otra dimensión.",
+      "description": "Un prototipo que transforma cuatro vistas de un objeto en una vista previa 3D interactiva y archivos orientados a impresión. Una cola de procesamiento separa la experiencia del navegador de la inferencia, con distintos motores para aproximación, pruebas y trabajo con GPU local.",
+      "capabilities": [
+        "Proceso a partir de cuatro vistas",
+        "Vista previa 3D interactiva",
+        "Procesamiento de inferencia en cola",
+        "Exportación de modelos para impresión"
+      ]
+    }
+  },
+  {
+    "id": "3d-projector",
+    "name": "Clyra 3D Projector",
+    "category": "Creative tools",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/3d-projector",
+    "cover": "/portfolio/projects/3d-projector/01-dark.webp",
+    "second": "/portfolio/projects/3d-projector/03-dark.webp",
+    "position": "center top",
+    "alt": "3d-projector — Beyond the flat image",
+    "en": {
+      "tagline": "Digital characters, beyond the screen.",
+      "description": "A browser-based stage for 3D characters and projection experiments. Models and avatars can be positioned, mirrored and animated against a clean background, then presented in a distraction-free projection view for an OLED display and acrylic setup.",
+      "capabilities": [
+        "GLB and VRM model support",
+        "Avatar expressions and animations",
+        "Orbit, scale and mirror controls",
+        "Fullscreen projection mode"
+      ]
+    },
+    "es": {
+      "tagline": "Personajes digitales, más allá de la pantalla.",
+      "description": "Un escenario en el navegador para personajes 3D y experimentos de proyección. Permite colocar, reflejar y animar modelos y avatares sobre un fondo limpio, y presentarlos en una vista de proyección sin distracciones para una instalación con pantalla OLED y acrílico.",
+      "capabilities": [
+        "Compatibilidad con modelos GLB y VRM",
+        "Expresiones y animaciones de avatares",
+        "Controles de órbita, escala y reflejo",
+        "Proyección en pantalla completa"
+      ]
+    }
+  },
+  {
+    "id": "axion",
+    "name": "AXION Studio",
+    "category": "Business platforms",
+    "stage": null,
+    "source": "https://clyra.dev/portfolio/axion",
+    "cover": "/portfolio/projects/axion/01-dark.webp",
+    "second": "/portfolio/projects/axion/03-dark.webp",
+    "position": "center top",
+    "alt": "axion — An identity that travels",
+    "en": {
+      "tagline": "An identity that goes places.",
+      "description": "Digital identities designed to travel. AXION Studio brings customizable profile cards, contact management, QR sharing and mobile wallet passes into one workspace, with a consistent visual identity across web and native experiences.",
+      "capabilities": [
+        "Customizable digital profile cards",
+        "Contact and people workspace",
+        "QR sharing and public profiles",
+        "Apple Wallet passes and Google Wallet links"
+      ]
+    },
+    "es": {
+      "tagline": "Una identidad que te acompaña.",
+      "description": "Identidades digitales listas para llevar. AXION Studio reúne tarjetas de perfil personalizables, gestión de contactos, códigos QR y pases para billeteras móviles en un mismo espacio, con una identidad visual consistente entre web y aplicaciones nativas.",
+      "capabilities": [
+        "Tarjetas de perfil digital personalizables",
+        "Espacio de contactos y personas",
+        "Perfiles públicos y uso compartido por QR",
+        "Pases de Apple Wallet y enlaces de Google Wallet"
+      ]
+    }
+  }
+]

@@ -1,85 +1,220 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-@font-face {
-  font-family: 'Careny';
-  src: url('/fonts/CarenyRegular-GO27Z.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+@import "../features/portfolio/styles/hero.css";
+@import "../features/portfolio/styles/projects.css";
+@import "../features/portfolio/styles/sections.css";
+@import "../features/portfolio/styles/dialog.css";
+:root {
+  color-scheme: dark;
+  --bg: #08090b;
+  --surface: #101114;
+  --text: #f5f5f7;
+  --muted: #a2a4ad;
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #d4e7b2;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 32px;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+button,
+input,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button,
+a {
+  touch-action: manipulation;
+}
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  border: 0;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+img,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+.shell {
+  width: min(100% - 112px, 1320px);
+  margin-inline: auto;
+}
+.section {
+  padding-block: 120px;
+}
+.eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.6;
+  color: #b3b6c0;
+}
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  min-height: 54px;
+  padding: 14px 23px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  transition:
+    transform 0.25s,
+    background 0.25s,
+    border-color 0.25s;
+}
+.button:hover {
+  transform: translateY(-3px);
+}
+.button-primary {
+  background: #f0f0f2;
+  color: #111216;
+  box-shadow:
+    inset 0 1px 2px #fff,
+    0 0 30px rgba(255, 255, 255, 0.06);
+}
+.button-primary:hover {
+  background: #fff;
+}
+.button-quiet {
+  color: #d5d5dc;
+  padding-inline: 12px;
+  gap: 12px;
+}
+.button-outline {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(
+    170deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.015)
+  );
+}
+.button-outline:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(16, 17, 20, 0.8);
+  transition: background 0.2s;
+}
+.icon-button:hover {
+  background: #2a2b30;
+}
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #666;
+  padding-bottom: 7px;
+  font-size: 13px;
+}
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  left: 20px;
+  top: 15px;
+  transform: translateY(-150%);
+  background: var(--accent);
+  color: #08090b;
+  padding: 12px 20px;
+  border-radius: 8px;
+}
+.skip-link:focus {
+  transform: none;
+}
+.not-found {
+  padding-block: 20vh;
+}
+.not-found h1 {
+  font-size: clamp(48px, 8vw, 100px);
+  letter-spacing: -0.065em;
+  margin: 30px 0;
+}
+.not-found p {
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+@media (max-width: 1000px) {
+  .shell {
+    width: calc(100% - 64px);
+  }
+  .section {
+    padding-block: 90px;
+  }
+}
+@media (max-width: 700px) {
+  .shell {
+    width: calc(100% - 40px);
+  }
+  .section {
+    padding-block: 72px;
+  }
+  .button {
+    min-height: 50px;
+    font-size: 12px;
+    padding-inline: 19px;
+    gap: 15px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
-.scrolling {
-  cursor: grabbing !important;
-}
-
-
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-  }
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
-}
-
-
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

@@ -1,0 +1,147 @@
+.project-dialog {
+  width: min(1040px, calc(100% - 64px));
+  max-height: 90svh;
+  padding: 0;
+  border: 1px solid #3c3e46;
+  border-radius: 20px;
+  background: #101115;
+  color: var(--text);
+  overscroll-behavior: contain;
+  box-shadow: 0 40px 120px #000a;
+}
+.project-dialog::backdrop {
+  background: #030407d9;
+  backdrop-filter: blur(12px);
+}
+.dialog-inner {
+  position: relative;
+  padding: 42px;
+}
+.dialog-close {
+  position: sticky;
+  top: 15px;
+  z-index: 2;
+  float: right;
+  margin-top: -15px;
+  margin-right: -15px;
+}
+.dialog-heading {
+  padding-right: 45px;
+  margin-bottom: 28px;
+}
+.dialog-heading h2 {
+  margin: 15px 0 10px;
+  font-weight: 450;
+  font-size: 55px;
+  letter-spacing: -2px;
+}
+.dialog-heading > p:last-child {
+  font-size: 14px;
+  color: #b4b7c3;
+}
+.dialog-gallery {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #08090b;
+}
+.dialog-gallery > img {
+  width: 100%;
+  height: auto;
+  max-height: 58svh;
+  object-fit: contain;
+}
+.gallery-controls {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 17px;
+  align-items: center;
+  padding: 4px;
+  border: 1px solid #ffffff26;
+  border-radius: 50px;
+  background: #08090be8;
+}
+.gallery-controls span {
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.gallery-controls .icon-button {
+  width: 33px;
+  height: 33px;
+  border: 0;
+}
+.dialog-story {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 45px;
+  margin-top: 30px;
+}
+.dialog-story p {
+  font-size: 13px;
+  line-height: 1.95;
+  color: #b2b4be;
+}
+.dialog-story .text-link {
+  margin-top: 22px;
+}
+.dialog-story ul {
+  padding-left: 15px;
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #b6b9c4;
+}
+.dialog-story li {
+  padding: 3px 0;
+}
+.capture-note {
+  color: #969aa7;
+  font-size: 10px;
+  margin-top: 25px;
+}
+@media (max-width: 700px) {
+  .project-dialog {
+    width: calc(100% - 24px);
+    max-height: 94svh;
+    border-radius: 14px;
+  }
+  .dialog-inner {
+    padding: 26px 18px;
+  }
+  .dialog-close {
+    margin: -10px -7px 0 0;
+  }
+  .dialog-heading {
+    padding-right: 30px;
+  }
+  .dialog-heading h2 {
+    font-size: 38px;
+    letter-spacing: -1.5px;
+  }
+  .dialog-heading .eyebrow {
+    font-size: 8px;
+  }
+  .dialog-heading > p:last-child {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .dialog-story {
+    grid-template-columns: 1fr;
+    gap: 27px;
+  }
+  .dialog-story p {
+    font-size: 12px;
+  }
+  .gallery-controls {
+    bottom: 5px;
+    gap: 10px;
+  }
+  .gallery-controls .icon-button {
+    width: 28px;
+    height: 28px;
+  }
+}

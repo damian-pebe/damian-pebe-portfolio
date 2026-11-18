@@ -1,0 +1,81 @@
+import type { es } from "./es";
+export const en: typeof es = {
+  skip: "Skip to content",
+  nav: { work: "Work", approach: "Approach", contact: "Let’s talk" },
+  hero: {
+    eyebrow: "DAMIAN PÉREZ BECERRIL",
+    role: "SOFTWARE ENGINEER & PRODUCT BUILDER",
+    line1: "Big ideas.",
+    line2: "Real products.",
+    description:
+      "Software engineering, design and artificial intelligence. From the first idea to a product in production.",
+    primary: "Let’s build something",
+    secondary: "Explore the work",
+    location: "From Mexico. Built for anywhere.",
+    scroll: "Scroll to discover",
+    label: "DESIGN WITH INTENTION. CODE WITH AMBITION.",
+  },
+  work: {
+    eyebrow: "01 / SELECTED WORK",
+    title: "The work speaks.",
+    subtitle:
+      "Products connected to the real world. A selection of what I build with Clyra.",
+    all: "All",
+    more: "Explore all 23 projects",
+    less: "Back to selected work",
+    view: "Explore project",
+    complete: "Read the full case on Clyra",
+    close: "Close project",
+    previous: "Previous image",
+    next: "Next image",
+    gallery: "Product view",
+    capabilities: "What it makes possible",
+    prototype: "Prototype",
+    development: "In development",
+    concept: "Product concept",
+    demo: "Screenshots use demonstration data.",
+    categories: {
+      "AI & intelligence": "Artificial intelligence",
+      "Business platforms": "Platforms",
+      "Connected systems": "Connected systems",
+      "Health & lifestyle": "Health",
+      "Creative tools": "Creative tools",
+    },
+  },
+  approach: {
+    eyebrow: "02 / HOW I THINK",
+    title: "The bigger picture.\nThe smallest detail.",
+    description:
+      "I connect design, engineering and AI to turn complex problems into products that feel simple.",
+    items: [
+      {
+        title: "From zero to product.",
+        text: "From architecture to interface. One continuous vision, from the first decision to launch.",
+        tag: "PRODUCT + ENGINEERING",
+      },
+      {
+        title: "AI that gets to work.",
+        text: "Agents, voice and automation connected to the tools and processes where the work happens.",
+        tag: "APPLIED INTELLIGENCE",
+      },
+      {
+        title: "Every detail matters.",
+        text: "Clear interactions, intentional motion and performance. What you see and what makes it work.",
+        tag: "DESIGN + PRECISION",
+      },
+    ],
+  },
+  contact: {
+    eyebrow: "03 / WHAT’S NEXT",
+    title: "Your next big idea.\nLet’s build it.",
+    text: "Have something ambitious in mind? I’d like to hear it.",
+    email: "Get in touch",
+    copy: "Copy email",
+    copied: "Email copied",
+    failed: "Couldn’t copy. You can use the email link.",
+    back: "Back to top",
+    footer: "Made with intention.",
+    github: "View Damian’s GitHub",
+    linkedin: "View Damian’s LinkedIn",
+  },
+};

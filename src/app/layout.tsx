@@ -1,71 +1,52 @@
-import type { Metadata } from "next";
-import {
-  Ephesis,
-  Geist,
-  Geist_Mono,
-  Lobster,
-  Plaster,
-  Poppins,
-} from "next/font/google";
+import { Geist } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { site } from "@/lib/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const geist = Geist({
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-geist",
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const lobster = Lobster({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-lobster",
-});
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-poppins",
-});
-
-const plaster = Plaster({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-plaster",
-});
-
-const ephesis = Ephesis({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-ephesis',
-})
-
 export const metadata: Metadata = {
-  title: "Damian Pebe",
-  description: "Damian Pebe's Portfolio Website",
+  metadataBase: new URL(site.url),
+  title: "Damian Pérez — Software, diseño e inteligencia artificial",
+  description:
+    "Ideas grandes. Productos reales. Soy Damian Pérez: construyo software, plataformas e inteligencia artificial con diseño y precisión. Explora mis proyectos.",
+  alternates: {
+    canonical: "/",
+    languages: { es: "/", en: "/en/", "x-default": "/" },
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Damian Pérez",
+    locale: "es_MX",
+    url: "/",
+    title: "Damian Pérez — Ideas grandes. Productos reales.",
+    description:
+      "Ingeniería de software, diseño e inteligencia artificial. De la primera idea al producto en producción.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Damian Pérez — Software, design & AI",
+      },
+    ],
+  },
+  twitter: { card: "summary_large_image" },
+  icons: { icon: "/icon.svg" },
 };
-
+export const viewport: Viewport = {
+  themeColor: "#08090b",
+  colorScheme: "dark",
+};
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${lobster.variable} ${poppins.variable} ${plaster.variable} ${ephesis.variable} antialiased`}
-      >
-        <div
-          className="fixed inset-0 -z-10 bg-white"
-          style={{
-            background: `linear-gradient(17deg,rgba(242, 242, 242, 1) 0%, rgba(209, 209, 209, 1) 12%, rgba(242, 242, 242, 1) 24%, rgba(209, 209, 209, 1) 36%, rgba(242, 242, 242, 1) 50%, rgba(209, 209, 209, 1) 64%, rgba(242, 242, 242, 1) 77%, rgba(209, 209, 209, 1) 88%, rgba(242, 242, 242, 1) 100%)`,
-          }}
-        />
-        {children}
-      </body>
+    <html lang="es" suppressHydrationWarning>
+      <body className={geist.variable}>{children}</body>
     </html>
   );
 }

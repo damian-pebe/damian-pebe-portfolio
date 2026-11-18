@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Damian Pérez · Personal portfolio
 
-## Getting Started
+Bilingual personal portfolio at **https://damianperez.dev**. Built with Next.js, React and Framer Motion; exported as static files and hosted in Damian's personal Cloudflare account.
 
-First, run the development server:
+## Development
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Verification and preview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run lint
+npm run typecheck
+npm run format:check
+npm run build
+npm test
+npm audit --omit=dev
+npm run preview
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The static preview is http://localhost:4175. Browser tests use installed Google Chrome, desktop and mobile viewports. A production build is required before the preview and browser tests.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+The checked-in account is Damian's personal account, not Clyra's. Credentials are never stored in this repository. On Damian's Mac, use the separate Wrangler login:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+export XDG_CONFIG_HOME=/Users/damianperez/.config/cloudflare-personal
+npx wrangler whoami
+npm run build
+npx wrangler deploy --env staging
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Staging: https://damian-pebe-portfolio-staging.damian-pebe.workers.dev
 
-## Deploy on Vercel
+After verification and explicit authorization for the production release, promote the reviewed revision to main and deploy the same `out/` files:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sh
+npx wrangler deploy
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Production: https://damianperez.dev. The `www` hostname redirects to the canonical domain. Custom-domain bindings provision DNS and HTTPS through Cloudflare Workers.
+
+This is an assets-only Worker: no application server, API keys, database or paid plan is needed.
+
+See [architecture](docs/architecture.md), [verification](docs/verification.md) and [third-party notices](docs/THIRD_PARTY_NOTICES.md).

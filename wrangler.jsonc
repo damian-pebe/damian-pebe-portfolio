@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "damian-pebe-portfolio",
+  "account_id": "ad8dddf36a3fc53dca424e763e4a153e",
+  "compatibility_date": "2026-11-17",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+  },
+  "routes": [
+    { "pattern": "damianperez.dev", "custom_domain": true },
+    { "pattern": "www.damianperez.dev", "custom_domain": true },
+  ],
+  "env": {
+    "staging": {
+      "name": "damian-pebe-portfolio-staging",
+      "workers_dev": true,
+      "routes": [],
+      "assets": {
+        "directory": "./out",
+        "html_handling": "auto-trailing-slash",
+        "not_found_handling": "404-page",
+      },
+    },
+  },
+}

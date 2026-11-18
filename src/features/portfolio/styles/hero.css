@@ -1,0 +1,348 @@
+.site-header {
+  position: relative;
+  z-index: 5;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 15px;
+  font-weight: 550;
+  letter-spacing: -0.5px;
+}
+.monogram {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  letter-spacing: -3px;
+  font-weight: 600;
+}
+.monogram span {
+  font-size: 18px;
+  letter-spacing: 0;
+  color: var(--accent);
+  margin-left: 3px;
+  transform: translateY(-4px);
+}
+.wordmark-dot {
+  color: var(--accent);
+}
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 12px;
+  color: #b2b3ba;
+}
+.site-header nav > a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+.site-header nav > a:hover {
+  color: white;
+}
+.language-switch {
+  padding-inline: 12px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 10px;
+}
+.site-header nav .nav-contact {
+  color: #efeff2;
+  border-bottom: 1px solid #6a6b70;
+  min-height: 32px;
+}
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.hero-content {
+  position: relative;
+  padding-top: 87px;
+}
+.hero-identity {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.hero-identity img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1);
+  border: 1px solid #45464c;
+}
+.hero-identity .eyebrow {
+  color: #d8d9de;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+}
+.identity-role {
+  color: #8e919d;
+  font-size: 8px;
+  margin-top: 5px;
+  letter-spacing: 0.11em;
+}
+.hero-title {
+  margin: 35px 0 34px;
+  font-size: clamp(70px, 8.45vw, 124px);
+  letter-spacing: -0.078em;
+  line-height: 1.04;
+  font-weight: 480;
+}
+.hero-line {
+  display: block;
+  padding-bottom: 8px;
+}
+.hero-line > span {
+  display: block;
+  width: fit-content;
+}
+.silver-text {
+  color: #afb4c1;
+  background: linear-gradient(
+    108deg,
+    #f0f2f5 5%,
+    #b9bdc9 40%,
+    #666c7a 77%,
+    #b1b9cd
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-right: 0.04em;
+}
+.hero-description {
+  color: #a7a9b2;
+  font-size: 15px;
+  line-height: 1.85;
+  max-width: 390px;
+}
+.hero-bottom {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  margin-top: 80px;
+  padding: 24px 0 28px;
+  color: #9497a2;
+  font-size: 10px;
+}
+.hero-meta span,
+.hero-meta a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-meta i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(212, 231, 178, 0.3);
+}
+.background-paths {
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  height: 130%;
+  top: -24%;
+  left: 24%;
+  transform: rotate(-11deg);
+  pointer-events: none;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 20%,
+    #000 85%,
+    transparent
+  );
+}
+.background-paths canvas {
+  width: 100%;
+  height: 100%;
+}
+.hero-halo {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(8, 9, 11, 0.5), transparent 75%),
+    radial-gradient(
+      ellipse at 70% 40%,
+      rgba(180, 193, 233, 0.055),
+      transparent 55%
+    );
+  pointer-events: none;
+}
+.project-signatures {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--line);
+  color: #93959f;
+  gap: 25px;
+}
+.project-signatures span {
+  font-size: 22px;
+  letter-spacing: -1.2px;
+  font-weight: 550;
+}
+.project-signatures span:nth-child(4) {
+  letter-spacing: -1px;
+}
+.project-signatures span:last-child {
+  font-size: 30px;
+  letter-spacing: -2px;
+}
+@media (min-width: 1600px) {
+  .hero-content {
+    padding-top: 108px;
+  }
+  .hero-title {
+    font-size: 132px;
+  }
+  .hero-meta {
+    margin-top: 100px;
+  }
+}
+@media (max-width: 1100px) {
+  .hero-bottom {
+    gap: 25px;
+    justify-content: space-between;
+  }
+  .hero-description {
+    max-width: 320px;
+    font-size: 14px;
+  }
+  .hero-actions {
+    gap: 4px;
+  }
+  .hero-title {
+    font-size: 8.5vw;
+  }
+}
+@media (max-width: 800px) {
+  .site-header nav {
+    gap: 18px;
+  }
+  .hero-content {
+    padding-top: 68px;
+  }
+  .hero-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+  .hero-description {
+    max-width: 410px;
+  }
+  .hero-meta {
+    margin-top: 56px;
+  }
+  .project-signatures {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px 40px;
+  }
+  .project-signatures span {
+    font-size: 19px;
+  }
+}
+@media (max-width: 700px) {
+  .site-header {
+    height: 78px;
+  }
+  .wordmark {
+    font-size: 13px;
+    gap: 10px;
+  }
+  .monogram {
+    font-size: 23px;
+  }
+  .site-header nav {
+    gap: 14px;
+  }
+  .site-header .nav-approach,
+  .site-header .nav-work {
+    display: none;
+  }
+  .nav-contact {
+    font-size: 11px;
+  }
+  .language-switch {
+    padding-inline: 10px;
+  }
+  .hero-content {
+    padding-top: 58px;
+  }
+  .hero-title {
+    font-size: clamp(43px, 9.8vw, 68px);
+    margin: 34px 0 25px;
+    line-height: 1.12;
+    letter-spacing: -0.072em;
+  }
+  .hero-line {
+    padding-bottom: 2px;
+  }
+  .hero-description {
+    font-size: 13px;
+    max-width: 330px;
+    line-height: 1.8;
+  }
+  .hero-actions {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .hero-meta {
+    font-size: 9px;
+    margin-top: 48px;
+    padding: 20px 0;
+    gap: 20px;
+  }
+  .hero-meta > a {
+    font-size: 0;
+    gap: 0;
+  }
+  .hero-meta > a svg {
+    width: 18px;
+    height: 18px;
+  }
+  .background-paths {
+    top: -12%;
+    left: 12%;
+    width: 160%;
+    height: 110%;
+    opacity: 0.75;
+  }
+  .project-signatures {
+    gap: 22px 30px;
+    padding: 30px 15px;
+  }
+  .project-signatures span {
+    font-size: 17px;
+  }
+  .project-signatures span:last-child {
+    font-size: 22px;
+  }
+}
