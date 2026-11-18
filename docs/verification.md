@@ -7,6 +7,7 @@
 - 20 local browser checks passed on desktop and mobile. Additional coverage verifies normal-motion language changes, browser back/forward, metadata updates and preservation of the selected product, expanded catalog and mounted shader canvas. Console/hydration errors are asserted absent.
 - Both normal and reduced-motion paths were checked. A conditional sheen element originally caused a server/client markup mismatch for reduced-motion visitors; rendering stable markup with a CSS motion preference fixed it.
 - The 20 checks also passed on Cloudflare staging with the deployed CSP. The first performance run exposed costly startup and oversized companion captures. Shader compilation now polls GPU readiness asynchronously, catalog/companion images use 640px previews, and versioned images have immutable caching. Subsequent measurements and exact release versions are recorded with the release artifacts.
+- The optimized hosted mobile measurement scored 99 performance and 100 accessibility, best practices and SEO, with 30 ms total blocking time and zero layout shift. The first custom-domain verification caught Cloudflare injecting its analytics beacon, which the strict CSP correctly blocked. The HTML routes now prevent that edge transformation; scripts and images retain normal compression and caching.
 
 ## Earlier monochrome redesign
 

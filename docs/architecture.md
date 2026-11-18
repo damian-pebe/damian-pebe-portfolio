@@ -38,3 +38,4 @@ The 23 projects, EN/ES descriptions and permanently redacted captures originate 
 - `public/_headers`: TLS policy, frame denial, MIME-sniffing protection, bounded browser permissions and cache policy.
 - Hashed framework assets are immutable for one year. Project images use versioned URLs and are immutable for one year; bump `assetVersion` when replacing them. Device frames use a one-day cache with stale-while-revalidate. HTML revalidates.
 - No secrets, cookies, customer data, server processes or runtime dependencies are hosted.
+- The two HTML routes send `Cache-Control: public, max-age=0, must-revalidate, no-transform`. This prevents Cloudflare's automatic analytics injection from altering the static document or conflicting with its hashed CSP. Other asset routes retain their compression and caching policies. See [Cloudflare Web Analytics automatic injection](https://developers.cloudflare.com/web-analytics/get-started/).
