@@ -1,6 +1,15 @@
 # Verification — 2026-11-17
 
-## Completed
+## Monochrome redesign
+
+- Replaced the initial full-height hero and flat browser cards with a compact personal introduction, six-project showcase and Clyra device compositions. The interface has a white default and persistent black theme; original product captures keep their real colors.
+- 18 browser checks passed in desktop Chrome and an iPhone-sized Chromium viewport. New coverage exercises showcase controls and project selection, device/full-capture switching, theme persistence across ES/EN navigation, and both themes' automated WCAG AA checks.
+- Fixed a reduced-motion hydration-style mismatch discovered during visual review. The language test now captures console errors as well as runtime exceptions; the reduced-motion path passed after the fix.
+- Visual review covered both themes, mobile layout, catalog device fitting and the project dialog. The public source supplies 98 UI captures across 20 projects; galleries load views on demand. All 23 covers decode; prototype and concept labels remain explicit.
+- Production export, TypeScript, ESLint, formatting and runtime dependency audit passed. No new runtime dependencies were added.
+- The prior Lighthouse measurements below describe the earlier design. New hosted measurements and release IDs are recorded with the redesign artifacts; they are not assumed from the previous score.
+
+## Initial release checks
 
 - Production static build, TypeScript, ESLint and formatting checks.
 - 14 Playwright checks on desktop Chrome and an iPhone-sized Chromium viewport. They cover bilingual navigation/reload, 23 decoded project covers, category filters, dialog keyboard/focus behavior, clipboard success and failure, live reduced-motion changes, offscreen animation suspension, 320/375/768px layouts, and automated accessibility.

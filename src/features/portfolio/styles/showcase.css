@@ -1,0 +1,255 @@
+.featured-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+}
+.featured-caption h2 {
+  font-size: 12px;
+  font-weight: 400;
+}
+.featured-caption > span {
+  font-size: 8px;
+  letter-spacing: 0.13em;
+  color: var(--muted);
+}
+.showcase {
+  --stage-height: 490px;
+  position: relative;
+  height: var(--stage-height);
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 65% 20%, var(--surface-top), transparent 70%),
+    var(--surface);
+  overflow: hidden;
+  isolation: isolate;
+}
+.showcase-top {
+  position: absolute;
+  top: 23px;
+  left: 27px;
+  right: 27px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+.project-pill {
+  font-size: 9px;
+  padding: 7px 11px;
+  line-height: 1.3;
+  border: 1px solid var(--line);
+  border-radius: 50px;
+  color: var(--muted);
+}
+.showcase-edition {
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+.showcase-stage {
+  position: absolute;
+  inset: 40px 0 38px 32%;
+}
+.showcase-device {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.showcase-device > .device-mockup {
+  width: min(100%, calc((var(--stage-height) - 65px) * var(--device-ratio)));
+  filter: drop-shadow(0 22px 20px var(--shadow));
+}
+.showcase-copy {
+  position: absolute;
+  left: 32px;
+  bottom: 35px;
+  width: 31%;
+  z-index: 2;
+}
+.showcase-kicker {
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.showcase h3 {
+  font-size: clamp(38px, 4.3vw, 64px);
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: 1.05;
+  margin-bottom: 17px;
+}
+.showcase-description {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 340px;
+}
+.showcase-copy .button {
+  margin-top: 22px;
+}
+.showcase-controls {
+  position: absolute;
+  bottom: 21px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 3;
+}
+.showcase-controls > span {
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  margin-right: 12px;
+}
+.showcase-controls > span > span {
+  color: var(--muted);
+  margin-left: 7px;
+}
+.showcase-controls .icon-button {
+  width: 38px;
+  height: 38px;
+}
+.featured-tabs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-bottom: 1px solid var(--line);
+  margin-top: 12px;
+}
+.featured-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  padding: 17px 16px;
+  border-top: 1px solid transparent;
+  font-size: 11px;
+  color: var(--muted);
+  min-height: 52px;
+  white-space: nowrap;
+}
+.featured-tabs button > span {
+  font-size: 8px;
+}
+.featured-tabs button > svg {
+  margin-left: auto;
+  opacity: 0;
+}
+.featured-tabs button[aria-pressed="true"] {
+  border-color: var(--text);
+  color: var(--text);
+}
+.featured-tabs button[aria-pressed="true"] > svg {
+  opacity: 1;
+}
+.featured-tabs button:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+@media (max-width: 1100px) and (min-width: 701px) {
+  .showcase {
+    --stage-height: 440px;
+  }
+  .showcase-copy {
+    left: 24px;
+    width: 32%;
+  }
+  .showcase-stage {
+    left: 31%;
+    right: -3%;
+  }
+  .showcase h3 {
+    font-size: 44px;
+  }
+  .showcase-description {
+    font-size: 11px;
+  }
+  .featured-tabs button {
+    padding-inline: 10px;
+    gap: 8px;
+    font-size: 10px;
+  }
+  .featured-tabs svg {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .featured-caption {
+    padding-bottom: 12px;
+  }
+  .featured-caption h2 {
+    font-size: 11px;
+  }
+  .featured-caption > span {
+    font-size: 7px;
+  }
+  .showcase {
+    height: auto;
+    min-height: 0;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 47px 20px 18px;
+  }
+  .showcase-top {
+    inset: 15px 17px auto;
+  }
+  .showcase-edition {
+    display: none;
+  }
+  .project-pill {
+    font-size: 8px;
+    padding: 6px 10px;
+  }
+  .showcase-stage {
+    position: relative;
+    inset: auto;
+    height: clamp(185px, 58vw, 350px);
+    width: calc(100% + 30px);
+    margin-inline: -15px;
+  }
+  .showcase-copy {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    margin-top: 6px;
+  }
+  .showcase h3 {
+    font-size: 46px;
+    margin-bottom: 12px;
+  }
+  .showcase-kicker {
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+  .showcase-description {
+    font-size: 11px;
+    line-height: 1.8;
+    max-width: none;
+  }
+  .showcase-copy .button {
+    margin-top: 19px;
+    font-size: 11px;
+  }
+  .showcase-controls {
+    position: relative;
+    inset: auto;
+    justify-content: flex-end;
+    margin-top: 18px;
+  }
+  .featured-tabs {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .featured-tabs button {
+    flex: 0 0 auto;
+    min-width: 125px;
+    padding: 17px 12px;
+    font-size: 10px;
+  }
+}

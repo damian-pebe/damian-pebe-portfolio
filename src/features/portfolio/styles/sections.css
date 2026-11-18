@@ -6,14 +6,14 @@
   justify-content: space-between;
   gap: 60px;
   align-items: flex-end;
-  margin: 22px 0 55px;
+  margin: 22px 0 50px;
 }
 .approach h2 {
-  font-size: clamp(36px, 4.3vw, 62px);
-  font-weight: 450;
+  font-size: clamp(38px, 4.3vw, 63px);
+  font-weight: 500;
   white-space: pre-line;
   letter-spacing: -0.065em;
-  line-height: 1.1;
+  line-height: 1.08;
 }
 .approach-heading > p {
   color: var(--muted);
@@ -26,7 +26,7 @@
   grid-template-columns: repeat(3, 1fr);
 }
 .approach-item {
-  padding: 0 38px;
+  padding: 0 36px;
   border-left: 1px solid var(--line);
 }
 .approach-item:first-child {
@@ -40,28 +40,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px 0 35px;
-  color: #e4e6ee;
+  margin: 5px 0 29px;
+  color: var(--text);
 }
 .approach-icon > span {
   font-size: 9px;
-  color: #989ba7;
+  color: var(--muted);
 }
 .approach-item h3 {
-  font-size: 22px;
-  font-weight: 450;
-  letter-spacing: -0.75px;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.8px;
 }
 .approach-item > p {
-  color: #a2a4ae;
+  color: var(--muted);
   font-size: 12px;
-  line-height: 1.95;
-  margin: 16px 0 24px;
+  line-height: 1.9;
+  margin: 15px 0 22px;
   max-width: 285px;
 }
 .approach-item .eyebrow {
   font-size: 8px;
-  color: #969ba7;
 }
 .built-with {
   display: flex;
@@ -69,39 +68,54 @@
   align-items: center;
   gap: 25px;
   border-top: 1px solid var(--line);
-  margin-top: 55px;
+  margin-top: 50px;
   padding-top: 25px;
-  color: #9a9da9;
+  color: var(--muted);
   font-size: 10px;
 }
 .built-with a {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: #dadce4;
-  font-size: 15px;
+  gap: 12px;
+  color: var(--text);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -1px;
 }
 .contact {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  --accent: #fff;
+  border-bottom: 1px solid #333;
   text-align: center;
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-block: 110px 95px;
-  background: linear-gradient(#0b0c0f, #0c0d11);
+  padding-block: 100px 80px;
+  background: #0b0b0b;
+  color: #fafafa;
+}
+html[data-theme="dark"] .contact {
+  background: #efefef;
+  color: #111;
+  --accent: #111;
+}
+.contact .eyebrow,
+.contact-intro {
+  color: #a8a8a8;
+}
+html[data-theme="dark"] .contact .eyebrow,
+html[data-theme="dark"] .contact-intro {
+  color: #616161;
 }
 .contact h2 {
-  font-size: clamp(44px, 5.8vw, 82px);
-  font-weight: 450;
+  font-size: clamp(70px, 10vw, 148px);
+  font-weight: 500;
   white-space: pre-line;
-  line-height: 1.1;
-  letter-spacing: -0.065em;
-  margin: 28px 0 24px;
+  line-height: 0.98;
+  letter-spacing: -0.075em;
+  margin: 30px 0;
 }
 .contact-intro {
   font-size: 13px;
-  color: #a6a8b3;
 }
 .contact-actions {
   display: flex;
@@ -114,73 +128,80 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  font-size: clamp(19px, 2.2vw, 28px);
+  font-size: clamp(18px, 2vw, 27px);
   padding-bottom: 8px;
-  border-bottom: 1px solid #898c96;
+  border-bottom: 1px solid #777;
   letter-spacing: -0.7px;
 }
 .contact-email svg {
-  width: 23px;
-  height: 23px;
+  width: 24px;
+  height: 24px;
   transition: transform 0.3s;
 }
 .contact-email:hover svg {
   transform: translate(3px, -3px);
 }
+.contact .icon-button {
+  border-color: #777;
+}
+.contact .icon-button:hover {
+  background: #333;
+}
+html[data-theme="dark"] .contact .icon-button:hover {
+  background: #ddd;
+}
 .contact-orbit {
   position: absolute;
   z-index: -1;
-  width: 920px;
-  height: 500px;
-  top: 65%;
+  width: 120vw;
+  height: 600px;
+  top: 77%;
   left: 50%;
   transform: translateX(-50%);
-  border: 1px solid rgba(195, 207, 246, 0.13);
+  border: 1px solid #7773;
   border-radius: 50%;
   box-shadow:
-    0 0 100px rgba(119, 144, 212, 0.06),
-    inset 0 0 90px rgba(119, 144, 212, 0.05);
+    0 0 100px #fff1,
+    inset 0 0 90px #fff1;
   pointer-events: none;
 }
 .contact-orbit::before,
 .contact-orbit::after {
   content: "";
   position: absolute;
-  inset: -22px;
+  inset: -25px;
   border-radius: inherit;
-  border: 1px solid rgba(195, 207, 246, 0.06);
+  border: 1px solid #7772;
 }
 .contact-orbit::after {
-  inset: -47px;
-  opacity: 0.6;
+  inset: -50px;
 }
 .copy-status {
   min-height: 20px;
   margin-top: 14px;
   font-size: 11px;
-  color: var(--accent);
 }
 .site-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  padding-block: 32px;
+  padding-block: 29px;
 }
 .footer-brand {
-  font-size: 19px;
-  letter-spacing: -0.8px;
+  font-size: 24px;
+  font-weight: 550;
+  letter-spacing: -1px;
   display: flex;
-  gap: 6px;
+  gap: 7px;
   align-items: center;
 }
 .footer-brand span {
-  color: var(--accent);
-  font-size: 20px;
+  font-size: 22px;
 }
 .site-footer > p {
-  font-size: 9px;
-  color: #989ba6;
+  font-size: 10px;
+  color: var(--muted);
 }
 .site-footer > div {
   display: flex;
@@ -194,7 +215,7 @@
     padding-inline: 22px;
   }
   .approach-item h3 {
-    font-size: 19px;
+    font-size: 21px;
   }
   .approach-heading {
     gap: 25px;
@@ -209,7 +230,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 22px;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
   }
   .approach h2 {
     font-size: 39px;
@@ -231,7 +252,7 @@
     margin: 0 0 22px;
   }
   .approach-item h3 {
-    font-size: 23px;
+    font-size: 25px;
   }
   .approach-item > p {
     max-width: 100%;
@@ -250,7 +271,7 @@
     padding-block: 75px 60px;
   }
   .contact h2 {
-    font-size: clamp(30px, 8.5vw, 48px);
+    font-size: clamp(62px, 16vw, 106px);
   }
   .contact-intro {
     font-size: 12px;
@@ -278,7 +299,7 @@
     width: 100%;
   }
   .footer-brand {
-    font-size: 18px;
+    font-size: 22px;
   }
   .site-footer > div {
     margin-left: auto;

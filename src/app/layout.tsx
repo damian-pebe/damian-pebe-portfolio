@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: "Damian Pérez — Software, diseño e inteligencia artificial",
   description:
-    "Ideas grandes. Productos reales. Soy Damian Pérez: construyo software, plataformas e inteligencia artificial con diseño y precisión. Explora mis proyectos.",
+    "Soy Damian Pérez. Diseño y construyo productos digitales, plataformas e inteligencia artificial. De la primera idea al último detalle. Explora mi trabajo.",
   alternates: {
     canonical: "/",
     languages: { es: "/", en: "/en/", "x-default": "/" },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Damian Pérez",
     locale: "es_MX",
     url: "/",
-    title: "Damian Pérez — Ideas grandes. Productos reales.",
+    title: "Damian Pérez — Diseño, código y producto.",
     description:
       "Ingeniería de software, diseño e inteligencia artificial. De la primera idea al producto en producción.",
     images: [
@@ -38,15 +38,22 @@ export const metadata: Metadata = {
   icons: { icon: "/icon.svg" },
 };
 export const viewport: Viewport = {
-  themeColor: "#08090b",
-  colorScheme: "dark",
+  themeColor: "#fafafa",
+  colorScheme: "light dark",
 };
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={geist.variable}>{children}</body>
+      <body className={geist.variable}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{document.documentElement.dataset.theme=localStorage.getItem("portfolio-theme")==="dark"?"dark":"light"}catch{document.documentElement.dataset.theme="light"}`,
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

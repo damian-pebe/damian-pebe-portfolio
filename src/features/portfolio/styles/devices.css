@@ -1,0 +1,34 @@
+.device-mockup {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+.device-frame {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.device-plane {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.device-display {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  overflow: hidden;
+  background: #090909;
+}
+.device-capture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.concept-visual {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

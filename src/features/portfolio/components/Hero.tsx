@@ -8,70 +8,40 @@ export function Hero({ t }: { t: Copy }) {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <BackgroundPaths />
-      <div className="hero-halo" aria-hidden="true" />
       <div className="hero-content shell">
         <div className="hero-identity">
           <Image
             src="/portrait.webp"
-            alt="Damian Pérez Becerril"
-            width={44}
-            height={44}
-            priority
+            alt=""
+            width={32}
+            height={32}
+            loading="eager"
           />
-          <div>
-            <p className="eyebrow">{t.hero.eyebrow}</p>
-            <p className="identity-role">{t.hero.role}</p>
-          </div>
+          <p>{t.hero.role}</p>
         </div>
-        <h1 id="hero-title" className="hero-title" key={t.hero.line1}>
-          {[t.hero.line1, t.hero.line2].map((line, index) => (
-            <span className="hero-line" key={line}>
-              <m.span
-                className={index ? "silver-text" : undefined}
-                initial={false}
-                animate={
-                  reduced
-                    ? undefined
-                    : {
-                        y: [35, 0],
-                        opacity: [0.35, 1],
-                        filter: ["blur(5px)", "blur(0px)"],
-                      }
-                }
-                transition={{
-                  duration: 0.85,
-                  delay: index * 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                {line}
-              </m.span>
-            </span>
-          ))}
+        <h1 id="hero-title">
+          <m.span
+            initial={false}
+            style={{ opacity: 1, transform: "none" }}
+            animate={reduced ? undefined : { y: [30, 0], opacity: [0.4, 1] }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            Damian Pérez<span className="hero-period">.</span>
+          </m.span>
         </h1>
-        <div className="hero-bottom">
-          <p className="hero-description">{t.hero.description}</p>
-          <div className="hero-actions">
-            <a className="button button-primary" href="#contact">
-              {t.hero.primary}
-              <ArrowUpRight size={18} />
-            </a>
-            <a className="button button-quiet" href="#work">
-              {t.hero.secondary}
-              <ArrowDown size={16} />
-            </a>
-          </div>
-        </div>
-        <div className="hero-meta">
-          <span>
-            <i aria-hidden="true" />
-            {t.hero.location}
-          </span>
-          <a href="#work">
-            {t.hero.scroll}
-            <ArrowDown size={14} />
+        <p className="hero-description">{t.hero.description}</p>
+        <div className="hero-actions">
+          <a className="hero-work-link" href="#work">
+            {t.hero.secondary}
+            <ArrowDown size={15} />
+          </a>
+          <span aria-hidden="true" />
+          <a className="hero-contact-link" href="#contact">
+            {t.hero.primary}
+            <ArrowUpRight size={15} />
           </a>
         </div>
+        <span className="hero-location">{t.hero.location}</span>
       </div>
     </section>
   );

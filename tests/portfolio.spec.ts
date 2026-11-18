@@ -5,16 +5,22 @@ test("Spanish and English stay coherent through navigation and reload", async ({
 }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
+  page.on("console", (message) => {
+    if (message.type() === "error") errors.push(message.text());
+  });
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Ideas grandes.Productos reales.",
+    "Damian Pérez.",
   );
   await page.getByRole("link", { name: "Switch to English" }).click();
   await expect(page).toHaveURL(/\/en\//);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Big ideas.Real products.",
+    "Damian Pérez.",
   );
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await expect(page.locator(".hero-description")).toContainText(
+    "I design and build digital products.",
+  );
   await page.reload();
   await expect(
     page.getByRole("button", {
@@ -189,4 +195,78 @@ test("small screens have no horizontal overflow in either language", async ({
       await expect(page.getByRole("heading", { level: 1 })).toBeInViewport();
     }
   }
+});
+
+test("featured products respond to controls and open the matching project", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const showcase = page.getByRole("region", { name: "En primer plano" });
+  await expect(showcase.getByRole("heading", { level: 3 })).toHaveText(
+    "OmniCube",
+  );
+  await page
+    .getByRole("button", { name: "Siguiente proyecto destacado" })
+    .click();
+  await expect(showcase.getByRole("heading", { level: 3 })).toHaveText(
+    "AgentOS",
+  );
+  await page
+    .getByRole("button", { name: "Proyecto destacado anterior" })
+    .click();
+  await expect(showcase.getByRole("heading", { level: 3 })).toHaveText(
+    "OmniCube",
+  );
+  await page
+    .getByRole("group", { name: "Elegir proyecto destacado" })
+    .getByRole("button", { name: /Neurocity/ })
+    .click();
+  await expect(showcase.getByRole("heading", { level: 3 })).toHaveText(
+    "Neurocity",
+  );
+  await showcase.getByRole("button", { name: "Descubrir el proyecto" }).click();
+  const dialog = page.getByRole("dialog");
+  await expect(
+    dialog.getByRole("heading", { name: "Neurocity", exact: true }),
+  ).toBeVisible();
+  await expect(dialog.locator('[data-mockup="city-command"]')).toBeVisible();
+  await dialog.getByRole("button", { name: "Ver captura completa" }).click();
+  await expect(dialog.locator(".dialog-gallery > img")).toHaveAttribute(
+    "src",
+    /neurocity-01.webp/,
+  );
+  await dialog.getByRole("button", { name: "Siguiente imagen" }).click();
+  await expect(dialog.locator(".dialog-gallery > img")).toHaveAttribute(
+    "src",
+    /neurocity-02.webp/,
+  );
+  await page.keyboard.press("Escape");
+  await expect(
+    showcase.getByRole("button", { name: "Descubrir el proyecto" }),
+  ).toBeFocused();
+});
+
+test("monochrome themes persist across language navigation and reload", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+  await page.getByRole("button", { name: "Cambiar a tema oscuro" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await page.getByRole("link", { name: "Switch to English" }).click();
+  await expect(page).toHaveURL(/\/en\//);
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await expect(
+    page.getByRole("button", { name: "Switch to light theme" }),
+  ).toBeVisible();
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
+  await page.getByRole("button", { name: "Switch to light theme" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
 });

@@ -1,23 +1,41 @@
 import type { es } from "./es";
 export const en: typeof es = {
   skip: "Skip to content",
-  nav: { work: "Work", approach: "Approach", contact: "Let’s talk" },
+  nav: {
+    work: "Work",
+    approach: "Approach",
+    contact: "Let’s talk",
+    portfolio: "portfolio",
+  },
+  theme: { light: "Switch to light theme", dark: "Switch to dark theme" },
+  featured: {
+    title: "In the spotlight",
+    label: "SELECTED WORK",
+    edition: "PORTFOLIO",
+    carousel: "carousel",
+    discover: "Discover the project",
+    previous: "Previous featured project",
+    next: "Next featured project",
+    choose: "Choose a featured project",
+  },
   hero: {
     eyebrow: "DAMIAN PÉREZ BECERRIL",
     role: "SOFTWARE ENGINEER & PRODUCT BUILDER",
     line1: "Big ideas.",
     line2: "Real products.",
     description:
-      "Software engineering, design and artificial intelligence. From the first idea to a product in production.",
+      "I design and build digital products.\nFrom the first idea to the finest detail.",
     primary: "Let’s build something",
-    secondary: "Explore the work",
-    location: "From Mexico. Built for anywhere.",
+    secondary: "Explore my work",
+    location: "FROM MEXICO / BUILT FOR ANYWHERE",
     scroll: "Scroll to discover",
     label: "DESIGN WITH INTENTION. CODE WITH AMBITION.",
   },
   work: {
+    capture: "View full screenshot",
+    mockup: "View in device",
     eyebrow: "01 / SELECTED WORK",
-    title: "The work speaks.",
+    title: "Less talk. More product.",
     subtitle:
       "Products connected to the real world. A selection of what I build with Clyra.",
     all: "All",
@@ -44,7 +62,7 @@ export const en: typeof es = {
   },
   approach: {
     eyebrow: "02 / HOW I THINK",
-    title: "The bigger picture.\nThe smallest detail.",
+    title: "Product thinking.\nEvery detail, built.",
     description:
       "I connect design, engineering and AI to turn complex problems into products that feel simple.",
     items: [
@@ -67,7 +85,7 @@ export const en: typeof es = {
   },
   contact: {
     eyebrow: "03 / WHAT’S NEXT",
-    title: "Your next big idea.\nLet’s build it.",
+    title: "Let’s make\nit happen.",
     text: "Have something ambitious in mind? I’d like to hear it.",
     email: "Get in touch",
     copy: "Copy email",

@@ -9,15 +9,19 @@ export interface Project {
   source: string;
   cover: string;
   second: string | null;
+  captures?: string[];
   position: string;
   alt: string;
   en: { tagline: string; description: string; capabilities: string[] };
   es: { tagline: string; description: string; capabilities: string[] };
 }
 export const projects = catalog as Project[];
+const assetVersion = "20261117-monochrome";
 export const thumbnail = (project: Project) =>
-  "/projects/" + project.id + "-thumb.webp";
-export const gallery = (project: Project) => [
-  "/projects/" + project.id + "-01.webp",
-  ...(project.second ? ["/projects/" + project.id + "-02.webp"] : []),
-];
+  `/projects/${project.id}-thumb.webp?v=${assetVersion}`;
+export const gallery = (project: Project) =>
+  Array.from(
+    { length: project.captures?.length ?? (project.second ? 2 : 1) },
+    (_, index) =>
+      `/projects/${project.id}-${String(index + 1).padStart(2, "0")}.webp?v=${assetVersion}`,
+  );

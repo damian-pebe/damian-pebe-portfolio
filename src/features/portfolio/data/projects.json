@@ -5,10 +5,10 @@
     "category": "AI & intelligence",
     "stage": null,
     "source": "https://clyra.dev/portfolio/agentos",
-    "cover": "/portfolio/projects/agentos/02-dark.webp",
-    "second": "/portfolio/projects/agentos/03-dark.webp",
-    "position": "center top",
-    "alt": "AgentOS agent creation from a natural language prompt",
+    "cover": "/portfolio/projects/agentos/01-dark.webp",
+    "second": "/portfolio/projects/agentos/02-dark.webp",
+    "position": "left top",
+    "alt": "AgentOS — product interface",
     "en": {
       "tagline": "Intelligence that gets to work.",
       "description": "An operating layer for AI agents, tools and connected workspaces. AgentOS coordinates tasks across integrations and devices with permissions, human approvals and a durable activity record, bringing conversational interfaces and controlled execution into the same system.",
@@ -28,7 +28,15 @@
         "Historial persistente de tareas y actividad",
         "Experiencias web, de escritorio y móviles"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/agentos/01-dark.webp",
+      "/portfolio/projects/agentos/02-dark.webp",
+      "/portfolio/projects/agentos/03-dark.webp",
+      "/portfolio/projects/agentos/04-dark.webp",
+      "/portfolio/projects/agentos/05-dark.webp",
+      "/portfolio/projects/agentos/06-dark.webp"
+    ]
   },
   {
     "id": "omnicube",
@@ -36,10 +44,10 @@
     "category": "Connected systems",
     "stage": null,
     "source": "https://clyra.dev/portfolio/omnicube",
-    "cover": "/portfolio/projects/omnicube/03-dark.webp",
+    "cover": "/portfolio/projects/omnicube/01-dark.webp",
     "second": "/portfolio/projects/omnicube/02-dark.webp",
     "position": "center top",
-    "alt": "OmniCube operations dashboard and fleet indicators",
+    "alt": "OmniCube — product interface",
     "en": {
       "tagline": "Every asset. One live picture.",
       "description": "A fleet intelligence platform that brings live vehicle positions, route history, geofences and alerts into one operational map. Web and mobile experiences connect the people managing assets with the telemetry coming from their devices.",
@@ -59,7 +67,15 @@
         "Gestión de flotas, dispositivos y SIM",
         "Reportes y exportación de datos"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/omnicube/01-dark.webp",
+      "/portfolio/projects/omnicube/02-dark.webp",
+      "/portfolio/projects/omnicube/03-dark.webp",
+      "/portfolio/projects/omnicube/04-dark.webp",
+      "/portfolio/projects/omnicube/05-dark.webp",
+      "/portfolio/projects/omnicube/06-dark.webp"
+    ]
   },
   {
     "id": "neurocity",
@@ -67,10 +83,10 @@
     "category": "Connected systems",
     "stage": null,
     "source": "https://clyra.dev/portfolio/neurocity",
-    "cover": "/portfolio/projects/neurocity/02-dark.webp",
-    "second": "/portfolio/projects/neurocity/03-dark.webp",
+    "cover": "/portfolio/projects/neurocity/01-dark.webp",
+    "second": "/portfolio/projects/neurocity/02-dark.webp",
     "position": "center top",
-    "alt": "Neurocity site map and connected camera previews",
+    "alt": "Neurocity — product interface",
     "en": {
       "tagline": "The city, connected.",
       "description": "An operational platform that connects cameras, alarms, access points and field infrastructure on a shared map. Teams can review live video, recordings and alerts while moving between citywide awareness and the details of an individual location.",
@@ -90,7 +106,15 @@
         "Gestión de alertas e incidentes",
         "Acceso móvil y configuración en campo"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/neurocity/01-dark.webp",
+      "/portfolio/projects/neurocity/02-dark.webp",
+      "/portfolio/projects/neurocity/03-dark.webp",
+      "/portfolio/projects/neurocity/04-dark.webp",
+      "/portfolio/projects/neurocity/05-light.webp",
+      "/portfolio/projects/neurocity/06-dark.webp"
+    ]
   },
   {
     "id": "fiscalite",
@@ -99,9 +123,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/fiscalite",
     "cover": "/portfolio/projects/fiscalite/01-dark.webp",
-    "second": "/portfolio/projects/fiscalite/03-dark.webp",
+    "second": "/portfolio/projects/fiscalite/02-dark.webp",
     "position": "center top",
-    "alt": "fiscalite — One connected ecosystem",
+    "alt": "Fiscalité — product interface",
     "en": {
       "tagline": "Turn compliance into clarity.",
       "description": "A connected compliance workspace for company documents and tax information. Fiscalité brings collection, supplier checks and structured data together with tools for retrieval, notifications and analysis, helping teams move from scattered files to a usable information ecosystem.",
@@ -121,7 +145,15 @@
         "Siete herramientas conectadas para procesos fiscales",
         "Conexiones de datos para reportes y análisis"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/fiscalite/01-dark.webp",
+      "/portfolio/projects/fiscalite/02-dark.webp",
+      "/portfolio/projects/fiscalite/03-dark.webp",
+      "/portfolio/projects/fiscalite/04-dark.webp",
+      "/portfolio/projects/fiscalite/05-dark.webp",
+      "/portfolio/projects/fiscalite/06-dark.webp"
+    ]
   },
   {
     "id": "constella",
@@ -130,9 +162,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/constella",
     "cover": "/portfolio/projects/constella/01-dark.webp",
-    "second": "/portfolio/projects/constella/03-dark.webp",
+    "second": "/portfolio/projects/constella/02-dark.webp",
     "position": "center top",
-    "alt": "Constella practice dashboard and upcoming work",
+    "alt": "Constella Legal — product interface",
     "en": {
       "tagline": "Your entire practice, connected.",
       "description": "A private workspace for law firms to organize companies, contacts, documents and matters. Client requests, document templates and plan usage live alongside the work, with separate firm spaces and a focused portal for each client.",
@@ -152,7 +184,15 @@
         "Solicitudes de clientes y portal privado",
         "Membresías y consumo de servicios"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/constella/01-dark.webp",
+      "/portfolio/projects/constella/02-dark.webp",
+      "/portfolio/projects/constella/03-dark.webp",
+      "/portfolio/projects/constella/04-light.webp",
+      "/portfolio/projects/constella/05-dark.webp",
+      "/portfolio/projects/constella/06-dark.webp"
+    ]
   },
   {
     "id": "rook",
@@ -161,9 +201,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/rook",
     "cover": "/portfolio/projects/rook/01-light.webp",
-    "second": "/portfolio/projects/rook/03-dark.webp",
+    "second": "/portfolio/projects/rook/02-light.webp",
     "position": "left top",
-    "alt": "Rook business consulting workspace",
+    "alt": "Rook — product interface",
     "en": {
       "tagline": "Bring intelligence into the room.",
       "description": "A conversation workspace for meetings, individual consulting and interactive presentations. It brings meeting preparation, participant management and live voice sessions together, while AgentOS handles conversational intelligence, approved tools and the context that follows the discussion.",
@@ -183,7 +223,15 @@
         "Espacio de consultoría individual",
         "Presentaciones conversacionales con Aura"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/rook/01-light.webp",
+      "/portfolio/projects/rook/02-light.webp",
+      "/portfolio/projects/rook/03-dark.webp",
+      "/portfolio/projects/rook/04-dark.webp",
+      "/portfolio/projects/rook/05-dark.webp",
+      "/portfolio/projects/rook/06-dark.webp"
+    ]
   },
   {
     "id": "opticore",
@@ -192,9 +240,9 @@
     "stage": "Prototype",
     "source": "https://clyra.dev/portfolio/opticore",
     "cover": "/portfolio/projects/opticore/01-dark.webp",
-    "second": "/portfolio/projects/opticore/03-dark.webp",
+    "second": "/portfolio/projects/opticore/02-dark.webp",
     "position": "center top",
-    "alt": "opticore — Patterns start here.",
+    "alt": "OptiCore — product interface",
     "en": {
       "tagline": "Intelligence in every room.",
       "description": "An AI-powered energy system for homes and buildings. OptiCore connects sensing, lighting and environmental control, learns the patterns of a space and coordinates its connected architecture to optimize energy use while keeping people in control.",
@@ -214,7 +262,12 @@
         "Sensores y controladores por habitación",
         "Control coordinado de todo el edificio"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/opticore/01-dark.webp",
+      "/portfolio/projects/opticore/02-dark.webp",
+      "/portfolio/projects/opticore/03-dark.webp"
+    ]
   },
   {
     "id": "gemelo",
@@ -223,9 +276,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/gemelo",
     "cover": "/portfolio/projects/gemelo/01-dark.webp",
-    "second": "/portfolio/projects/gemelo/03-dark.webp",
+    "second": "/portfolio/projects/gemelo/02-dark.webp",
     "position": "center top",
-    "alt": "gemelo — The city, connected.",
+    "alt": "Gemelo Digital — product interface",
     "en": {
       "tagline": "A living view of the city.",
       "description": "A digital twin that brings incidents, operational indicators, vehicle movement and connected kiosks into an immersive map. Live layers, historical exploration and a read-only AI interface help teams understand what is happening across the city.",
@@ -245,7 +298,15 @@
         "Conexión con datos de CityTrip y kioscos",
         "Consultas operativas con IA de solo lectura"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/gemelo/01-dark.webp",
+      "/portfolio/projects/gemelo/02-dark.webp",
+      "/portfolio/projects/gemelo/03-dark.webp",
+      "/portfolio/projects/gemelo/04-dark.webp",
+      "/portfolio/projects/gemelo/05-dark.webp",
+      "/portfolio/projects/gemelo/06-dark.webp"
+    ]
   },
   {
     "id": "clyra-meet",
@@ -254,9 +315,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/clyra-meet",
     "cover": "/portfolio/projects/clyra-meet/01-dark.webp",
-    "second": "/portfolio/projects/clyra-meet/03-dark.webp",
+    "second": "/portfolio/projects/clyra-meet/02-light.webp",
     "position": "center top",
-    "alt": "Clyra Meet meeting dashboard and invitations",
+    "alt": "Clyra Meet — product interface",
     "en": {
       "tagline": "Good conversations, closer together.",
       "description": "A meeting experience for video calls, guests and shared screens across web and desktop. Scheduling, admission controls and a companion agent connect the conversation to collaborative work, including remote control that requires the participant’s consent.",
@@ -276,7 +337,13 @@
         "Pantalla compartida",
         "Control remoto con consentimiento"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/clyra-meet/01-dark.webp",
+      "/portfolio/projects/clyra-meet/02-light.webp",
+      "/portfolio/projects/clyra-meet/03-dark.webp",
+      "/portfolio/projects/clyra-meet/04-dark.webp"
+    ]
   },
   {
     "id": "workspace",
@@ -285,9 +352,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/workspace",
     "cover": "/portfolio/projects/workspace/01-dark.webp",
-    "second": "/portfolio/projects/workspace/03-dark.webp",
+    "second": "/portfolio/projects/workspace/02-dark.webp",
     "position": "center top",
-    "alt": "Workspace visual application hub",
+    "alt": "Clyra Workspace — product interface",
     "en": {
       "tagline": "One sign-in. An entire universe.",
       "description": "A shared entry point for Clyra applications, with a product gallery and access based on the user’s assigned tools. The connected Nexo mobile experience adds native conversations and a consistent way to reach each application.",
@@ -307,7 +374,15 @@
         "Acceso a aplicaciones según la cuenta",
         "Conversaciones y voz en Nexo móvil"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/workspace/01-dark.webp",
+      "/portfolio/projects/workspace/02-dark.webp",
+      "/portfolio/projects/workspace/03-dark.webp",
+      "/portfolio/projects/workspace/04-dark.webp",
+      "/portfolio/projects/workspace/05-dark.webp",
+      "/portfolio/projects/workspace/06-dark.webp"
+    ]
   },
   {
     "id": "omnios",
@@ -316,9 +391,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/omnios",
     "cover": "/portfolio/projects/omnios/01-dark.webp",
-    "second": "/portfolio/projects/omnios/03-dark.webp",
+    "second": "/portfolio/projects/omnios/02-dark.webp",
     "position": "center top",
-    "alt": "omnios — Every touchpoint. Connected.",
+    "alt": "omniOS — product interface",
     "en": {
       "tagline": "Make every screen part of the experience.",
       "description": "A management platform for connected kiosks, digital displays and public-facing experiences. Organizations can coordinate content, campaigns, device assignments and operational requests while bringing cameras, alerts and service touchpoints into the same administration environment.",
@@ -338,7 +413,13 @@
         "Gestión de organizaciones y ubicaciones",
         "Alertas operativas y solicitudes de servicio"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/omnios/01-dark.webp",
+      "/portfolio/projects/omnios/02-dark.webp",
+      "/portfolio/projects/omnios/03-dark.webp",
+      "/portfolio/projects/omnios/04-dark.webp"
+    ]
   },
   {
     "id": "kioskos",
@@ -347,9 +428,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/kioskos",
     "cover": "/portfolio/projects/kioskos/01-dark.webp",
-    "second": "/portfolio/projects/kioskos/03-dark.webp",
+    "second": "/portfolio/projects/kioskos/02-dark.webp",
     "position": "center top",
-    "alt": "kioskos — The entire fleet. In view.",
+    "alt": "KioskOS — product interface",
     "en": {
       "tagline": "A whole fleet, within reach.",
       "description": "A device operations workspace for distributed kiosks and totems. Teams can monitor device status, inspect captures and logs, schedule commands and manage remote support across groups and organizations, with dedicated clients for different device platforms.",
@@ -369,7 +450,13 @@
         "Capturas, registros y procesos de soporte",
         "Clientes para Android, Windows y Raspberry Pi"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/kioskos/01-dark.webp",
+      "/portfolio/projects/kioskos/02-dark.webp",
+      "/portfolio/projects/kioskos/03-dark.webp",
+      "/portfolio/projects/kioskos/04-dark.webp"
+    ]
   },
   {
     "id": "citytrip",
@@ -378,9 +465,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/citytrip",
     "cover": "/portfolio/projects/citytrip/01-dark.webp",
-    "second": "/portfolio/projects/citytrip/03-dark.webp",
+    "second": "/portfolio/projects/citytrip/02-dark.webp",
     "position": "center top",
-    "alt": "citytrip — Mobility, in your hand",
+    "alt": "CityTrip — product interface",
     "en": {
       "tagline": "Every journey, connected.",
       "description": "A mobility platform connecting riders, drivers and operations teams. Ride requests, live trip tracking and payments work alongside an administrative console, while an onboard tablet experience adds another touchpoint between the passenger and the journey.",
@@ -400,7 +487,13 @@
         "Pagos y consola de operaciones",
         "Experiencia en tablet a bordo"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/citytrip/01-dark.webp",
+      "/portfolio/projects/citytrip/02-dark.webp",
+      "/portfolio/projects/citytrip/03-dark.webp",
+      "/portfolio/projects/citytrip/04-dark.webp"
+    ]
   },
   {
     "id": "teddy",
@@ -440,9 +533,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/medadvisor",
     "cover": "/portfolio/projects/medadvisor/01-light.webp",
-    "second": "/portfolio/projects/medadvisor/03-light.webp",
+    "second": "/portfolio/projects/medadvisor/02-light.webp",
     "position": "center top",
-    "alt": "MedAdvisor public platform introduction",
+    "alt": "MedAdvisor — product interface",
     "en": {
       "tagline": "Healthcare, better connected.",
       "description": "A healthcare communication platform connecting professionals, patients and service providers. Appointment management, direct messaging and role-specific profiles bring the different participants of the healthcare ecosystem into a coordinated digital experience across web and connected services.",
@@ -462,7 +555,15 @@
         "Perfiles según la función de cada participante",
         "Analítica de profesionales y citas"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/medadvisor/01-light.webp",
+      "/portfolio/projects/medadvisor/02-light.webp",
+      "/portfolio/projects/medadvisor/03-light.webp",
+      "/portfolio/projects/medadvisor/04-light.webp",
+      "/portfolio/projects/medadvisor/05-light.webp",
+      "/portfolio/projects/medadvisor/06-light.webp"
+    ]
   },
   {
     "id": "metrica",
@@ -502,9 +603,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/politiqsync",
     "cover": "/portfolio/projects/politiqsync/01-dark.webp",
-    "second": "/portfolio/projects/politiqsync/03-dark.webp",
+    "second": "/portfolio/projects/politiqsync/02-dark.webp",
     "position": "center top",
-    "alt": "politiqsync — Territory, connected",
+    "alt": "PolitiqSync — product interface",
     "en": {
       "tagline": "Keep field teams in sync.",
       "description": "A field operations platform that connects contact capture, questionnaires, attendance and geographic activity. Web and mobile tools give administrators, coordinators and field teams a shared view of their work, with roles and access organized by territory.",
@@ -524,7 +625,12 @@
         "Mapas y resultados operativos",
         "Experiencias web y móviles conectadas"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/politiqsync/01-dark.webp",
+      "/portfolio/projects/politiqsync/02-dark.webp",
+      "/portfolio/projects/politiqsync/03-dark.webp"
+    ]
   },
   {
     "id": "luxoflex",
@@ -533,9 +639,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/luxoflex",
     "cover": "/portfolio/projects/luxoflex/01-dark.webp",
-    "second": "/portfolio/projects/luxoflex/03-dark.webp",
+    "second": "/portfolio/projects/luxoflex/02-dark.webp",
     "position": "center top",
-    "alt": "luxoflex — Craft, on display",
+    "alt": "Luxoflex — product interface",
     "en": {
       "tagline": "A sharper first impression.",
       "description": "A digital brand experience for a specialist in labels and printing. Product collections, material exploration and a visual prepress workflow bring the service offering online, guiding visitors from discovering the work to making a project enquiry.",
@@ -555,7 +661,15 @@
         "Páginas específicas por servicio",
         "Consulta de proyectos y contacto"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/luxoflex/01-dark.webp",
+      "/portfolio/projects/luxoflex/02-dark.webp",
+      "/portfolio/projects/luxoflex/03-dark.webp",
+      "/portfolio/projects/luxoflex/04-dark.webp",
+      "/portfolio/projects/luxoflex/05-dark.webp",
+      "/portfolio/projects/luxoflex/06-dark.webp"
+    ]
   },
   {
     "id": "promptlab",
@@ -564,9 +678,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/promptlab",
     "cover": "/portfolio/projects/promptlab/01-dark.webp",
-    "second": "/portfolio/projects/promptlab/03-dark.webp",
+    "second": "/portfolio/projects/promptlab/02-dark.webp",
     "position": "center top",
-    "alt": "promptlab — Start with a better question",
+    "alt": "PromptLab — product interface",
     "en": {
       "tagline": "Better prompts. Clearer possibilities.",
       "description": "A workspace for developing clearer, more structured AI instructions. Conversations, saved work and development-context settings help users refine what they ask, while account plans and credit tracking support an ongoing prompt-building workflow.",
@@ -586,7 +700,12 @@
         "Configuración del contexto de desarrollo",
         "Gestión de planes y créditos"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/promptlab/01-dark.webp",
+      "/portfolio/projects/promptlab/02-dark.webp",
+      "/portfolio/projects/promptlab/03-dark.webp"
+    ]
   },
   {
     "id": "reportscan",
@@ -626,9 +745,9 @@
     "stage": "Prototype",
     "source": "https://clyra.dev/portfolio/3d-converter",
     "cover": "/portfolio/projects/3d-converter/01-dark.webp",
-    "second": "/portfolio/projects/3d-converter/03-dark.webp",
+    "second": "/portfolio/projects/3d-converter/02-dark.webp",
     "position": "center top",
-    "alt": "3d-converter — Shape, in focus",
+    "alt": "3D Converter — product interface",
     "en": {
       "tagline": "From four views to a new dimension.",
       "description": "A photo-to-3D prototype that turns four canonical object views into an interactive model preview and print-oriented exports. A queued processing pipeline separates the browser experience from inference, with different engines for approximation, testing and local GPU workflows.",
@@ -648,7 +767,14 @@
         "Procesamiento de inferencia en cola",
         "Exportación de modelos para impresión"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/3d-converter/01-dark.webp",
+      "/portfolio/projects/3d-converter/02-dark.webp",
+      "/portfolio/projects/3d-converter/03-dark.webp",
+      "/portfolio/projects/3d-converter/04-dark.webp",
+      "/portfolio/projects/3d-converter/05-dark.webp"
+    ]
   },
   {
     "id": "3d-projector",
@@ -657,9 +783,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/3d-projector",
     "cover": "/portfolio/projects/3d-projector/01-dark.webp",
-    "second": "/portfolio/projects/3d-projector/03-dark.webp",
+    "second": "/portfolio/projects/3d-projector/02-light.webp",
     "position": "center top",
-    "alt": "3d-projector — Beyond the flat image",
+    "alt": "Clyra 3D Projector — product interface",
     "en": {
       "tagline": "Digital characters, beyond the screen.",
       "description": "A browser-based stage for 3D characters and projection experiments. Models and avatars can be positioned, mirrored and animated against a clean background, then presented in a distraction-free projection view for an OLED display and acrylic setup.",
@@ -679,7 +805,13 @@
         "Controles de órbita, escala y reflejo",
         "Proyección en pantalla completa"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/3d-projector/01-dark.webp",
+      "/portfolio/projects/3d-projector/02-light.webp",
+      "/portfolio/projects/3d-projector/03-dark.webp",
+      "/portfolio/projects/3d-projector/04-dark.webp"
+    ]
   },
   {
     "id": "axion",
@@ -688,9 +820,9 @@
     "stage": null,
     "source": "https://clyra.dev/portfolio/axion",
     "cover": "/portfolio/projects/axion/01-dark.webp",
-    "second": "/portfolio/projects/axion/03-dark.webp",
+    "second": "/portfolio/projects/axion/02-dark.webp",
     "position": "center top",
-    "alt": "axion — An identity that travels",
+    "alt": "AXION Studio — product interface",
     "en": {
       "tagline": "An identity that goes places.",
       "description": "Digital identities designed to travel. AXION Studio brings customizable profile cards, contact management, QR sharing and mobile wallet passes into one workspace, with a consistent visual identity across web and native experiences.",
@@ -710,6 +842,12 @@
         "Perfiles públicos y uso compartido por QR",
         "Pases de Apple Wallet y enlaces de Google Wallet"
       ]
-    }
+    },
+    "captures": [
+      "/portfolio/projects/axion/01-dark.webp",
+      "/portfolio/projects/axion/02-dark.webp",
+      "/portfolio/projects/axion/03-dark.webp",
+      "/portfolio/projects/axion/04-dark.webp"
+    ]
   }
 ]

@@ -6,6 +6,7 @@ import { copy, type Locale } from "@/i18n/copy";
 import type { Project } from "./data/projects";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
+import { FeaturedProjects } from "./components/FeaturedProjects";
 import { Projects } from "./components/Projects";
 import { Approach } from "./components/Approach";
 import { Contact } from "./components/Contact";
@@ -30,14 +31,7 @@ export function Portfolio({ locale }: { locale: Locale }) {
           <Header locale={locale} t={t} />
           <main id="main">
             <Hero t={t} />
-            <div className="project-signatures shell" aria-hidden="true">
-              <span>AgentOS</span>
-              <span>omnicube</span>
-              <span>Neurocity</span>
-              <span>Fiscalité</span>
-              <span>Constella</span>
-              <span>rook.</span>
-            </div>
+            <FeaturedProjects t={t} locale={locale} onSelect={setSelected} />
             <Projects locale={locale} t={t} onSelect={setSelected} />
             <Approach t={t} />
             <Contact t={t} />

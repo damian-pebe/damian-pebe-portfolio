@@ -63,6 +63,11 @@ export function BackgroundPaths() {
       sync();
     });
     const sizing = new ResizeObserver(resize);
+    const themeObserver = new MutationObserver(paint);
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
     const target = canvas.closest("section");
     const move = (event: PointerEvent) => {
       if (event.pointerType !== "mouse" || !canAnimate()) return;
@@ -86,6 +91,7 @@ export function BackgroundPaths() {
       cancelAnimationFrame(raf);
       observer.disconnect();
       sizing.disconnect();
+      themeObserver.disconnect();
       target?.removeEventListener("pointermove", move);
       target?.removeEventListener("pointerleave", leave);
       document.removeEventListener("visibilitychange", sync);

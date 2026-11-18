@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { Copy, Locale } from "@/i18n/copy";
-import { thumbnail, type Project } from "../data/projects";
+import type { Project } from "../data/projects";
+import { DeviceMockup } from "./DeviceMockup";
 export function ProjectCard({
   project,
   locale,
@@ -21,37 +21,19 @@ export function ProjectCard({
       onClick={() => onSelect(project)}
     >
       <span className="sr-only">{t.work.view}: </span>
-      <div className="project-visual">
-        <div className="project-glow" />
-        <span className="project-number" aria-hidden="true">
-          {String(index + 1).padStart(2, "0")}
+      <div className="project-visual" aria-hidden="true">
+        <span className="project-pill">
+          {t.work.categories[project.category]}
         </span>
         <span className="project-open" aria-hidden="true">
           <ArrowUpRight size={21} />
         </span>
-        <div className="project-screen">
-          <div className="browser-bar" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-            <i>{project.name.toLowerCase()}</i>
-          </div>
-          <picture>
-            <source
-              srcSet={`/projects/${project.id}-small.webp 640w, ${thumbnail(project)} 960w`}
-              sizes="(max-width: 700px) calc(100vw - 80px), (max-width: 1440px) calc(50vw - 110px), 590px"
-            />
-            <Image
-              src={thumbnail(project)}
-              alt=""
-              width={960}
-              height={600}
-              sizes="(max-width: 700px) 92vw, 46vw"
-              loading="lazy"
-              style={{ objectPosition: project.position }}
-            />
-          </picture>
+        <div className="project-device">
+          <DeviceMockup project={project} />
         </div>
+        <span className="project-number" aria-hidden="true">
+          {String(index + 1).padStart(2, "0")} / {t.featured.discover}
+        </span>
         {project.stage && (
           <span className="stage-badge">
             {project.stage === "Prototype"
@@ -63,11 +45,16 @@ export function ProjectCard({
       <div className="project-caption">
         <div>
           <h3>{project.name}</h3>
+          <span className="sr-only">
+            {t.work.categories[project.category]}
+            {project.stage &&
+              " / " +
+                (project.stage === "Prototype"
+                  ? t.work.prototype
+                  : t.work.development)}
+          </span>
           <p>{project[locale].tagline}</p>
         </div>
-        <span className="project-category">
-          {t.work.categories[project.category]}
-        </span>
       </div>
     </button>
   );

@@ -1,22 +1,40 @@
 export const es = {
   skip: "Ir al contenido",
-  nav: { work: "Proyectos", approach: "Enfoque", contact: "Hablemos" },
+  nav: {
+    work: "Proyectos",
+    approach: "Enfoque",
+    contact: "Hablemos",
+    portfolio: "portafolio",
+  },
+  theme: { light: "Cambiar a tema claro", dark: "Cambiar a tema oscuro" },
+  featured: {
+    title: "En primer plano",
+    label: "TRABAJO SELECCIONADO",
+    edition: "PORTAFOLIO",
+    carousel: "carrusel",
+    discover: "Descubrir el proyecto",
+    previous: "Proyecto destacado anterior",
+    next: "Siguiente proyecto destacado",
+    choose: "Elegir proyecto destacado",
+  },
   hero: {
     eyebrow: "DAMIAN PÉREZ BECERRIL",
-    role: "SOFTWARE ENGINEER & PRODUCT BUILDER",
+    role: "INGENIERÍA DE SOFTWARE · DISEÑO · IA",
     line1: "Ideas grandes.",
     line2: "Productos reales.",
     description:
-      "Ingeniería de software, diseño e inteligencia artificial. De la primera idea al producto en producción.",
+      "Diseño y construyo productos digitales.\nDe la primera idea al último detalle.",
     primary: "Construyamos algo",
-    secondary: "Explorar proyectos",
-    location: "Desde México. Para cualquier lugar.",
+    secondary: "Conoce mi trabajo",
+    location: "DESDE MÉXICO / PARA EL MUNDO",
     scroll: "Desliza para descubrir",
     label: "DISEÑO CON INTENCIÓN. CÓDIGO CON AMBICIÓN.",
   },
   work: {
+    capture: "Ver captura completa",
+    mockup: "Ver en dispositivo",
     eyebrow: "01 / TRABAJO SELECCIONADO",
-    title: "El trabajo habla.",
+    title: "Menos promesas. Más producto.",
     subtitle:
       "Productos conectados al mundo real. Una selección de lo que construyo con Clyra.",
     all: "Todos",
@@ -43,7 +61,7 @@ export const es = {
   },
   approach: {
     eyebrow: "02 / CÓMO PIENSO",
-    title: "La visión completa.\nEl detalle también.",
+    title: "Pienso en producto.\nConstruyo cada detalle.",
     description:
       "Conecto diseño, ingeniería e inteligencia artificial para convertir problemas complejos en productos que se sienten simples.",
     items: [
@@ -66,7 +84,7 @@ export const es = {
   },
   contact: {
     eyebrow: "03 / LO SIGUIENTE",
-    title: "Tu próxima gran idea.\nVamos a construirla.",
+    title: "¿Lo hacemos\nrealidad?",
     text: "¿Algo ambicioso en mente? Me interesa escucharlo.",
     email: "Escríbeme",
     copy: "Copiar correo",

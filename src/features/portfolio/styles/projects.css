@@ -3,62 +3,62 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 40px;
-  margin-top: 20px;
+  margin-top: 22px;
 }
 .section-heading h2 {
-  font-size: clamp(40px, 4.7vw, 68px);
+  font-size: clamp(36px, 4.5vw, 64px);
   letter-spacing: -0.065em;
-  font-weight: 450;
-  line-height: 1.1;
+  font-weight: 500;
+  line-height: 1.05;
+  max-width: 650px;
 }
 .section-heading > p {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.85;
-  max-width: 315px;
+  max-width: 285px;
   color: var(--muted);
 }
 .project-filters {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 40px 0 30px;
+  margin: 34px 0 26px;
   overflow-x: auto;
-  padding: 5px 4px 12px;
+  padding: 6px 4px 18px;
   scrollbar-width: thin;
-  scrollbar-color: #333 transparent;
+  border-bottom: 1px solid var(--line);
 }
 .project-filters button {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   min-height: 40px;
-  padding: 8px 16px;
+  padding: 8px 17px;
   background: transparent;
   border: 1px solid transparent;
   border-radius: 30px;
-  font-size: 11px;
-  color: #999ca6;
+  font-size: 10px;
+  color: var(--muted);
   transition:
     background 0.2s,
     color 0.2s;
 }
 .project-filters button:hover {
-  color: #f5f5f7;
+  background: var(--surface);
+  color: var(--text);
 }
 .project-filters button[aria-pressed="true"] {
-  color: #eeeef2;
-  border-color: #35363c;
-  background: #191a1f;
+  color: var(--inverse);
+  background: var(--text);
 }
 .project-filters button > span {
   font-size: 9px;
-  color: #a7a9b2;
 }
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 48px 26px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px 22px;
 }
 .project-card {
   display: block;
@@ -69,149 +69,57 @@
   text-align: left;
 }
 .project-visual {
-  aspect-ratio: 1.5;
+  aspect-ratio: 1.23;
   position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 70px 25px 0;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: radial-gradient(
-    ellipse at 50% 95%,
-    #2b2c3e,
-    #15151d 65%,
-    #111216
-  );
-}
-.project-omnicube .project-visual {
-  background: radial-gradient(
-    ellipse at 55% 95%,
-    #1d3b3d,
-    #111b20 65%,
-    #101418
-  );
-}
-.project-neurocity .project-visual {
-  background: radial-gradient(
-    ellipse at 45% 90%,
-    #253445,
-    #151a23 65%,
-    #111419
-  );
-}
-.project-fiscalite .project-visual {
-  background: radial-gradient(
-    ellipse at 50% 90%,
-    #38314d,
-    #1a1825 65%,
-    #14131b
-  );
-}
-.project-constella .project-visual {
-  background: radial-gradient(
-    ellipse at 50% 90%,
-    #33412f,
-    #1b221b 65%,
-    #131713
-  );
-}
-.project-rook .project-visual {
-  background: radial-gradient(
-    ellipse at 50% 90%,
-    #33333b,
-    #1a1b21 65%,
-    #121318
-  );
-}
-.project-glow {
-  position: absolute;
-  width: 60%;
-  height: 40%;
-  top: 0;
-  left: 20%;
-  border-radius: 50%;
-  background: rgba(221, 224, 255, 0.07);
-  filter: blur(50px);
-  transition: opacity 0.6s;
-  opacity: 0.3;
-}
-.project-card:hover .project-glow {
-  opacity: 1;
-}
-.project-screen {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 10px 10px 0 0;
-  overflow: hidden;
-  box-shadow: 0 18px 60px #0008;
-  transform: perspective(1000px) rotateX(6deg) rotateY(-6deg) rotateZ(-3deg)
-    translateY(24px);
-  transform-origin: center 100%;
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.project-grid > div:nth-child(even) .project-screen {
-  transform: perspective(1000px) rotateX(6deg) rotateY(6deg) rotateZ(3deg)
-    translateY(24px);
-}
-.project-card:hover .project-screen,
-.project-card:focus-visible .project-screen,
-.project-grid > div:nth-child(even) .project-card:hover .project-screen {
-  transform: perspective(1000px) rotateX(0) rotateY(0) rotateZ(0)
-    translateY(5px);
-}
-.browser-bar {
   display: flex;
   align-items: center;
-  height: 25px;
-  gap: 4px;
-  background: #18191e;
-  padding-inline: 12px;
-  border-bottom: 1px solid #ffffff10;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 55% 0%, var(--surface-top), transparent 75%),
+    var(--surface);
 }
-.browser-bar > span {
-  width: 4px;
-  height: 4px;
-  background: #6f7179;
-  border-radius: 50%;
-}
-.browser-bar i {
-  font-style: normal;
+.project-visual > .project-pill {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 7px;
-  color: #a3a5b0;
-  letter-spacing: 0.05em;
+  top: 17px;
+  left: 17px;
+  z-index: 2;
 }
-.project-screen img {
+.project-device {
   width: 100%;
-  height: auto;
-  aspect-ratio: 1.6;
-  object-fit: cover;
+  padding: 24px 8px 14px;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.project-device > .device-mockup {
+  filter: drop-shadow(0 16px 13px var(--shadow));
+}
+.project-card:hover .project-device,
+.project-card:focus-visible .project-device {
+  transform: translateY(-5px) scale(1.035);
 }
 .project-number {
   position: absolute;
-  top: 23px;
-  left: 25px;
-  font-size: 10px;
-  color: #a3a6b1;
+  bottom: 23px;
+  left: 19px;
+  font-size: 8px;
+  text-transform: uppercase;
+  color: var(--muted);
   letter-spacing: 0.1em;
 }
 .project-open {
   position: absolute;
-  top: 15px;
-  right: 17px;
-  width: 38px;
-  height: 38px;
-  border: 1px solid #ffffff26;
+  bottom: 15px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
   display: grid;
   place-items: center;
   border-radius: 50%;
-  color: #c2c5d1;
+  color: var(--text);
+  z-index: 2;
   transition:
     background 0.3s,
     color 0.3s,
@@ -219,111 +127,87 @@
 }
 .project-card:hover .project-open {
   transform: rotate(45deg);
-  background: #f1f1f4;
-  color: #101114;
+  background: var(--text);
+  color: var(--inverse);
 }
 .project-caption {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 20px 3px 0;
+  padding: 17px 1px 0;
 }
 .project-caption h3 {
-  font-size: 23px;
-  font-weight: 450;
-  letter-spacing: -0.6px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.7px;
 }
 .project-caption p {
   font-size: 11px;
-  color: #a1a4af;
-  margin-top: 8px;
-  line-height: 1.6;
-}
-.project-category {
-  font-size: 9px;
-  padding-top: 9px;
-  color: #a4a6af;
-  text-align: right;
-  max-width: 120px;
+  color: var(--muted);
+  margin-top: 7px;
+  line-height: 1.65;
 }
 .stage-badge {
   position: absolute;
-  bottom: 15px;
-  left: 16px;
+  right: 16px;
+  top: 55px;
   z-index: 2;
-  font-size: 9px;
-  padding: 7px 10px;
-  background: #08090bee;
-  color: #d2d4dc;
+  font-size: 8px;
+  padding: 6px 9px;
+  background: var(--bg);
+  color: var(--muted);
   border-radius: 20px;
-  border: 1px solid #ffffff30;
+  border: 1px solid var(--line);
 }
 .more-projects {
   display: flex;
   justify-content: center;
-  margin-top: 55px;
+  margin-top: 43px;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .project-grid {
-    gap: 38px 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 22px;
   }
-  .project-visual {
-    padding: 56px 18px 0;
+  .section-heading {
+    gap: 30px;
   }
   .section-heading > p {
-    max-width: 280px;
-    font-size: 12px;
-  }
-  .project-filters {
-    gap: 3px;
-  }
-  .project-filters button {
-    padding: 8px 12px;
-  }
-  .project-caption h3 {
-    font-size: 20px;
+    max-width: 250px;
   }
 }
 @media (max-width: 700px) {
   .section-heading {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 18px;
+    margin-top: 18px;
   }
   .section-heading h2 {
-    font-size: 42px;
+    font-size: 40px;
+    max-width: 340px;
   }
   .section-heading > p {
     max-width: 320px;
+    font-size: 11px;
   }
   .project-filters {
-    margin: 25px -4px 18px;
+    margin: 24px -3px 22px;
+    gap: 3px;
+    padding-bottom: 15px;
+  }
+  .project-filters button {
+    padding-inline: 13px;
+    font-size: 10px;
   }
   .project-grid {
     grid-template-columns: 1fr;
-    gap: 33px;
+    gap: 31px;
   }
   .project-visual {
-    aspect-ratio: 1.48;
-    padding: 55px 20px 0;
-  }
-  .project-caption {
-    padding-top: 16px;
+    aspect-ratio: 1.2;
   }
   .project-caption h3 {
-    font-size: 21px;
-  }
-  .project-category {
-    font-size: 9px;
-  }
-  .project-screen {
-    transform: rotate(-2deg) translateY(12px);
-  }
-  .project-grid > div:nth-child(even) .project-screen {
-    transform: rotate(2deg) translateY(12px);
+    font-size: 22px;
   }
   .more-projects {
-    margin-top: 35px;
+    margin-top: 32px;
   }
 }

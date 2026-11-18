@@ -1,16 +1,14 @@
 import Link from "next/link";
-import { ArrowUpRight, Languages } from "lucide-react";
+import { ArrowUpRight, Languages, Moon, Sun } from "lucide-react";
 import type { Copy, Locale } from "@/i18n/copy";
+import { useTheme } from "../hooks/useTheme";
 export function Header({ locale, t }: { locale: Locale; t: Copy }) {
+  const { theme, toggle } = useTheme();
   return (
     <header className="site-header shell">
       <a href="#top" className="wordmark">
-        <span className="monogram" aria-hidden="true">
-          dp<span>✳</span>
-        </span>
-        <span>
-          damian pebe<span className="wordmark-dot">.</span>
-        </span>
+        <span>damian pebe.</span>
+        <span className="wordmark-caption">/ {t.nav.portfolio}</span>
       </a>
       <nav
         aria-label={
@@ -23,6 +21,13 @@ export function Header({ locale, t }: { locale: Locale; t: Copy }) {
         <a className="nav-approach" href="#approach">
           {t.nav.approach}
         </a>
+        <button
+          className="theme-switch icon-button"
+          onClick={toggle}
+          aria-label={theme === "light" ? t.theme.dark : t.theme.light}
+        >
+          {theme === "light" ? <Moon size={16} /> : <Sun size={17} />}
+        </button>
         <Link
           className="language-switch"
           href={locale === "es" ? "/en/" : "/"}

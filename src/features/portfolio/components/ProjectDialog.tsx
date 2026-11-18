@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import type { Copy, Locale } from "@/i18n/copy";
 import { gallery, type Project } from "../data/projects";
+import { DeviceMockup } from "./DeviceMockup";
 export function ProjectDialog({
   project,
   t,
@@ -16,6 +17,7 @@ export function ProjectDialog({
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [slide, setSlide] = useState(0);
+  const [raw, setRaw] = useState(false);
   const images = gallery(project);
   const content = project[locale];
   useEffect(() => {
@@ -76,14 +78,33 @@ export function ProjectDialog({
           <h2 id="project-dialog-title">{project.name}</h2>
           <p>{content.tagline}</p>
         </div>
+        {project.second && (
+          <div className="gallery-toggle">
+            <button onClick={() => setRaw(!raw)}>
+              {raw ? t.work.mockup : t.work.capture}
+            </button>
+          </div>
+        )}
         <div className="dialog-gallery">
-          <Image
-            src={images[slide]}
-            alt={project.name + " — " + t.work.gallery + " " + (slide + 1)}
-            width={1600}
-            height={1000}
-            sizes="(max-width: 700px) 94vw, 960px"
-          />
+          {!raw && project.second ? (
+            <div className="dialog-mockup">
+              <DeviceMockup
+                project={project}
+                slide={slide}
+                detail
+                priority
+                alt={project.name + " — " + t.work.gallery + " " + (slide + 1)}
+              />
+            </div>
+          ) : (
+            <Image
+              src={images[slide]}
+              alt={project.name + " — " + t.work.gallery + " " + (slide + 1)}
+              width={1600}
+              height={1000}
+              sizes="(max-width: 700px) 94vw, 960px"
+            />
+          )}
           {images.length > 1 && (
             <div className="gallery-controls">
               <button

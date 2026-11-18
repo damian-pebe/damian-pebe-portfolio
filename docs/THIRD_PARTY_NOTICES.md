@@ -2,7 +2,7 @@
 
 ## Kokonut UI Background Paths
 
-Author: Dorian Baffier (@dorianbaffier). Adapted from Background Paths, available through 21st.dev and https://kokonutui.com/r/background-paths.json. Ribbon geometry is adapted for this portfolio; rendering and lifecycle are maintained locally.
+Author: Dorian Baffier (@dorianbaffier). Adapted from Background Paths, available through 21st.dev and https://kokonutui.com/r/background-paths.json. The original implementation used its ribbon geometry. The current design has a local continuous-wave renderer; this notice is retained for the original integration and lifecycle provenance.
 
 MIT License
 
@@ -25,3 +25,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Clyra portfolio presentation
+
+Device frame images, screen corner coordinates and the projection helper originate from the owner’s `clyra-dev/clyra` portfolio. Reused for Damian Pérez’s personal portfolio at his request. Product screenshots retain their public redactions and stage labels. Device frames are resized WebP renditions; original source files remain in Clyra.

@@ -1,21 +1,21 @@
 .project-dialog {
-  width: min(1040px, calc(100% - 64px));
+  width: min(1240px, calc(100% - 64px));
   max-height: 90svh;
   padding: 0;
-  border: 1px solid #3c3e46;
+  border: 1px solid var(--line);
   border-radius: 20px;
-  background: #101115;
+  background: var(--bg);
   color: var(--text);
   overscroll-behavior: contain;
   box-shadow: 0 40px 120px #000a;
 }
 .project-dialog::backdrop {
-  background: #030407d9;
+  background: #000d;
   backdrop-filter: blur(12px);
 }
 .dialog-inner {
   position: relative;
-  padding: 42px;
+  padding: 42px 50px;
 }
 .dialog-close {
   position: sticky;
@@ -31,20 +31,20 @@
 }
 .dialog-heading h2 {
   margin: 15px 0 10px;
-  font-weight: 450;
-  font-size: 55px;
+  font-weight: 500;
+  font-size: 64px;
   letter-spacing: -2px;
 }
 .dialog-heading > p:last-child {
   font-size: 14px;
-  color: #b4b7c3;
+  color: var(--muted);
 }
 .dialog-gallery {
   position: relative;
   border: 1px solid var(--line);
   border-radius: 8px;
   overflow: hidden;
-  background: #08090b;
+  background: var(--surface);
 }
 .dialog-gallery > img {
   width: 100%;
@@ -61,9 +61,9 @@
   gap: 17px;
   align-items: center;
   padding: 4px;
-  border: 1px solid #ffffff26;
+  border: 1px solid var(--line);
   border-radius: 50px;
-  background: #08090be8;
+  background: var(--bg);
 }
 .gallery-controls span {
   font-size: 10px;
@@ -83,7 +83,7 @@
 .dialog-story p {
   font-size: 13px;
   line-height: 1.95;
-  color: #b2b4be;
+  color: var(--muted);
 }
 .dialog-story .text-link {
   margin-top: 22px;
@@ -93,13 +93,13 @@
   margin: 14px 0 0;
   font-size: 12px;
   line-height: 1.8;
-  color: #b6b9c4;
+  color: var(--muted);
 }
 .dialog-story li {
   padding: 3px 0;
 }
 .capture-note {
-  color: #969aa7;
+  color: var(--muted);
   font-size: 10px;
   margin-top: 25px;
 }
@@ -143,5 +143,40 @@
   .gallery-controls .icon-button {
     width: 28px;
     height: 28px;
+  }
+}
+
+.dialog-mockup {
+  height: min(52svh, 540px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 30px 24px;
+  background:
+    radial-gradient(ellipse at 50% 0%, var(--surface-top), transparent 75%),
+    var(--surface);
+}
+.dialog-mockup > .device-mockup {
+  width: min(100%, calc(min(52svh, 540px) * var(--device-ratio)));
+  filter: drop-shadow(0 22px 18px var(--shadow));
+}
+.gallery-toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin: -12px 0 16px;
+}
+.gallery-toggle button {
+  background: transparent;
+  font-size: 11px;
+  border-bottom: 1px solid var(--line);
+  padding: 6px 0;
+}
+@media (max-width: 700px) {
+  .dialog-mockup {
+    height: clamp(190px, 62vw, 400px);
+    padding: 10px 0 30px;
+  }
+  .dialog-mockup > .device-mockup {
+    width: 100%;
   }
 }

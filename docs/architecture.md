@@ -11,19 +11,21 @@
 
 ## Visuals and behavior
 
-- Background Paths adapts Kokonut UI's MIT ribbon geometry, discoverable on 21st.dev. Its canvas renderer is local, caps pixel density at 1.5 and runs at 30 frames per second. It stops outside the viewport, in hidden tabs, for reduced motion and when data-saving is enabled. Resize, pointer and visibility observers are cleaned up.
-- Framer handles the text entrance, language-change entrance and section reveals. CSS handles hover perspective and glass details. Reduced motion is respected live.
-- The project collection initially shows six selected products. Filters expose all matching projects, and expansion exposes all 23. No employment-history section is included.
-- A lazy-loaded native dialog provides project details, two captures where available, arrow-key navigation, Escape, focus containment, focus restoration and scroll locking.
+- The default presentation is white and black, with a persistent inverted dark theme. `hooks/useTheme.ts` owns the preference; a fixed, CSP-hashed bootstrap applies it before paint. Language navigation and reload retain the choice.
+- The local canvas effect draws a continuous monochrome wave at 30 fps, with pixel density capped at 1.5. It stops outside the viewport, in hidden tabs, for reduced motion and data-saving. Theme changes redraw even when animation is paused. All observers and listeners are disposed.
+- Framer handles the headline entrance, manually controlled featured-project transitions and section reveals. CSS handles hover motion. Static and hydrated styles match for reduced-motion visitors.
+- `FeaturedProjects` presents six products through a keyboard-accessible carousel. There is no autoplay. The project collection starts with six cards; filters expose all matching products and expansion exposes all 23. No employment-history section is included.
+- `DeviceMockup` uses the same published device frames and screen corner geometry as Clyra. `utils/screenProjection.ts` maps real captures to the photographed displays; `ResizeObserver` maintains proportions. Concept art remains distinct from interface captures. Decorative mockups do not duplicate card names for screen readers; product stages remain in accessible captions.
+- A lazy-loaded native dialog presents device scenes, full screenshot galleries (up to six views per product), project details, arrow navigation, Escape, focus containment/restoration and scroll locking. The visitor can switch between the mockup and full screenshot.
 - Clipboard feedback distinguishes success from rejection and retains the mailto fallback.
 
 ## Content and assets
 
-The 23 projects, EN/ES descriptions and permanently redacted captures come from `clyra-dev/clyra`, revision `1d44066ceb3d96c6abf98bdd8f5798caa58addd5`. Only its published portfolio catalog and public captures were copied. Prototype and in-development labels remain explicit; concept artwork is labeled in the project dialog.
+The 23 projects, EN/ES descriptions and permanently redacted captures originate from `clyra-dev/clyra`, revision `1d44066ceb3d96c6abf98bdd8f5798caa58addd5`. The redesign also reuses its published device mockups, projection geometry and first product views. Only public portfolio assets and presentation code were copied. Prototype and in-development labels remain explicit; concept artwork is labeled in the project dialog.
 
 `features/portfolio/data/projects.json` is the bilingual catalog and source provenance. `data/projects.ts` provides typed contracts and local asset paths. The source capture paths in JSON are provenance; the site serves its own optimized WebP files.
 
-`public/projects/` includes 640px mobile previews, 960px desktop previews and 1600px gallery images. Native picture selection and lazy loading reduce transfers. Gallery images retain their full proportions. Original personal portrait was optimized to 132px. Obsolete fonts and 83 MB of older portfolio images were removed from the working tree; originals remain in Git history.
+`public/projects/` includes 640px mobile previews, 960px desktop previews and 1600px gallery images. Lazy loading reduces transfers. Optimized device frames live in `public/mockups/` (about 30–43 KB each); their original coordinate system is preserved when resizing the frame assets. Gallery images retain their full proportions. The catalog lists each public capture as provenance. Versioned capture URLs prevent browsers from reusing the previous redesign’s thumbnails after deployment. Original personal portrait was optimized to 132px. Obsolete fonts and 83 MB of older portfolio images were removed from the working tree; originals remain in Git history.
 
 ## Hosting and security
 
