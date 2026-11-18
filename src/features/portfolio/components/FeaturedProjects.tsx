@@ -42,7 +42,12 @@ export function FeaturedProjects({
     );
   return (
     <section className="featured shell" aria-labelledby="featured-title">
-      <link rel="preload" as="image" href={thumbnail(featured[0])} />
+      <link
+        rel="preload"
+        as="image"
+        href={thumbnail(featured[0])}
+        fetchPriority="high"
+      />
       <div className="featured-caption">
         <h2 id="featured-title">
           <LanguageText>{t.featured.title}</LanguageText>

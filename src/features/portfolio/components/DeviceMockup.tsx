@@ -3,7 +3,12 @@ import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { deviceFrames } from "../data/deviceFrames";
 import { getProjectScene } from "../data/projectScenes";
-import { gallery, thumbnail, type Project } from "../data/projects";
+import {
+  gallery,
+  galleryPreview,
+  thumbnail,
+  type Project,
+} from "../data/projects";
 import type { DeviceFrame } from "../types/devices";
 import { screenProjection } from "../utils/screenProjection";
 
@@ -37,11 +42,12 @@ export function DeviceMockup({
     return (
       <Image
         className="concept-visual"
-        src={gallery(project)[0]}
+        src={detail ? gallery(project)[0] : thumbnail(project, !priority)}
         alt={alt}
         width={1600}
         height={1000}
         loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : undefined}
       />
     );
   }
@@ -65,15 +71,18 @@ export function DeviceMockup({
         width={frame.width}
         height={frame.height}
         loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : undefined}
       />
       {width > 0 &&
         frame.screens.map((screen, index) => {
           const scale = width / frame.width;
           const primary = !!screen.primary;
-          const src =
-            detail || index > 0 || slide > 0
-              ? images[(slide + (primary ? 0 : index)) % images.length]
-              : thumbnail(project);
+          const imageIndex = (slide + (primary ? 0 : index)) % images.length;
+          const src = detail
+            ? images[imageIndex]
+            : index > 0 || slide > 0
+              ? galleryPreview(project, imageIndex)
+              : thumbnail(project, !priority);
           return (
             <div
               key={index}
@@ -100,6 +109,7 @@ export function DeviceMockup({
                   height={1000}
                   style={{ objectPosition: project.position }}
                   loading={priority ? "eager" : "lazy"}
+                  fetchPriority={priority && primary ? "high" : undefined}
                 />
               </div>
             </div>

@@ -17,8 +17,10 @@ export interface Project {
 }
 export const projects = catalog as Project[];
 const assetVersion = "20261117-monochrome";
-export const thumbnail = (project: Project) =>
-  `/projects/${project.id}-thumb.webp?v=${assetVersion}`;
+export const thumbnail = (project: Project, small = false) =>
+  `/projects/${project.id}-${small ? "small" : "thumb"}.webp?v=${assetVersion}`;
+export const galleryPreview = (project: Project, index: number) =>
+  `/projects/${project.id}-${String(index + 1).padStart(2, "0")}-preview.webp?v=${assetVersion}`;
 export const gallery = (project: Project) =>
   Array.from(
     { length: project.captures?.length ?? (project.second ? 2 : 1) },

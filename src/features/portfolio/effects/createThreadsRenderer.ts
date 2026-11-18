@@ -1,7 +1,11 @@
 import { fragmentShader, vertexShader } from "./threadShaders";
+import { waitForShader } from "./waitForShader";
 
 /** Clyra's Threads shader, rendered locally without a third-party WebGL runtime. */
-export function createThreadsRenderer(canvas: HTMLCanvasElement) {
+export async function createThreadsRenderer(
+  canvas: HTMLCanvasElement,
+  signal: AbortSignal,
+) {
   const gl = canvas.getContext("webgl", {
     alpha: true,
     antialias: false,
@@ -15,7 +19,7 @@ export function createThreadsRenderer(canvas: HTMLCanvasElement) {
     shaders.push(shader);
     gl.shaderSource(shader, source);
     gl.compileShader(shader);
-    return gl.getShaderParameter(shader, gl.COMPILE_STATUS) ? shader : null;
+    return shader;
   };
   const vertex = compile(gl.VERTEX_SHADER, vertexShader);
   const fragment = compile(gl.FRAGMENT_SHADER, fragmentShader);
@@ -33,7 +37,12 @@ export function createThreadsRenderer(canvas: HTMLCanvasElement) {
   gl.attachShader(program, vertex);
   gl.attachShader(program, fragment);
   gl.linkProgram(program);
-  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+  const completed = await waitForShader(gl, program, signal);
+  if (
+    !completed ||
+    signal.aborted ||
+    !gl.getProgramParameter(program, gl.LINK_STATUS)
+  ) {
     dispose();
     return null;
   }

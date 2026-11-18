@@ -6,7 +6,7 @@
 - Reduced the hero, showcase, headings and contact section. The catalog uses four columns on desktop and two on mobile, with eight projects initially and all 23 available. Card controls no longer overlap device artwork.
 - 20 local browser checks passed on desktop and mobile. Additional coverage verifies normal-motion language changes, browser back/forward, metadata updates and preservation of the selected product, expanded catalog and mounted shader canvas. Console/hydration errors are asserted absent.
 - Both normal and reduced-motion paths were checked. A conditional sheen element originally caused a server/client markup mismatch for reduced-motion visitors; rendering stable markup with a CSS motion preference fixed it.
-- New hosted checks and measured performance will be recorded with this revision’s release artifacts.
+- The 20 checks also passed on Cloudflare staging with the deployed CSP. The first performance run exposed costly startup and oversized companion captures. Shader compilation now polls GPU readiness asynchronously, catalog/companion images use 640px previews, and versioned images have immutable caching. Subsequent measurements and exact release versions are recorded with the release artifacts.
 
 ## Earlier monochrome redesign
 

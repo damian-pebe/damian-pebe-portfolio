@@ -12,7 +12,7 @@
 ## Visuals and behavior
 
 - The default presentation is white and black, with a persistent inverted dark theme. `hooks/useTheme.ts` owns the preference; a fixed, CSP-hashed bootstrap applies it before paint. Language navigation and reload retain the choice.
-- The hero reuses Clyra’s actual React Bits Threads shader through a small native WebGL renderer, at 30 fps with pixel density capped at 1. It stops outside the viewport, in hidden tabs, for reduced motion and data-saving. Theme changes redraw even when animation is paused. All observers and listeners are disposed.
+- The hero reuses Clyra’s actual React Bits Threads shader through a small native WebGL renderer, at 30 fps with pixel density capped at 1. It stops outside the viewport, in hidden tabs, for reduced motion and data-saving. Theme changes redraw even when animation is paused. Shader compilation uses `KHR_parallel_shader_compile` where available to avoid waiting synchronously on the GPU; pending setup is abortable. All observers and listeners are disposed.
 - Framer handles the magnetic name, language transitions, manually controlled featured-project transitions, pointer tilt and section reveals. The same glass filter and edge treatment as Clyra appear in the primary controls. CSS handles hover motion. Static and hydrated styles match for reduced-motion visitors.
 - `FeaturedProjects` presents six products through a keyboard-accessible carousel. There is no autoplay. The project collection starts with eight cards in four columns on desktop and two on mobile; filters expose all matching products and expansion exposes all 23. No employment-history section is included.
 - `DeviceMockup` uses the same published device frames and screen corner geometry as Clyra. `utils/screenProjection.ts` maps real captures to the photographed displays; `ResizeObserver` maintains proportions. Concept art remains distinct from interface captures. Decorative mockups do not duplicate card names for screen readers; product stages remain in accessible captions.
@@ -25,7 +25,7 @@ The 23 projects, EN/ES descriptions and permanently redacted captures originate 
 
 `features/portfolio/data/projects.json` is the bilingual catalog and source provenance. `data/projects.ts` provides typed contracts and local asset paths. The source capture paths in JSON are provenance; the site serves its own optimized WebP files.
 
-`public/projects/` includes 640px mobile previews, 960px desktop previews and 1600px gallery images. Lazy loading reduces transfers. Optimized device frames live in `public/mockups/` (about 30–43 KB each); their original coordinate system is preserved when resizing the frame assets. Gallery images retain their full proportions. The catalog lists each public capture as provenance. Versioned capture URLs prevent browsers from reusing the previous redesign’s thumbnails after deployment. Original personal portrait was optimized to 132px. Obsolete fonts and 83 MB of older portfolio images were removed from the working tree; originals remain in Git history.
+`public/projects/` includes 640px mobile previews, 960px desktop previews and 1600px gallery images. The small catalog uses 640px previews; companion devices use dedicated 640px gallery previews. Full captures are requested when a detail opens. Lazy loading reduces transfers. Optimized device frames live in `public/mockups/` (about 30–43 KB each); their original coordinate system is preserved when resizing the frame assets. Gallery images retain their full proportions. The catalog lists each public capture as provenance. Versioned capture URLs prevent browsers from reusing the previous redesign’s thumbnails after deployment. Original personal portrait was optimized to 132px. Obsolete fonts and 83 MB of older portfolio images were removed from the working tree; originals remain in Git history.
 
 ## Hosting and security
 
@@ -36,5 +36,5 @@ The 23 projects, EN/ES descriptions and permanently redacted captures originate 
 - Output: `out/`, static assets only, native 404 page and trailing slash handling.
 - `src/workers/canonicalRedirect.ts` with `wrangler.redirect.jsonc`: separate `damian-portfolio-redirect` Worker, 308 www-to-apex redirect preserving path and query. Workers Static Assets does not support hostname conditions in `_redirects`; canonical requests remain assets-only.
 - `public/_headers`: TLS policy, frame denial, MIME-sniffing protection, bounded browser permissions and cache policy.
-- Hashed framework assets are immutable for one year. Project images are cached for a day with stale-while-revalidate. HTML revalidates.
+- Hashed framework assets are immutable for one year. Project images use versioned URLs and are immutable for one year; bump `assetVersion` when replacing them. Device frames use a one-day cache with stale-while-revalidate. HTML revalidates.
 - No secrets, cookies, customer data, server processes or runtime dependencies are hosted.
