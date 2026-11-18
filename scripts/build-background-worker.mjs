@@ -1,7 +1,7 @@
 import { build } from "esbuild";
 await build({
-  entryPoints: ["src/features/landing/effects/hero.worker.ts"],
-  outfile: "public/effects/hero-worker.js",
+  entryPoints: ["src/features/background/effects/metal.worker.ts"],
+  outfile: "public/effects/metal-worker.js",
   bundle: true,
   minify: true,
   format: "esm",

@@ -3,21 +3,21 @@ import {
   type ThemeSnapshotRequest,
 } from "@/features/theme/freezeThemeSurfaces";
 import { useEffect, useRef } from "react";
-import { createHeroRenderer } from "../effects/createHeroRenderer";
-export function useHeroShader() {
+import { createMetalRenderer } from "../effects/createMetalRenderer";
+export function useMetalBackdrop() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const container = ref.current;
     if (!container) return;
     // The hook owns the canvas lifetime, including Strict Mode and hot reload.
     const canvas = document.createElement("canvas");
-    canvas.dataset.effect = "clyra-radial";
+    canvas.dataset.effect = "shader-metal";
     canvas.dataset.running = "false";
     canvas.dataset.themeSurface = "";
     container.appendChild(canvas);
     const abort = new AbortController();
     let teardown = () => {};
-    void createHeroRenderer(canvas, abort.signal).then((renderer) => {
+    void createMetalRenderer(canvas, abort.signal).then((renderer) => {
       if (abort.signal.aborted) {
         renderer?.dispose();
         return;
@@ -33,7 +33,7 @@ export function useHeroShader() {
         navigator as Navigator & { connection?: { saveData?: boolean } }
       ).connection?.saveData;
       let raf = 0,
-        time = 6,
+        time = 11,
         last = 0,
         onscreen = true,
         lost = false;
@@ -58,7 +58,7 @@ export function useHeroShader() {
         raf = 0;
         if (!allowed()) return;
         if (now - last >= 1000 / 30) {
-          time += Math.min((now - last) / 1000, 0.05) * 3;
+          time += Math.min((now - last) / 1000, 0.05) * 0.75;
           last = now;
           paint();
         }
@@ -75,7 +75,7 @@ export function useHeroShader() {
       };
       const resize = () => {
         const rect = canvas.getBoundingClientRect();
-        renderer.resize(rect.width, rect.height);
+        renderer.resize(rect.width, rect.height, window.devicePixelRatio || 1);
         paint();
       };
       const size = new ResizeObserver(resize);
@@ -84,6 +84,16 @@ export function useHeroShader() {
         sync();
       });
       const theme = new MutationObserver(synchronizeTheme);
+      const pointerMove = (event: PointerEvent) => {
+        if (event.pointerType !== "mouse" || !allowed()) return;
+        const rect = canvas.getBoundingClientRect();
+        renderer.pointer(
+          (event.clientX - rect.left) / rect.width,
+          1 - (event.clientY - rect.top) / rect.height,
+          true,
+        );
+      };
+      const pointerLeave = () => renderer.pointer(0.5, 0.5, false);
       const snapshot = (event: Event) => {
         const request = event as CustomEvent<ThemeSnapshotRequest>;
         request.detail.capture = renderer.snapshot?.(
@@ -108,6 +118,8 @@ export function useHeroShader() {
       });
       canvas.addEventListener("webglcontextlost", contextLost);
       document.addEventListener("visibilitychange", sync);
+      window.addEventListener("pointermove", pointerMove, { passive: true });
+      document.documentElement.addEventListener("pointerleave", pointerLeave);
       motion.addEventListener("change", sync);
       sync();
       synchronizeTheme();
@@ -120,6 +132,11 @@ export function useHeroShader() {
         renderer.dispose();
         canvas.removeEventListener("webglcontextlost", contextLost);
         document.removeEventListener("visibilitychange", sync);
+        window.removeEventListener("pointermove", pointerMove);
+        document.documentElement.removeEventListener(
+          "pointerleave",
+          pointerLeave,
+        );
         motion.removeEventListener("change", sync);
       };
     });

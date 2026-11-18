@@ -15,7 +15,7 @@ import { scrollToSection } from "@/features/navigation/scrollToSection";
 import { SiteContext } from "./SiteContext";
 import { useLegacyFragments } from "./hooks/useLegacyFragments";
 import { Header } from "./components/Header";
-import { GlassFilter } from "./components/GlassFilter";
+import { MetalBackdrop } from "@/features/background/components/MetalBackdrop";
 import { Contact } from "./components/Contact";
 export function SiteShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -41,7 +41,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <MotionConfig reducedMotion="user">
           <LayoutGroup>
             <div id="top">
-              <GlassFilter />
+              <MetalBackdrop />
               <button
                 className="skip-link"
                 onClick={() => scrollToSection("main", true)}

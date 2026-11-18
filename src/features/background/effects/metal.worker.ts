@@ -1,8 +1,8 @@
 import { createWebGLRenderer } from "./createWebGLRenderer";
-import type { HeroCommand, HeroResponse } from "./heroProtocol";
+import type { MetalCommand, MetalResponse } from "./metalProtocol";
 const port = self as unknown as {
-  onmessage: ((event: MessageEvent<HeroCommand>) => void) | null;
-  postMessage(message: HeroResponse, transfer?: Transferable[]): void;
+  onmessage: ((event: MessageEvent<MetalCommand>) => void) | null;
+  postMessage(message: MetalResponse, transfer?: Transferable[]): void;
 };
 let canvas: OffscreenCanvas | null = null;
 let renderer: Awaited<ReturnType<typeof createWebGLRenderer>> = null;
@@ -34,7 +34,10 @@ port.onmessage = async ({ data }) => {
       }
       break;
     case "resize":
-      renderer?.resize(data.width, data.height);
+      renderer?.resize(data.width, data.height, data.pixelRatio);
+      break;
+    case "pointer":
+      renderer?.pointer(data.x, data.y, data.active);
       break;
     case "paint":
       renderer?.paint(data.time, data.dark);

@@ -1,9 +1,13 @@
 import { createWebGLRenderer } from "./createWebGLRenderer";
-import type { HeroCommand, HeroRenderer, HeroResponse } from "./heroProtocol";
+import type {
+  MetalCommand,
+  MetalRenderer,
+  MetalResponse,
+} from "./metalProtocol";
 async function mainThreadRenderer(
   canvas: HTMLCanvasElement,
   signal: AbortSignal,
-): Promise<HeroRenderer | null> {
+): Promise<MetalRenderer | null> {
   const renderer = await createWebGLRenderer(canvas, signal);
   return renderer
     ? {
@@ -15,16 +19,16 @@ async function mainThreadRenderer(
 }
 
 /** Keep GPU initialization and drawing outside the interaction thread. */
-export async function createHeroRenderer(
+export async function createMetalRenderer(
   canvas: HTMLCanvasElement,
   signal: AbortSignal,
-): Promise<HeroRenderer | null> {
+): Promise<MetalRenderer | null> {
   if (signal.aborted) return null;
   if (!canvas.transferControlToOffscreen || typeof Worker === "undefined")
     return mainThreadRenderer(canvas, signal);
   let worker: Worker;
   try {
-    worker = new Worker("/effects/hero-worker.js", {
+    worker = new Worker("/effects/metal-worker.js", {
       type: "module",
       name: "portfolio-background",
     });
@@ -36,7 +40,7 @@ export async function createHeroRenderer(
       sequence = 0;
     const pending = new Map<number, () => void>();
     const snapshots = new Map<number, (bitmap: ImageBitmap | null) => void>();
-    const send = (message: HeroCommand) => worker.postMessage(message);
+    const send = (message: MetalCommand) => worker.postMessage(message);
     const dispose = () => {
       signal.removeEventListener("abort", abort);
       worker.terminate();
@@ -58,7 +62,7 @@ export async function createHeroRenderer(
     const abort = () => fail(false);
     signal.addEventListener("abort", abort, { once: true });
     worker.onerror = () => fail(true);
-    worker.onmessage = ({ data }: MessageEvent<HeroResponse>) => {
+    worker.onmessage = ({ data }: MessageEvent<MetalResponse>) => {
       if (data.type === "snapshot") {
         const finish = snapshots.get(data.request);
         if (finish) finish(data.bitmap);
@@ -83,7 +87,9 @@ export async function createHeroRenderer(
       settled = true;
       resolve({
         thread: "worker",
-        resize: (width, height) => send({ type: "resize", width, height }),
+        resize: (width, height, pixelRatio) =>
+          send({ type: "resize", width, height, pixelRatio }),
+        pointer: (x, y, active) => send({ type: "pointer", x, y, active }),
         paint: (time, dark) => send({ type: "paint", time, dark }),
         synchronizeTheme: (time, dark) =>
           new Promise<void>((finish) => {
@@ -110,7 +116,7 @@ export async function createHeroRenderer(
     try {
       const offscreen = canvas.transferControlToOffscreen();
       worker.postMessage(
-        { type: "init", canvas: offscreen } satisfies HeroCommand,
+        { type: "init", canvas: offscreen } satisfies MetalCommand,
         [offscreen],
       );
     } catch {

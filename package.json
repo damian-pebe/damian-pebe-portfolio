@@ -11,8 +11,8 @@
     "format:check": "prettier --check src tests scripts *.ts *.mjs *.json docs/*.md README.md",
     "test": "playwright test",
     "postbuild": "node scripts/finalize-static.mjs",
-    "predev": "node scripts/build-hero-worker.mjs",
-    "prebuild": "node scripts/build-hero-worker.mjs"
+    "predev": "node scripts/build-background-worker.mjs",
+    "prebuild": "node scripts/build-background-worker.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.12.2",

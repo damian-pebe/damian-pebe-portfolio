@@ -23,7 +23,7 @@ npm audit --omit=dev
 npm run preview
 ```
 
-The background worker is bundled automatically before `dev` and `build`; after editing its source during a dev session, rebuild it with `node scripts/build-hero-worker.mjs`. The static preview is http://localhost:4175. Browser tests use installed Google Chrome, desktop and mobile viewports. A production build is required before the preview and browser tests.
+The background worker is bundled automatically before `dev` and `build`; after editing its source during a dev session, rebuild it with `node scripts/build-background-worker.mjs`. The static preview is http://localhost:4175. Browser tests use installed Google Chrome, desktop and mobile viewports. A production build is required before the preview and browser tests.
 
 ## Deployment
 

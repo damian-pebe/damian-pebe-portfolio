@@ -3,12 +3,13 @@
 @import "../features/portfolio/styles/intro.css";
 @import "../features/theme/theme.css";
 @import "../features/language/language.css";
-@import "../features/site/styles/glass.css";
 @import "../features/portfolio/styles/showcase.css";
 @import "../features/portfolio/styles/devices.css";
 @import "../features/portfolio/styles/projects.css";
 @import "../features/site/styles/sections.css";
 @import "../features/portfolio/styles/dialog.css";
+@import "../features/background/styles/metal.css";
+@import "../features/site/styles/glass.css";
 :root {
   color-scheme: light;
   --bg: #fafafa;
@@ -106,7 +107,7 @@ button:focus-visible {
   gap: 26px;
   min-height: 40px;
   padding: 10px 19px;
-  border-radius: 100px;
+  border-radius: 10px;
   font-size: 11px;
   font-weight: 400;
   transition:

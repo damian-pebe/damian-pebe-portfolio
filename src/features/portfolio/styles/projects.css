@@ -65,7 +65,8 @@
   width: 100%;
   padding: 0;
   border-radius: 14px;
-  background: transparent;
+  border: 1px solid var(--line);
+  overflow: hidden;
   text-align: left;
 }
 .project-visual {
@@ -76,10 +77,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 14px;
-  border: 1px solid var(--line);
-  background:
-    radial-gradient(ellipse at 55% 0%, var(--surface-top), transparent 75%),
-    var(--surface);
+  background: transparent;
 }
 .project-visual > .project-pill {
   position: absolute;
@@ -123,7 +121,8 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
-  padding: 13px 1px 0;
+  padding: 16px;
+  border-top: 1px solid var(--line);
 }
 .project-caption h3 {
   font-size: 16px;
@@ -239,6 +238,6 @@
     padding: 4px 6px;
   }
   .project-caption {
-    padding-top: 11px;
+    padding: 12px;
   }
 }

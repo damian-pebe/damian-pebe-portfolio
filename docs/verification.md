@@ -1,6 +1,17 @@
 # Verification — 2026-11-17
 
-## Dedicated landing and clean navigation
+## Shader Metal and transparent projects
+
+- Replaced the Clyra radial effect with the actual MIT-licensed Shader Metal source from Jay Sharma / 23rd.dev. The hero now uses an asymmetrical layout, compact solid/text actions and a short refractive language effect. Removed the punctuation suffix from both brand links and the footer credit.
+- One worker-backed canvas spans home and portfolio. Its chrome lighting responds to the pointer and changes with the theme. Five ribbons, 30 fps and a bounded two-million-pixel canvas keep the renderer's work limited; hidden tabs, data saving and reduced motion suspend animation. No new runtime package or third-party request was introduced.
+- Both the featured project and the catalog cards now use translucent surfaces with a real 16px backdrop blur. Visual review found the CSS compiler had discarded the standard backdrop-filter when an explicit vendor-prefixed version followed it; corrected this for the project glass and header.
+- Verified the actual light/dark chrome, responsive composition and glass in Brave. Adjusted text contrast over bright reflections. Updated the share image to match the new hero.
+- All 38 browser checks passed against the production export, covering desktop/mobile, four routes, clean brand navigation with normal motion, ES/EN/history/state, all 23 covers, project galleries, keyboard/focus behavior, clipboard feedback, narrow screens and automated WCAG AA checks.
+- Transition regressions verify a single canvas across navigation, fallback without workers, denied storage, native circular reveal and palette continuity. The pixel test holds the shader clock still through the visibility event while exercising the real native transition, comparing before/midpoint/after colors. Snapshot geometry now matches the wider mobile canvas crop.
+- ESLint, TypeScript, formatting and production build passed. Runtime audit has zero advisories; the existing development-only picomatch advisory remains (14 propagated high entries). Next still reports its existing missing fallback-font-metrics warning; the local primary font loads normally.
+- Hosted results, exact deployment versions, final screenshots and performance measurements are recorded separately in `~/.codex/artifacts/damian-portfolio-metal-20261117/`.
+
+## Dedicated landing and clean navigation (previous revision)
 
 - Replaced the compact introduction with a full-height monochrome hero based on Clyra's actual landing ShaderLines effect. Kept readable negative space behind the name, added magnetic movement and the original language orbit, and unified the visible identity as Damian Pérez.
 - Split home and the compact project catalog into four static ES/EN routes. Added a transparent shared navbar, a working home/brand link and section buttons that do not create fragments; legacy fragment bookmarks migrate to clean paths.

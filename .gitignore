@@ -44,4 +44,4 @@ playwright-report/
 .wrangler/
 
 # Generated from the typed landing worker before dev/build.
-/public/effects/hero-worker.js
+/public/effects/metal-worker.js

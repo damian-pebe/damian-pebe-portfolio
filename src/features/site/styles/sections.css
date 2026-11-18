@@ -1,5 +1,6 @@
 .approach {
   padding-block: 30px 38px;
+  background: var(--bg);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -36,6 +37,7 @@
 }
 .contact {
   text-align: center;
+  background: var(--bg);
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -95,6 +97,7 @@
   font-size: 10px;
 }
 .site-footer {
+  background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -109,9 +112,6 @@
   display: flex;
   gap: 6px;
   align-items: center;
-}
-.footer-brand span {
-  font-size: 17px;
 }
 .site-footer > p {
   font-size: 9px;

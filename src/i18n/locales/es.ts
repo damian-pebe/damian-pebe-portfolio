@@ -24,8 +24,7 @@ export const es = {
   },
   hero: {
     role: "Software · Diseño · Inteligencia artificial",
-    description: "De la primera idea al producto real.",
-    emphasis: "producto real.",
+    description: "Las buenas ideas merecen software excepcional.",
     primary: "Hablemos",
     secondary: "Ver portafolio",
     location: "DESDE MÉXICO / PARA EL MUNDO",

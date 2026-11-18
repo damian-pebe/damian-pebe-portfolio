@@ -19,9 +19,6 @@
   height: var(--stage-height);
   border-radius: 17px;
   border: 1px solid var(--line);
-  background:
-    radial-gradient(ellipse at 65% 20%, var(--surface-top), transparent 70%),
-    var(--surface);
   overflow: hidden;
   isolation: isolate;
 }

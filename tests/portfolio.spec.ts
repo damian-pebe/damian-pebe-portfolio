@@ -19,7 +19,7 @@ test("Spanish and English stay coherent through navigation and reload", async ({
   );
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(page.locator(".hero-description")).toContainText(
-    "From the first idea to a real product.",
+    "Good ideas deserve exceptional software.",
   );
   await page.reload();
   await expect(
@@ -190,7 +190,7 @@ test("contact copy has working success and failure feedback", async ({
     page.getByRole("link", { name: /damian.pebe@gmail.com/ }),
   ).toHaveAttribute("href", "mailto:damian.pebe@gmail.com");
 });
-test("motion preference is respected live and the background pauses offscreen", async ({
+test("shared background respects live motion preferences and tab visibility", async ({
   page,
 }) => {
   await page.setViewportSize({
@@ -198,14 +198,25 @@ test("motion preference is respected live and the background pauses offscreen", 
     height: 480,
   });
   await page.goto("/");
-  const canvas = page.locator('[data-effect="clyra-radial"]');
+  const canvas = page.locator('[data-effect="shader-metal"]');
   await expect(canvas).toHaveAttribute("data-running", "false");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await expect(canvas).toHaveAttribute("data-running", "true");
-  await page.locator("#contact").scrollIntoViewIfNeeded();
-  await expect(canvas).not.toBeInViewport();
+  await page.evaluate(() => {
+    Object.defineProperty(document, "hidden", {
+      configurable: true,
+      value: true,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
   await expect(canvas).toHaveAttribute("data-running", "false");
-  await page.evaluate(() => scrollTo(0, 0));
+  await page.evaluate(() => {
+    Object.defineProperty(document, "hidden", {
+      configurable: true,
+      value: false,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
   await expect(canvas).toHaveAttribute("data-running", "true");
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect(canvas).toHaveAttribute("data-running", "false");

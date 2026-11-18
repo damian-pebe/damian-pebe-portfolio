@@ -1,14 +1,17 @@
-import { fragmentShader, vertexShader } from "./heroShaderSource";
+import { fragmentShader, vertexShader } from "./metalShaderSource";
 import { waitForShader } from "./waitForShader";
 
-/** Clyra's landing shader, rendered locally without a third-party WebGL runtime. */
+/** Shader Metal's studio lighting, rendered without a third-party runtime. */
 export async function createWebGLRenderer(
   canvas: HTMLCanvasElement | OffscreenCanvas,
   signal: AbortSignal,
 ) {
   const gl = canvas.getContext("webgl", {
     alpha: true,
+    premultipliedAlpha: true,
     antialias: false,
+    depth: false,
+    stencil: false,
     powerPreference: "low-power",
   }) as WebGLRenderingContext | null;
   if (!gl) return null;
@@ -55,26 +58,61 @@ export async function createWebGLRenderer(
     new Float32Array([-1, -1, 3, -1, -1, 3]),
     gl.STATIC_DRAW,
   );
-  const position = gl.getAttribLocation(program, "position");
+  const position = gl.getAttribLocation(program, "a_position");
   gl.enableVertexAttribArray(position);
   gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
   const uniforms = Object.fromEntries(
-    ["time", "resolution", "darkMode"].map((name) => [
-      name,
-      gl.getUniformLocation(program, name),
-    ]),
+    [
+      "u_time",
+      "u_resolution",
+      "u_dark",
+      "u_count",
+      "u_iridescence",
+      "u_pull",
+      "u_mouse",
+      "u_light",
+      "u_f0",
+    ].map((name) => [name, gl.getUniformLocation(program, name)]),
   );
+  gl.uniform1f(uniforms.u_count, 5);
+  gl.uniform1f(uniforms.u_iridescence, 0);
+  gl.uniform3f(uniforms.u_f0, 0.888, 0.888, 0.888);
+  const target = { x: 0.5, y: 0.5, active: 0 };
+  const pointer = { x: 0.5, y: 0.5, active: 0 };
+  let previousTime = 0;
   return {
-    resize(width: number, height: number) {
-      const ratio = 1;
+    resize(width: number, height: number, pixelRatio: number) {
+      const ratio = Math.min(
+        pixelRatio,
+        2,
+        Math.sqrt(2_000_000 / Math.max(1, width * height)),
+      );
       canvas.width = Math.max(1, Math.round(width * ratio));
       canvas.height = Math.max(1, Math.round(height * ratio));
       gl.viewport(0, 0, canvas.width, canvas.height);
-      gl.uniform2f(uniforms.resolution, canvas.width, canvas.height);
+      gl.uniform2f(uniforms.u_resolution, canvas.width, canvas.height);
+    },
+    pointer(x: number, y: number, active: boolean) {
+      target.x = Math.max(0, Math.min(1, x));
+      target.y = Math.max(0, Math.min(1, y));
+      target.active = active ? 1 : 0;
     },
     paint(time: number, dark: boolean) {
-      gl.uniform1f(uniforms.time, time);
-      gl.uniform1f(uniforms.darkMode, dark ? 1 : 0);
+      const easing =
+        1 - Math.exp(-Math.min(0.05, Math.max(0, time - previousTime)) * 5);
+      previousTime = time;
+      pointer.x += (target.x - pointer.x) * easing;
+      pointer.y += (target.y - pointer.y) * easing;
+      pointer.active += (target.active - pointer.active) * easing;
+      gl.uniform1f(uniforms.u_time, time);
+      gl.uniform1f(uniforms.u_dark, dark ? 1 : 0);
+      gl.uniform1f(uniforms.u_pull, pointer.active);
+      gl.uniform2f(uniforms.u_mouse, pointer.x, pointer.y);
+      gl.uniform2f(
+        uniforms.u_light,
+        -0.45 + (pointer.x - 0.5) * pointer.active,
+        0.55 + (pointer.y - 0.5) * pointer.active,
+      );
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     },
     dispose,

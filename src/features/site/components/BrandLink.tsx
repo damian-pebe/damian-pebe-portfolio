@@ -31,7 +31,7 @@ export function BrandLink({
         }
       }}
     >
-      damian pérez<span aria-hidden="true">.</span>
+      damian pérez
     </Link>
   );
 }

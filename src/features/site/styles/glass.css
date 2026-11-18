@@ -1,56 +1,26 @@
-.glass-definitions {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-.button.button-primary {
-  isolation: isolate;
-  position: relative;
-  color: var(--text);
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-}
-.button.button-primary::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  border-radius: inherit;
-  backdrop-filter: url("#portfolio-glass");
-  background: color-mix(in srgb, var(--surface-top) 32%, transparent);
-}
-.button.button-primary::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
+/* Translucent product surfaces let the shared metal scene pass behind the UI. */
+.showcase,
+.project-card {
+  background: color-mix(in srgb, var(--bg) 54%, transparent);
+  backdrop-filter: blur(16px) saturate(0);
   box-shadow:
-    0 0 6px #00000008,
-    0 2px 6px #00000014,
-    inset 3px 3px 0.5px -3px #0009,
-    inset -3px -3px 0.5px -3px #0009,
-    inset 1px 1px 1px -0.5px #0005,
-    inset -1px -1px 1px -0.5px #0005,
-    inset 0 0 6px 6px #00000008;
+    inset 0 1px 0 #ffffff18,
+    0 12px 35px #00000005;
 }
-html[data-theme="dark"] .button.button-primary::after {
+.showcase {
+  background: color-mix(in srgb, var(--bg) 48%, transparent);
+}
+html[data-theme="dark"] :is(.showcase, .project-card) {
   box-shadow:
-    0 0 8px #00000008,
-    0 2px 6px #00000014,
-    inset 3px 3px 0.5px -3.5px #ffffff17,
-    inset -3px -3px 0.5px -3.5px #ffffffd9,
-    inset 1px 1px 1px -0.5px #ffffff99,
-    inset -1px -1px 1px -0.5px #ffffff99,
-    inset 0 0 6px 6px #ffffff1f,
-    inset 0 0 2px 2px #ffffff0f;
+    inset 0 1px 0 #ffffff0d,
+    0 12px 35px #0000000a;
 }
-.button.button-primary:hover {
-  opacity: 1;
-  transform: translateY(-2px) scale(1.025);
+.showcase-copy {
+  text-shadow: 0 1px 14px var(--bg);
+}
+.project-pill {
+  background: color-mix(in srgb, var(--bg) 50%, transparent);
+  backdrop-filter: blur(6px);
 }
 .showcase-sheen {
   position: absolute;
@@ -61,7 +31,7 @@ html[data-theme="dark"] .button.button-primary::after {
     115deg,
     transparent 32%,
     #ffffff08 46%,
-    #ffffff28 50%,
+    #ffffff18 50%,
     transparent 61%
   );
 }
@@ -69,4 +39,13 @@ html[data-theme="dark"] .button.button-primary::after {
   .showcase-sheen {
     display: none;
   }
+}
+/* Preserve reading contrast when a bright reflection crosses the glass. */
+.showcase-kicker,
+.showcase-description,
+.project-caption p {
+  color: color-mix(in srgb, var(--text) 78%, var(--muted));
+}
+.project-caption {
+  background: color-mix(in srgb, var(--bg) 24%, transparent);
 }

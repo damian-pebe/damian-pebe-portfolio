@@ -1,8 +1,36 @@
 # Third-party notices
 
+## Shader Metal
+
+Author: Jay Sharma (@radiumcoders), 23rd.dev. Source: https://github.com/radiumcoders/23rd.dev/blob/e59481fefedf2101a133d3049e907fa02580a3db/registry/shader-metal/shader-metal-vanilla.ts. Published as MIT at https://21st.dev/@radiumcoders/components/shader-metal and documented at https://23rd.dev/docs/components/shader-metal.
+
+The ribbon GLSL and studio lighting are adapted to a local worker, a neutral chrome palette, pointer input and the portfolio's theme snapshot lifecycle. No external runtime is loaded.
+
+MIT License
+
+Copyright (c) 2026 Jay Sharma (radiumcoders / 23rd.dev)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 ## Kokonut UI Background Paths
 
-Author: Dorian Baffier (@dorianbaffier). Adapted from Background Paths, available through 21st.dev and https://kokonutui.com/r/background-paths.json. The original implementation used its ribbon geometry. The current design uses Clyra’s radial landing shader; this notice is retained for the original integration provenance.
+Author: Dorian Baffier (@dorianbaffier). Adapted from Background Paths, available through 21st.dev and https://kokonutui.com/r/background-paths.json. The original implementation used its ribbon geometry. The current design uses Shader Metal; this notice is retained for the original integration provenance.
 
 MIT License
 
@@ -30,9 +58,9 @@ SOFTWARE.
 
 Device frame images, screen corner coordinates and the projection helper originate from the owner’s `clyra-dev/clyra` portfolio. Reused for Damian Pérez’s personal portfolio at his request. Product screenshots retain their public redactions and stage labels. Device frames are resized WebP renditions; original source files remain in Clyra.
 
-## Clyra landing presentation
+## Clyra landing presentation (previous revision)
 
-The radial GLSL shader is adapted from `src/pages/landing/components/ShaderLines.tsx` in the owner’s Clyra repository. The palette and central contrast are adjusted for this monochrome portfolio, and the implementation uses local native WebGL instead of loading Three.js from a CDN. The theme reveal, language text motion and hero wordmark orbit also derive from Clyra’s presentation code, reused at the owner’s request.
+The previous radial GLSL shader was adapted from `src/pages/landing/components/ShaderLines.tsx` in the owner’s Clyra repository. It has been removed along with the magnetic name, wordmark orbit and glass buttons. The circular theme reveal and language text motion still derive from Clyra’s presentation code, reused at the owner’s request.
 
 ## React Bits Threads (previous revision)
 

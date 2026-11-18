@@ -37,7 +37,8 @@ export async function freezeThemeSurfaces() {
       context.drawImage(bitmap, 0, 0);
       bitmap.close();
       still.dataset.themeSnapshot = "";
-      still.style.cssText = "position:absolute;inset:0;width:100%;height:100%";
+      // Match the responsive canvas crop, including the wider mobile scene.
+      still.style.cssText = `position:absolute;left:${canvas.offsetLeft}px;top:${canvas.offsetTop}px;width:${bounds.width}px;height:${bounds.height}px;max-width:none;opacity:${getComputedStyle(canvas).opacity}`;
       const visibility = canvas.style.visibility;
       canvas.parentElement?.appendChild(still);
       canvas.style.visibility = "hidden";

@@ -25,8 +25,7 @@ export const en: typeof es = {
   },
   hero: {
     role: "Software · Design · Artificial intelligence",
-    description: "From the first idea to a real product.",
-    emphasis: "a real product.",
+    description: "Good ideas deserve exceptional software.",
     primary: "Let’s talk",
     secondary: "View portfolio",
     location: "FROM MEXICO / BUILT FOR ANYWHERE",

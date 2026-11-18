@@ -5,7 +5,7 @@ test("theme reveals from the control and language animates the mounted hero", as
 }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
-  const canvas = page.locator('[data-effect="clyra-radial"]');
+  const canvas = page.locator('[data-effect="shader-metal"]');
   await expect(canvas).toHaveAttribute("data-renderer", "webgl");
   const mountedCanvas = await canvas.elementHandle();
   await page.getByRole("button", { name: "Cambiar a tema oscuro" }).click();
@@ -34,12 +34,7 @@ test("theme reveals from the control and language animates the mounted hero", as
     .poll(() =>
       page
         .locator("[data-language-wordmark]")
-        .evaluate(
-          (node) =>
-            Math.abs(
-              new DOMMatrixReadOnly(getComputedStyle(node).transform).m13,
-            ) > 0.15,
-        ),
+        .evaluate((node) => Number(getComputedStyle(node).opacity) < 0.9),
     )
     .toBe(true);
   await expect(page.locator("html")).not.toHaveAttribute(
@@ -47,7 +42,7 @@ test("theme reveals from the control and language animates the mounted hero", as
     "running",
   );
   await expect(page.locator(".hero-description")).toHaveText(
-    "From the first idea to a real product.",
+    "Good ideas deserve exceptional software.",
   );
   expect(await mountedCanvas?.evaluate((node) => node.isConnected)).toBe(true);
   await expect
@@ -55,7 +50,7 @@ test("theme reveals from the control and language animates the mounted hero", as
       page
         .locator("[data-language-wordmark]")
         .evaluate((node) =>
-          Math.abs(new DOMMatrixReadOnly(getComputedStyle(node).transform).m13),
+          Math.abs(new DOMMatrixReadOnly(getComputedStyle(node).transform).m42),
         ),
     )
     .toBeLessThan(0.001);
@@ -82,16 +77,18 @@ test("theme choice still works when browser storage is denied", async ({
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
 });
 
-test("background worker is released on navigation and recreates on return", async ({
+test("one shared background survives route and language navigation", async ({
   page,
 }) => {
   await page.goto("/");
-  const canvas = page.locator('[data-effect="clyra-radial"]');
+  const canvas = page.locator('[data-effect="shader-metal"]');
   await expect(canvas).toHaveAttribute("data-thread", "worker");
   await expect(canvas).toHaveAttribute("data-painted-theme", "light");
+  const original = await canvas.elementHandle();
   await expect.poll(() => page.workers().length).toBe(1);
   await page.getByRole("link", { name: "Ver portafolio", exact: true }).click();
-  await expect.poll(() => page.workers().length).toBe(0);
+  await expect(canvas).toHaveAttribute("data-thread", "worker");
+  await expect.poll(() => page.workers().length).toBe(1);
   await page
     .locator("header")
     .getByRole("link", { name: "damian pérez — Inicio", exact: true })
@@ -100,6 +97,7 @@ test("background worker is released on navigation and recreates on return", asyn
   await expect.poll(() => page.workers().length).toBe(1);
   await page.getByRole("button", { name: "Cambiar a tema oscuro" }).click();
   await expect(canvas).toHaveAttribute("data-painted-theme", "dark");
+  expect(await original?.evaluate((node) => node.isConnected)).toBe(true);
 });
 
 test("the background retains its static fallback without worker support", async ({
@@ -109,7 +107,7 @@ test("the background retains its static fallback without worker support", async 
     Object.defineProperty(window, "Worker", { value: undefined }),
   );
   await page.goto("/");
-  const canvas = page.locator('[data-effect="clyra-radial"]');
+  const canvas = page.locator('[data-effect="shader-metal"]');
   await expect(canvas).toHaveAttribute("data-renderer", "webgl");
   await expect(canvas).toHaveAttribute("data-thread", "main");
   await expect(canvas).toHaveAttribute("data-running", "false");
@@ -127,7 +125,26 @@ test("theme circle keeps the previous canvas palette outside its reveal", async 
     "data-painted-theme",
     "light",
   );
+  // Hold the metal still while exercising the native theme animation. This
+  // isolates palette leakage from legitimate movement of its reflective bands.
+  await page.evaluate(() => {
+    Object.defineProperty(document, "hidden", {
+      configurable: true,
+      value: true,
+    });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  const sample = async () => {
+    const { data, info } = await sharp(await page.screenshot({ scale: "css" }))
+      .raw()
+      .toBuffer({ resolveWithObject: true });
+    return [
+      data[(Math.floor(info.height * 0.45) * info.width + 15) * info.channels],
+      data[(120 * info.width + info.width - 20) * info.channels],
+    ];
+  };
   for (const target of ["dark", "light"] as const) {
+    const before = await sample();
     await page
       .getByRole("button", {
         name:
@@ -154,19 +171,7 @@ test("theme circle keeps the previous canvas palette outside its reveal", async 
       animation.pause();
       animation.currentTime = 420;
     });
-    const { data, info } = await sharp(await page.screenshot())
-      .raw()
-      .toBuffer({ resolveWithObject: true });
-    const outside =
-      data[(Math.floor(info.height * 0.45) * info.width + 15) * info.channels];
-    const inside = data[(120 * info.width + info.width - 20) * info.channels];
-    if (target === "dark") {
-      expect(outside).toBeGreaterThan(200);
-      expect(inside).toBeLessThan(80);
-    } else {
-      expect(outside).toBeLessThan(80);
-      expect(inside).toBeGreaterThan(200);
-    }
+    const during = await sample();
     await page.evaluate(() =>
       document
         .getAnimations()
@@ -182,5 +187,10 @@ test("theme circle keeps the previous canvas palette outside its reveal", async 
       "reveal",
     );
     await expect(page.locator("[data-theme-snapshot]")).toHaveCount(0);
+    const after = await sample();
+    expect(Math.abs(before[0] - after[0])).toBeGreaterThan(40);
+    expect(Math.abs(before[1] - after[1])).toBeGreaterThan(40);
+    expect(Math.abs(during[0] - before[0])).toBeLessThan(10);
+    expect(Math.abs(during[1] - after[1])).toBeLessThan(10);
   }
 });
