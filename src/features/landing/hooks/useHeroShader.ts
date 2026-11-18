@@ -1,10 +1,16 @@
 import { useEffect, useRef } from "react";
 import { createHeroRenderer } from "../effects/createHeroRenderer";
 export function useHeroShader() {
-  const ref = useRef<HTMLCanvasElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const canvas = ref.current;
-    if (!canvas) return;
+    const container = ref.current;
+    if (!container) return;
+    // The hook owns the canvas lifetime, including Strict Mode and hot reload.
+    const canvas = document.createElement("canvas");
+    canvas.dataset.effect = "clyra-radial";
+    canvas.dataset.running = "false";
+    canvas.dataset.themeSurface = "";
+    container.appendChild(canvas);
     const abort = new AbortController();
     let teardown = () => {};
     void createHeroRenderer(canvas, abort.signal).then((renderer) => {
@@ -17,6 +23,7 @@ export function useHeroShader() {
         return;
       }
       canvas.dataset.renderer = "webgl";
+      canvas.dataset.thread = renderer.thread;
       const motion = matchMedia("(prefers-reduced-motion: reduce)");
       const saveData = (
         navigator as Navigator & { connection?: { saveData?: boolean } }
@@ -34,6 +41,14 @@ export function useHeroShader() {
             time,
             document.documentElement.dataset.theme === "dark",
           );
+      };
+      const synchronizeTheme = () => {
+        if (lost) return;
+        const dark = document.documentElement.dataset.theme === "dark";
+        void renderer.synchronizeTheme(time, dark).then(() => {
+          if (!abort.signal.aborted && !lost)
+            canvas.dataset.paintedTheme = dark ? "dark" : "light";
+        });
       };
       const tick = (now: number) => {
         raf = 0;
@@ -64,7 +79,7 @@ export function useHeroShader() {
         onscreen = entry.isIntersecting;
         sync();
       });
-      const theme = new MutationObserver(paint);
+      const theme = new MutationObserver(synchronizeTheme);
       const contextLost = (event: Event) => {
         event.preventDefault();
         lost = true;
@@ -83,6 +98,7 @@ export function useHeroShader() {
       document.addEventListener("visibilitychange", sync);
       motion.addEventListener("change", sync);
       sync();
+      synchronizeTheme();
       teardown = () => {
         cancelAnimationFrame(raf);
         size.disconnect();
@@ -97,6 +113,7 @@ export function useHeroShader() {
     return () => {
       abort.abort();
       teardown();
+      canvas.remove();
     };
   }, []);
   return ref;

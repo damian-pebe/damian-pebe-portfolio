@@ -8,6 +8,7 @@
 - All 30 browser checks passed against the production static export in desktop Chrome and an iPhone-sized Chromium viewport. Coverage includes all four direct routes, brand navigation, mobile menu behavior, legacy fragments, browser history, metadata, real animation transforms, retained page state, reduced motion, offscreen shader suspension, denied storage, project filters/galleries, clipboard feedback, narrow viewports and automated WCAG AA checks.
 - Build, TypeScript, ESLint and formatting passed. All four static documents have the correct language, canonical URL and page title. Their Cloudflare HTML cache policies prevent edge script injection and retain the generated CSP.
 - Runtime audit reports zero advisories. The existing development-only picomatch finding remains unchanged (14 propagated high-severity entries; details below). No runtime dependency was added.
+- The first hosted measurement exposed expensive GPU initialization on the interaction thread. Rendering now uses a dedicated worker, with a tested main-thread fallback and paint acknowledgement for theme snapshots. Eight targeted browser checks cover worker disposal/recreation, fallback, animation and motion preferences.
 - Hosted checks, Lighthouse results and deployment version IDs for this revision are recorded with the release artifacts. Earlier measurements below describe their own revisions.
 
 ## Compact Clyra revision

@@ -10,7 +10,9 @@
     "typecheck": "tsc --noEmit",
     "format:check": "prettier --check src tests scripts *.ts *.mjs *.json docs/*.md README.md",
     "test": "playwright test",
-    "postbuild": "node scripts/finalize-static.mjs"
+    "postbuild": "node scripts/finalize-static.mjs",
+    "predev": "node scripts/build-hero-worker.mjs",
+    "prebuild": "node scripts/build-hero-worker.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.12.2",
@@ -26,6 +28,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "esbuild": "0.28.2",
     "eslint": "^9",
     "eslint-config-next": "^16.4.6",
     "prettier": "^3.6.2",

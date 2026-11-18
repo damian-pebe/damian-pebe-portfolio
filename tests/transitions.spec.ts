@@ -81,3 +81,38 @@ test("theme choice still works when browser storage is denied", async ({
   await page.getByRole("button", { name: "Switch to light theme" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
 });
+
+test("background worker is released on navigation and recreates on return", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const canvas = page.locator('[data-effect="clyra-radial"]');
+  await expect(canvas).toHaveAttribute("data-thread", "worker");
+  await expect(canvas).toHaveAttribute("data-painted-theme", "light");
+  await expect.poll(() => page.workers().length).toBe(1);
+  await page.getByRole("link", { name: "Ver portafolio", exact: true }).click();
+  await expect.poll(() => page.workers().length).toBe(0);
+  await page
+    .locator("header")
+    .getByRole("link", { name: "damian pérez — Inicio", exact: true })
+    .click();
+  await expect(canvas).toHaveAttribute("data-thread", "worker");
+  await expect.poll(() => page.workers().length).toBe(1);
+  await page.getByRole("button", { name: "Cambiar a tema oscuro" }).click();
+  await expect(canvas).toHaveAttribute("data-painted-theme", "dark");
+});
+
+test("the background retains its static fallback without worker support", async ({
+  page,
+}) => {
+  await page.addInitScript(() =>
+    Object.defineProperty(window, "Worker", { value: undefined }),
+  );
+  await page.goto("/");
+  const canvas = page.locator('[data-effect="clyra-radial"]');
+  await expect(canvas).toHaveAttribute("data-renderer", "webgl");
+  await expect(canvas).toHaveAttribute("data-thread", "main");
+  await expect(canvas).toHaveAttribute("data-running", "false");
+  await page.getByRole("button", { name: "Cambiar a tema oscuro" }).click();
+  await expect(canvas).toHaveAttribute("data-painted-theme", "dark");
+});

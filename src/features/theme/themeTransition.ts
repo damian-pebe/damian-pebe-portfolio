@@ -1,3 +1,4 @@
+import { waitForThemePaint } from "./waitForThemePaint";
 export type ThemeOrigin = { x: number; y: number };
 
 /** Reveal the new palette from the control without duplicating the live DOM. */
@@ -35,9 +36,10 @@ export function revealTheme(update: () => void, origin?: ThemeOrigin) {
         rect.left < innerWidth
       );
     });
-    return Promise.allSettled(captures.map((image) => image.decode())).then(
-      () => {},
-    );
+    return Promise.allSettled([
+      waitForThemePaint(),
+      ...captures.map((image) => image.decode()),
+    ]).then(() => {});
   };
   let transition: ViewTransition;
   try {
