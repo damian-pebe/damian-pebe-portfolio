@@ -12,6 +12,7 @@ import { projects, thumbnail, type Project } from "../data/projects";
 import { LanguageText } from "@/features/language/LanguageText";
 import { DeviceMockup } from "./DeviceMockup";
 import { site } from "@/lib/site";
+import { useSite } from "@/features/site/SiteContext";
 
 const featured = [
   "omnicube",
@@ -30,6 +31,7 @@ export function FeaturedProjects({
   locale: Locale;
   onSelect: (project: Project) => void;
 }) {
+  const { theme } = useSite();
   const [current, setCurrent] = useState(0);
   const reduced = useReducedMotion();
   const pointerX = useMotionValue(0),
@@ -46,7 +48,7 @@ export function FeaturedProjects({
       <link
         rel="preload"
         as="image"
-        href={thumbnail(featured[0])}
+        href={thumbnail(featured[0], theme)}
         fetchPriority="high"
       />
       <div className="featured-caption">

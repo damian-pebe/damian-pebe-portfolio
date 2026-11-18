@@ -11,6 +11,7 @@ import {
 } from "../data/projects";
 import type { DeviceFrame } from "../types/devices";
 import { screenProjection } from "../utils/screenProjection";
+import { CaptureImage } from "./CaptureImage";
 
 export function DeviceMockup({
   project,
@@ -40,9 +41,16 @@ export function DeviceMockup({
   }, []);
   if (!project.second) {
     return (
-      <Image
+      <CaptureImage
         className="concept-visual"
-        src={detail ? gallery(project)[0] : thumbnail(project, !priority)}
+        sources={{
+          light: detail
+            ? gallery(project, "light")[0]
+            : thumbnail(project, "light", !priority),
+          dark: detail
+            ? gallery(project, "dark")[0]
+            : thumbnail(project, "dark", !priority),
+        }}
         alt={alt}
         width={1600}
         height={1000}
@@ -51,7 +59,10 @@ export function DeviceMockup({
       />
     );
   }
-  const images = gallery(project);
+  const images = {
+    light: gallery(project, "light"),
+    dark: gallery(project, "dark"),
+  };
   return (
     <div
       ref={container}
@@ -77,12 +88,20 @@ export function DeviceMockup({
         frame.screens.map((screen, index) => {
           const scale = width / frame.width;
           const primary = !!screen.primary;
-          const imageIndex = (slide + (primary ? 0 : index)) % images.length;
-          const src = detail
-            ? images[imageIndex]
-            : index > 0 || slide > 0
-              ? galleryPreview(project, imageIndex)
-              : thumbnail(project, !priority);
+          const imageIndex =
+            (slide + (primary ? 0 : index)) % images.light.length;
+          const sources = {
+            light: detail
+              ? images.light[imageIndex]
+              : index > 0 || slide > 0
+                ? galleryPreview(project, imageIndex, "light")
+                : thumbnail(project, "light", !priority),
+            dark: detail
+              ? images.dark[imageIndex]
+              : index > 0 || slide > 0
+                ? galleryPreview(project, imageIndex, "dark")
+                : thumbnail(project, "dark", !priority),
+          };
           return (
             <div
               key={index}
@@ -101,13 +120,17 @@ export function DeviceMockup({
                   borderRadius: screen.radius * scale,
                 }}
               >
-                <Image
+                <CaptureImage
                   className="device-capture"
-                  src={src}
+                  sources={sources}
                   alt={primary ? alt : ""}
                   width={1600}
                   height={1000}
-                  style={{ objectPosition: project.position }}
+                  style={{
+                    objectPosition:
+                      project.captures?.[imageIndex]?.position ??
+                      project.position,
+                  }}
                   loading={priority ? "eager" : "lazy"}
                   fetchPriority={priority && primary ? "high" : undefined}
                 />

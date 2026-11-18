@@ -138,17 +138,17 @@ test("project dialog contains focus, switches captures and restores the trigger"
   ).toBeVisible();
   await expect(dialog.getByRole("img")).toHaveAttribute(
     "src",
-    /agentos-01.webp/,
+    /agentos-01-light\.webp/,
   );
   await dialog.getByRole("button", { name: "Siguiente imagen" }).click();
   await expect(dialog.getByRole("img")).toHaveAttribute(
     "src",
-    /agentos-02.webp/,
+    /agentos-02-light\.webp/,
   );
   await page.keyboard.press("ArrowLeft");
   await expect(dialog.getByRole("img")).toHaveAttribute(
     "src",
-    /agentos-01.webp/,
+    /agentos-01-light\.webp/,
   );
   for (let i = 0; i < 7; i++) await page.keyboard.press("Tab");
   expect(
@@ -305,12 +305,12 @@ test("featured products respond to controls and open the matching project", asyn
   await dialog.getByRole("button", { name: "Ver captura completa" }).click();
   await expect(dialog.locator(".dialog-gallery > img")).toHaveAttribute(
     "src",
-    /neurocity-01.webp/,
+    /neurocity-01-light\.webp/,
   );
   await dialog.getByRole("button", { name: "Siguiente imagen" }).click();
   await expect(dialog.locator(".dialog-gallery > img")).toHaveAttribute(
     "src",
-    /neurocity-02.webp/,
+    /neurocity-02-light\.webp/,
   );
   await page.keyboard.press("Escape");
   await expect(

@@ -30,12 +30,50 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/agentos/01-dark.webp",
-      "/portfolio/projects/agentos/02-dark.webp",
-      "/portfolio/projects/agentos/03-dark.webp",
-      "/portfolio/projects/agentos/04-dark.webp",
-      "/portfolio/projects/agentos/05-dark.webp",
-      "/portfolio/projects/agentos/06-dark.webp"
+      {
+        "src": "/portfolio/projects/agentos/01-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/agentos/01-dark.webp",
+          "light": "/portfolio/projects/agentos/01-light.webp"
+        },
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/agentos/02-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/agentos/02-dark.webp",
+          "light": "/portfolio/projects/agentos/02-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/agentos/03-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/agentos/03-dark.webp",
+          "light": "/portfolio/projects/agentos/03-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/agentos/04-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/agentos/04-dark.webp",
+          "light": "/portfolio/projects/agentos/04-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/agentos/05-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/agentos/05-dark.webp",
+          "light": "/portfolio/projects/agentos/05-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/agentos/06-dark.webp",
+        "position": "center top"
+      }
     ]
   },
   {
@@ -69,12 +107,54 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/omnicube/01-dark.webp",
-      "/portfolio/projects/omnicube/02-dark.webp",
-      "/portfolio/projects/omnicube/03-dark.webp",
-      "/portfolio/projects/omnicube/04-dark.webp",
-      "/portfolio/projects/omnicube/05-dark.webp",
-      "/portfolio/projects/omnicube/06-dark.webp"
+      {
+        "src": "/portfolio/projects/omnicube/01-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/omnicube/01-dark.webp",
+          "light": "/portfolio/projects/omnicube/01-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/omnicube/02-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/omnicube/02-dark.webp",
+          "light": "/portfolio/projects/omnicube/02-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/omnicube/03-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/omnicube/03-dark.webp",
+          "light": "/portfolio/projects/omnicube/03-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/omnicube/04-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/omnicube/04-dark.webp",
+          "light": "/portfolio/projects/omnicube/04-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/omnicube/05-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/omnicube/05-dark.webp",
+          "light": "/portfolio/projects/omnicube/05-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/omnicube/06-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/omnicube/06-dark.webp",
+          "light": "/portfolio/projects/omnicube/06-light.webp"
+        },
+        "position": "center top"
+      }
     ]
   },
   {
@@ -108,12 +188,46 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/neurocity/01-dark.webp",
-      "/portfolio/projects/neurocity/02-dark.webp",
-      "/portfolio/projects/neurocity/03-dark.webp",
-      "/portfolio/projects/neurocity/04-dark.webp",
-      "/portfolio/projects/neurocity/05-light.webp",
-      "/portfolio/projects/neurocity/06-dark.webp"
+      {
+        "src": "/portfolio/projects/neurocity/01-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/neurocity/01-dark.webp",
+          "light": "/portfolio/projects/neurocity/01-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/neurocity/02-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/neurocity/02-dark.webp",
+          "light": "/portfolio/projects/neurocity/02-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/neurocity/03-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/neurocity/03-dark.webp",
+          "light": "/portfolio/projects/neurocity/03-light.webp"
+        },
+        "position": "right top"
+      },
+      {
+        "src": "/portfolio/projects/neurocity/04-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/neurocity/04-dark.webp",
+          "light": "/portfolio/projects/neurocity/04-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/neurocity/05-light.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/neurocity/06-dark.webp",
+        "position": "center top"
+      }
     ]
   },
   {
@@ -147,12 +261,54 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/fiscalite/01-dark.webp",
-      "/portfolio/projects/fiscalite/02-dark.webp",
-      "/portfolio/projects/fiscalite/03-dark.webp",
-      "/portfolio/projects/fiscalite/04-dark.webp",
-      "/portfolio/projects/fiscalite/05-dark.webp",
-      "/portfolio/projects/fiscalite/06-dark.webp"
+      {
+        "src": "/portfolio/projects/fiscalite/01-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/fiscalite/01-dark.webp",
+          "light": "/portfolio/projects/fiscalite/01-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/fiscalite/02-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/fiscalite/02-dark.webp",
+          "light": "/portfolio/projects/fiscalite/02-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/fiscalite/03-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/fiscalite/03-dark.webp",
+          "light": "/portfolio/projects/fiscalite/03-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/fiscalite/04-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/fiscalite/04-dark.webp",
+          "light": "/portfolio/projects/fiscalite/04-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/fiscalite/05-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/fiscalite/05-dark.webp",
+          "light": "/portfolio/projects/fiscalite/05-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/fiscalite/06-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/fiscalite/06-dark.webp",
+          "light": "/portfolio/projects/fiscalite/06-light.webp"
+        },
+        "position": "center top"
+      }
     ]
   },
   {
@@ -186,12 +342,46 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/constella/01-dark.webp",
-      "/portfolio/projects/constella/02-dark.webp",
-      "/portfolio/projects/constella/03-dark.webp",
-      "/portfolio/projects/constella/04-light.webp",
-      "/portfolio/projects/constella/05-dark.webp",
-      "/portfolio/projects/constella/06-dark.webp"
+      {
+        "src": "/portfolio/projects/constella/01-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/constella/01-dark.webp",
+          "light": "/portfolio/projects/constella/01-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/constella/02-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/constella/02-dark.webp",
+          "light": "/portfolio/projects/constella/02-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/constella/03-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/constella/03-dark.webp",
+          "light": "/portfolio/projects/constella/03-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/constella/04-light.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/constella/05-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/constella/06-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/constella/06-dark.webp",
+          "light": "/portfolio/projects/constella/06-light.webp"
+        },
+        "position": "center top"
+      }
     ]
   },
   {
@@ -225,12 +415,30 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/rook/01-light.webp",
-      "/portfolio/projects/rook/02-light.webp",
-      "/portfolio/projects/rook/03-dark.webp",
-      "/portfolio/projects/rook/04-dark.webp",
-      "/portfolio/projects/rook/05-dark.webp",
-      "/portfolio/projects/rook/06-dark.webp"
+      {
+        "src": "/portfolio/projects/rook/01-light.webp",
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/rook/02-light.webp",
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/rook/03-dark.webp",
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/rook/04-dark.webp",
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/rook/05-dark.webp",
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/rook/06-dark.webp",
+        "position": "left top"
+      }
     ]
   },
   {
@@ -264,9 +472,18 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/opticore/01-dark.webp",
-      "/portfolio/projects/opticore/02-dark.webp",
-      "/portfolio/projects/opticore/03-dark.webp"
+      {
+        "src": "/portfolio/projects/opticore/01-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/opticore/02-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/opticore/03-dark.webp",
+        "position": "center top"
+      }
     ]
   },
   {
@@ -300,12 +517,54 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/gemelo/01-dark.webp",
-      "/portfolio/projects/gemelo/02-dark.webp",
-      "/portfolio/projects/gemelo/03-dark.webp",
-      "/portfolio/projects/gemelo/04-dark.webp",
-      "/portfolio/projects/gemelo/05-dark.webp",
-      "/portfolio/projects/gemelo/06-dark.webp"
+      {
+        "src": "/portfolio/projects/gemelo/01-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/gemelo/01-dark.webp",
+          "light": "/portfolio/projects/gemelo/01-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/gemelo/02-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/gemelo/02-dark.webp",
+          "light": "/portfolio/projects/gemelo/02-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/gemelo/03-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/gemelo/03-dark.webp",
+          "light": "/portfolio/projects/gemelo/03-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/gemelo/04-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/gemelo/04-dark.webp",
+          "light": "/portfolio/projects/gemelo/04-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/gemelo/05-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/gemelo/05-dark.webp",
+          "light": "/portfolio/projects/gemelo/05-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/gemelo/06-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/gemelo/06-dark.webp",
+          "light": "/portfolio/projects/gemelo/06-light.webp"
+        },
+        "position": "center top"
+      }
     ]
   },
   {
@@ -339,10 +598,34 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/clyra-meet/01-dark.webp",
-      "/portfolio/projects/clyra-meet/02-light.webp",
-      "/portfolio/projects/clyra-meet/03-dark.webp",
-      "/portfolio/projects/clyra-meet/04-dark.webp"
+      {
+        "src": "/portfolio/projects/clyra-meet/01-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/clyra-meet/01-dark.webp",
+          "light": "/portfolio/projects/clyra-meet/01-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/clyra-meet/02-light.webp",
+        "position": "right top"
+      },
+      {
+        "src": "/portfolio/projects/clyra-meet/03-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/clyra-meet/03-dark.webp",
+          "light": "/portfolio/projects/clyra-meet/03-light.webp"
+        },
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/clyra-meet/04-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/clyra-meet/04-dark.webp",
+          "light": "/portfolio/projects/clyra-meet/04-light.webp"
+        },
+        "position": "left top"
+      }
     ]
   },
   {
@@ -376,12 +659,30 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/workspace/01-dark.webp",
-      "/portfolio/projects/workspace/02-dark.webp",
-      "/portfolio/projects/workspace/03-dark.webp",
-      "/portfolio/projects/workspace/04-dark.webp",
-      "/portfolio/projects/workspace/05-dark.webp",
-      "/portfolio/projects/workspace/06-dark.webp"
+      {
+        "src": "/portfolio/projects/workspace/01-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/workspace/02-dark.webp",
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/workspace/03-dark.webp",
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/workspace/04-dark.webp",
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/workspace/05-dark.webp",
+        "position": "right top"
+      },
+      {
+        "src": "/portfolio/projects/workspace/06-dark.webp",
+        "position": "left top"
+      }
     ]
   },
   {
@@ -415,10 +716,38 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/omnios/01-dark.webp",
-      "/portfolio/projects/omnios/02-dark.webp",
-      "/portfolio/projects/omnios/03-dark.webp",
-      "/portfolio/projects/omnios/04-dark.webp"
+      {
+        "src": "/portfolio/projects/omnios/01-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/omnios/01-dark.webp",
+          "light": "/portfolio/projects/omnios/01-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/omnios/02-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/omnios/02-dark.webp",
+          "light": "/portfolio/projects/omnios/02-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/omnios/03-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/omnios/03-dark.webp",
+          "light": "/portfolio/projects/omnios/03-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/omnios/04-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/omnios/04-dark.webp",
+          "light": "/portfolio/projects/omnios/04-light.webp"
+        },
+        "position": "center top"
+      }
     ]
   },
   {
@@ -452,10 +781,38 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/kioskos/01-dark.webp",
-      "/portfolio/projects/kioskos/02-dark.webp",
-      "/portfolio/projects/kioskos/03-dark.webp",
-      "/portfolio/projects/kioskos/04-dark.webp"
+      {
+        "src": "/portfolio/projects/kioskos/01-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/kioskos/01-dark.webp",
+          "light": "/portfolio/projects/kioskos/01-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/kioskos/02-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/kioskos/02-dark.webp",
+          "light": "/portfolio/projects/kioskos/02-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/kioskos/03-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/kioskos/03-dark.webp",
+          "light": "/portfolio/projects/kioskos/03-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/kioskos/04-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/kioskos/04-dark.webp",
+          "light": "/portfolio/projects/kioskos/04-light.webp"
+        },
+        "position": "center top"
+      }
     ]
   },
   {
@@ -489,10 +846,38 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/citytrip/01-dark.webp",
-      "/portfolio/projects/citytrip/02-dark.webp",
-      "/portfolio/projects/citytrip/03-dark.webp",
-      "/portfolio/projects/citytrip/04-dark.webp"
+      {
+        "src": "/portfolio/projects/citytrip/01-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/citytrip/01-dark.webp",
+          "light": "/portfolio/projects/citytrip/01-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/citytrip/02-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/citytrip/02-dark.webp",
+          "light": "/portfolio/projects/citytrip/02-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/citytrip/03-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/citytrip/03-dark.webp",
+          "light": "/portfolio/projects/citytrip/03-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/citytrip/04-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/citytrip/04-dark.webp",
+          "light": "/portfolio/projects/citytrip/04-light.webp"
+        },
+        "position": "center top"
+      }
     ]
   },
   {
@@ -557,12 +942,30 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/medadvisor/01-light.webp",
-      "/portfolio/projects/medadvisor/02-light.webp",
-      "/portfolio/projects/medadvisor/03-light.webp",
-      "/portfolio/projects/medadvisor/04-light.webp",
-      "/portfolio/projects/medadvisor/05-light.webp",
-      "/portfolio/projects/medadvisor/06-light.webp"
+      {
+        "src": "/portfolio/projects/medadvisor/01-light.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/medadvisor/02-light.webp",
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/medadvisor/03-light.webp",
+        "position": "left bottom"
+      },
+      {
+        "src": "/portfolio/projects/medadvisor/04-light.webp",
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/medadvisor/05-light.webp",
+        "position": "left top"
+      },
+      {
+        "src": "/portfolio/projects/medadvisor/06-light.webp",
+        "position": "left top"
+      }
     ]
   },
   {
@@ -627,9 +1030,18 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/politiqsync/01-dark.webp",
-      "/portfolio/projects/politiqsync/02-dark.webp",
-      "/portfolio/projects/politiqsync/03-dark.webp"
+      {
+        "src": "/portfolio/projects/politiqsync/01-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/politiqsync/02-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/politiqsync/03-dark.webp",
+        "position": "center top"
+      }
     ]
   },
   {
@@ -663,12 +1075,30 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/luxoflex/01-dark.webp",
-      "/portfolio/projects/luxoflex/02-dark.webp",
-      "/portfolio/projects/luxoflex/03-dark.webp",
-      "/portfolio/projects/luxoflex/04-dark.webp",
-      "/portfolio/projects/luxoflex/05-dark.webp",
-      "/portfolio/projects/luxoflex/06-dark.webp"
+      {
+        "src": "/portfolio/projects/luxoflex/01-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/luxoflex/02-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/luxoflex/03-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/luxoflex/04-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/luxoflex/05-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/luxoflex/06-dark.webp",
+        "position": "center top"
+      }
     ]
   },
   {
@@ -702,9 +1132,18 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/promptlab/01-dark.webp",
-      "/portfolio/projects/promptlab/02-dark.webp",
-      "/portfolio/projects/promptlab/03-dark.webp"
+      {
+        "src": "/portfolio/projects/promptlab/01-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/promptlab/02-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/promptlab/03-dark.webp",
+        "position": "center top"
+      }
     ]
   },
   {
@@ -769,11 +1208,30 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/3d-converter/01-dark.webp",
-      "/portfolio/projects/3d-converter/02-dark.webp",
-      "/portfolio/projects/3d-converter/03-dark.webp",
-      "/portfolio/projects/3d-converter/04-dark.webp",
-      "/portfolio/projects/3d-converter/05-dark.webp"
+      {
+        "src": "/portfolio/projects/3d-converter/01-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/3d-converter/02-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/3d-converter/02-dark.webp",
+          "light": "/portfolio/projects/3d-converter/02-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/3d-converter/03-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/3d-converter/04-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/3d-converter/05-dark.webp",
+        "position": "center top"
+      }
     ]
   },
   {
@@ -807,10 +1265,26 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/3d-projector/01-dark.webp",
-      "/portfolio/projects/3d-projector/02-light.webp",
-      "/portfolio/projects/3d-projector/03-dark.webp",
-      "/portfolio/projects/3d-projector/04-dark.webp"
+      {
+        "src": "/portfolio/projects/3d-projector/01-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/3d-projector/01-dark.webp",
+          "light": "/portfolio/projects/3d-projector/01-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/3d-projector/02-light.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/3d-projector/03-dark.webp",
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/3d-projector/04-dark.webp",
+        "position": "center top"
+      }
     ]
   },
   {
@@ -844,10 +1318,38 @@
       ]
     },
     "captures": [
-      "/portfolio/projects/axion/01-dark.webp",
-      "/portfolio/projects/axion/02-dark.webp",
-      "/portfolio/projects/axion/03-dark.webp",
-      "/portfolio/projects/axion/04-dark.webp"
+      {
+        "src": "/portfolio/projects/axion/01-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/axion/01-dark.webp",
+          "light": "/portfolio/projects/axion/01-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/axion/02-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/axion/02-dark.webp",
+          "light": "/portfolio/projects/axion/02-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/axion/03-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/axion/03-dark.webp",
+          "light": "/portfolio/projects/axion/03-light.webp"
+        },
+        "position": "center top"
+      },
+      {
+        "src": "/portfolio/projects/axion/04-dark.webp",
+        "sources": {
+          "dark": "/portfolio/projects/axion/04-dark.webp",
+          "light": "/portfolio/projects/axion/04-light.webp"
+        },
+        "position": "center top"
+      }
     ]
   }
 ]

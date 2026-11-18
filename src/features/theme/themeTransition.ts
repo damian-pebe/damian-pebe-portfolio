@@ -1,5 +1,6 @@
 import { freezeThemeSurfaces } from "./freezeThemeSurfaces";
 import { waitForThemePaint } from "./waitForThemePaint";
+import { waitForThemeCaptures } from "./waitForThemeCaptures";
 export type ThemeOrigin = { x: number; y: number };
 
 /** Reveal the new palette from the control without duplicating the live DOM. */
@@ -28,20 +29,9 @@ export function revealTheme(update: () => void, origin?: ThemeOrigin) {
     releaseSurfaces();
     // Keep the old snapshot until visible theme-specific captures can paint.
     // Preloading fetches the other variant; decode completes its preparation.
-    const captures = Array.from(
-      document.querySelectorAll<HTMLImageElement>("img[data-theme-image]"),
-    ).filter((image) => {
-      const rect = image.getBoundingClientRect();
-      return (
-        rect.bottom > 0 &&
-        rect.top < innerHeight &&
-        rect.right > 0 &&
-        rect.left < innerWidth
-      );
-    });
     return Promise.allSettled([
       waitForThemePaint(),
-      ...captures.map((image) => image.decode()),
+      waitForThemeCaptures(),
     ]).then(() => {});
   };
   let transition: ViewTransition | undefined;

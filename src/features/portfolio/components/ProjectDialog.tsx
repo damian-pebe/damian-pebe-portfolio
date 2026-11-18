@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import type { Copy, Locale } from "@/i18n/copy";
 import { gallery, type Project } from "../data/projects";
 import { DeviceMockup } from "./DeviceMockup";
+import { CaptureImage } from "./CaptureImage";
 export function ProjectDialog({
   project,
   t,
@@ -18,7 +18,11 @@ export function ProjectDialog({
   const dialog = useRef<HTMLDialogElement>(null);
   const [slide, setSlide] = useState(0);
   const [raw, setRaw] = useState(false);
-  const images = gallery(project);
+  const images = {
+    light: gallery(project, "light"),
+    dark: gallery(project, "dark"),
+  };
+  const imageCount = images.light.length;
   const content = project[locale];
   useEffect(() => {
     const element = dialog.current;
@@ -33,7 +37,7 @@ export function ProjectDialog({
     };
   }, []);
   const move = (direction: number) =>
-    setSlide((value) => (value + direction + images.length) % images.length);
+    setSlide((value) => (value + direction + imageCount) % imageCount);
   return (
     <dialog
       className="project-dialog"
@@ -97,15 +101,15 @@ export function ProjectDialog({
               />
             </div>
           ) : (
-            <Image
-              src={images[slide]}
+            <CaptureImage
+              sources={{ light: images.light[slide], dark: images.dark[slide] }}
               alt={project.name + " — " + t.work.gallery + " " + (slide + 1)}
               width={1600}
               height={1000}
               sizes="(max-width: 700px) 94vw, 960px"
             />
           )}
-          {images.length > 1 && (
+          {imageCount > 1 && (
             <div className="gallery-controls">
               <button
                 className="icon-button"
@@ -115,7 +119,7 @@ export function ProjectDialog({
                 <ChevronLeft size={20} />
               </button>
               <span aria-live="polite">
-                0{slide + 1} / 0{images.length}
+                0{slide + 1} / 0{imageCount}
               </span>
               <button
                 className="icon-button"
