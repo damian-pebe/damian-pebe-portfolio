@@ -1,6 +1,6 @@
 .landing-hero {
   position: relative;
-  min-height: 660px;
+  min-height: 740px;
   height: min(100svh, 940px);
 }
 .landing-hero:focus,
@@ -11,13 +11,15 @@ main:focus {
 .hero-layout {
   position: relative;
   height: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
   align-items: center;
 }
 .landing-hero-content {
   position: relative;
-  padding-bottom: 55px;
-  width: 620px;
+  padding-bottom: 25px;
+  min-width: 0;
   max-width: 100%;
 }
 .hero-role {
@@ -113,16 +115,32 @@ main:focus {
     transform: translateY(4px);
   }
 }
+@media (min-width: 701px) and (max-width: 1050px) {
+  .hero-layout {
+    gap: 30px;
+  }
+  .landing-hero h1 {
+    font-size: clamp(43px, 5.4vw, 57px);
+  }
+  .hero-role {
+    font-size: 9px;
+  }
+}
 @media (max-width: 700px) {
   .landing-hero {
-    min-height: 660px;
-    max-height: 920px;
+    min-height: 100svh;
+    height: auto;
   }
   .hero-layout {
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    gap: 42px;
+    padding-top: clamp(135px, 18svh, 170px);
+    padding-bottom: 100px;
   }
   .landing-hero-content {
-    padding-top: clamp(155px, 23svh, 230px);
     padding-bottom: 0;
   }
   .hero-role {

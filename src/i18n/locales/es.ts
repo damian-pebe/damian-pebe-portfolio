@@ -29,6 +29,11 @@ export const es = {
     secondary: "Ver portafolio",
     location: "DESDE MÉXICO / PARA EL MUNDO",
     scroll: "Desliza para descubrir",
+    workLabel: "UNA MUESTRA DE MI TRABAJO",
+    exploreWork: "Explorar el portafolio completo",
+    approachTitle: "De principio a fin.",
+    approachDescription:
+      "Diseño la experiencia y construyo lo que hay detrás: software, sistemas e inteligencia artificial.",
   },
   portfolio: {
     eyebrow: "PORTAFOLIO / 23 PROYECTOS",

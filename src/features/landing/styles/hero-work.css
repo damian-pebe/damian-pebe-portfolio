@@ -1,0 +1,196 @@
+.hero-work {
+  width: 100%;
+  max-width: 470px;
+  min-width: 0;
+  justify-self: end;
+  padding-top: 16px;
+}
+.hero-work-preview {
+  display: block;
+  border-radius: 12px;
+}
+.hero-work-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  color: var(--text);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+.hero-work-heading > span {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  backdrop-filter: blur(16px) saturate(0);
+}
+.hero-work-heading svg {
+  box-sizing: content-box;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  color: var(--text);
+  transition: transform 0.35s;
+}
+.hero-work-stack {
+  position: relative;
+  height: 350px;
+}
+.hero-work-card {
+  position: absolute;
+  width: 75%;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+  backdrop-filter: blur(18px) saturate(0);
+  box-shadow:
+    inset 0 1px 0 #ffffff25,
+    0 16px 42px #00000012;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hero-work-card:first-child {
+  display: flex;
+  flex-direction: column-reverse;
+  top: 4px;
+  right: 3px;
+  transform: rotate(5deg);
+}
+.hero-work-card:last-child {
+  bottom: 5px;
+  left: 2px;
+  transform: rotate(-5deg);
+}
+.hero-work-device {
+  --hero-device-height: 155px;
+  height: 184px;
+  display: grid;
+  align-items: center;
+  padding: 21px 18px 8px;
+}
+.hero-work-device .device-mockup {
+  width: min(100%, calc(var(--hero-device-height) * var(--device-ratio)));
+  justify-self: center;
+  filter: drop-shadow(0 13px 10px #00000016);
+}
+.hero-work-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 16px 18px;
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 35%, transparent);
+}
+.hero-work-caption > span:first-child {
+  font-size: 15px;
+  letter-spacing: -0.035em;
+}
+.hero-work-card:first-child .hero-work-caption {
+  border-top: 0;
+  border-bottom: 1px solid var(--line);
+}
+.hero-work-caption > span:last-child {
+  font-size: 9px;
+  color: color-mix(in srgb, var(--text) 80%, var(--muted));
+}
+.hero-work-preview:is(:hover, :focus-visible) .hero-work-card:first-child {
+  transform: translate(3px, -5px) rotate(3deg);
+}
+.hero-work-preview:is(:hover, :focus-visible) .hero-work-card:last-child {
+  transform: translate(-3px, 3px) rotate(-3deg);
+}
+.hero-work-preview:is(:hover, :focus-visible) .hero-work-heading svg {
+  transform: translate(3px, -3px);
+}
+.hero-work-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 23px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bg) 65%, transparent);
+  backdrop-filter: blur(16px) saturate(0);
+  font-size: 12px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--text) 76%, var(--muted));
+  text-shadow: 0 1px 12px var(--bg);
+}
+.hero-work-marker {
+  color: var(--muted);
+  font-size: 21px;
+  line-height: 1.3;
+}
+.hero-work-note strong {
+  display: block;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+@media (min-width: 701px) and (max-width: 1050px) {
+  .hero-work-stack {
+    height: 290px;
+  }
+  .hero-work-card {
+    width: 84%;
+  }
+  .hero-work-device {
+    --hero-device-height: 126px;
+    height: 148px;
+    padding: 16px 12px 6px;
+  }
+  .hero-work-caption {
+    padding: 12px;
+  }
+  .hero-work-caption > span:last-child {
+    font-size: 8px;
+  }
+}
+@media (max-width: 700px) {
+  .hero-work {
+    max-width: 420px;
+    margin-inline: auto;
+    padding-top: 0;
+  }
+  .hero-work-heading {
+    margin-bottom: 18px;
+    font-size: 8px;
+  }
+  .hero-work-stack {
+    height: 255px;
+  }
+  .hero-work-card {
+    width: 72%;
+    border-radius: 12px;
+  }
+  .hero-work-device {
+    --hero-device-height: 114px;
+    height: 136px;
+    padding: 16px 12px 6px;
+  }
+  .hero-work-caption {
+    padding: 12px;
+    flex-wrap: wrap;
+    gap: 3px 8px;
+  }
+  .hero-work-caption > span:first-child {
+    font-size: 13px;
+  }
+  .hero-work-caption > span:last-child {
+    font-size: 8px;
+  }
+  .hero-work-note {
+    margin-top: 18px;
+    padding-top: 15px;
+    font-size: 11px;
+    gap: 12px;
+  }
+  .hero-work-note strong {
+    font-size: 13px;
+  }
+}

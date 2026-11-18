@@ -1,5 +1,12 @@
 # Verification — 2026-11-17
 
+## Landing work preview
+
+- Filled the landing's empty right side with two compact glass previews of AgentOS and OmniCube, plus a short bilingual introduction to Damian's end-to-end product work. Existing catalog data, redacted captures and device projections remain the source. The composition stacks below the introduction on mobile and links to the current-language portfolio without URL fragments.
+- All 40 browser checks passed against the production export, including a new keyboard-navigation and translation check for the preview. The accessibility scan caught an accessible-name mismatch in the new link; using its visible content as the accessible name resolved it before release.
+- Reviewed seven Brave views covering light/dark, ES/EN, desktop, tablet, mobile, 320px width and a short desktop window. Checked device proportions, decoded captures, actual backdrop blur, header clearance, console errors and horizontal overflow.
+- ESLint, TypeScript, formatting and build passed. No dependency was added; the runtime audit remains clear and the development-only advisory below is unchanged. Hosted release evidence is stored at `~/.codex/artifacts/damian-portfolio-hero-20261118/`.
+
 ## Continuous glass closing panel
 
 - The user screenshots exposed opaque backgrounds on capabilities, contact and the shell-width footer. They hid the fixed shader in separate rectangles and left sharp metal fragments around their edges.

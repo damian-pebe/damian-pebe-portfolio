@@ -7,6 +7,7 @@ import { pageHref } from "@/features/navigation/routes";
 import { scrollToSection } from "@/features/navigation/scrollToSection";
 import { useSite } from "@/features/site/SiteContext";
 import { HeroWordmark } from "./HeroWordmark";
+import { HeroWork } from "./HeroWork";
 
 export function Hero() {
   const { t, locale } = useSite();
@@ -48,6 +49,7 @@ export function Hero() {
             </button>
           </div>
         </m.div>
+        <HeroWork />
         <div className="hero-bottom">
           <span className="hero-location">{t.hero.location}</span>
           <button

@@ -1,5 +1,6 @@
 @import "../features/site/styles/header.css";
 @import "../features/landing/styles/hero.css";
+@import "../features/landing/styles/hero-work.css";
 @import "../features/portfolio/styles/intro.css";
 @import "../features/theme/theme.css";
 @import "../features/language/language.css";

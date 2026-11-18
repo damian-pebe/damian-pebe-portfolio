@@ -30,6 +30,11 @@ export const en: typeof es = {
     secondary: "View portfolio",
     location: "FROM MEXICO / BUILT FOR ANYWHERE",
     scroll: "Scroll to discover",
+    workLabel: "A GLIMPSE OF MY WORK",
+    exploreWork: "Explore the full portfolio",
+    approachTitle: "From start to finish.",
+    approachDescription:
+      "I design the experience and build what powers it: software, connected systems and artificial intelligence.",
   },
   portfolio: {
     eyebrow: "PORTFOLIO / 23 PROJECTS",
