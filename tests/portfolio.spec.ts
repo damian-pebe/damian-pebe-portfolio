@@ -10,12 +10,12 @@ test("Spanish and English stay coherent through navigation and reload", async ({
   });
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "damian pérez",
+    "Damian Perez",
   );
   await page.getByRole("link", { name: /Switch to English/ }).click();
   await expect(page).toHaveURL(/\/en\//);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "damian pérez",
+    "Damian Perez",
   );
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(page.locator(".hero-description")).toContainText(
@@ -104,7 +104,7 @@ test("animated language changes preserve the selected product and browser histor
   );
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     "content",
-    "Damian Pérez — Selected work",
+    "Damian Perez — Selected work",
   );
   await page.goBack();
   await expect(page.locator("html")).toHaveAttribute("lang", "es");

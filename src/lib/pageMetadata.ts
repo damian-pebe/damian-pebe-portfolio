@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { Locale } from "@/i18n/copy";
 import { pageHref, type PageKind } from "@/features/navigation/routes";
 import { pageIdentity } from "./pageIdentity";
+import { site } from "./site";
 
 export function pageMetadata(locale: Locale, page: PageKind): Metadata {
   const identity = pageIdentity(locale, page);
@@ -18,17 +19,17 @@ export function pageMetadata(locale: Locale, page: PageKind): Metadata {
     },
     openGraph: {
       type: "website",
-      siteName: "Damian Pérez",
+      siteName: site.name,
       title: identity.title,
       description: identity.description,
       url: identity.url,
       locale: identity.ogLocale,
       images: [
         {
-          url: "/og-image.png",
+          url: "/og-image.png?v=20261117-name",
           width: 1200,
           height: 630,
-          alt: "Damian Pérez — Software, design & AI",
+          alt: `${site.name} — Software, design & AI`,
         },
       ],
     },

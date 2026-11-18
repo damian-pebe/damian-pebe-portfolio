@@ -91,7 +91,7 @@ test("one shared background survives route and language navigation", async ({
   await expect.poll(() => page.workers().length).toBe(1);
   await page
     .locator("header")
-    .getByRole("link", { name: "damian pérez — Inicio", exact: true })
+    .getByRole("link", { name: "Damian Perez — Inicio", exact: true })
     .click();
   await expect(canvas).toHaveAttribute("data-thread", "worker");
   await expect.poll(() => page.workers().length).toBe(1);

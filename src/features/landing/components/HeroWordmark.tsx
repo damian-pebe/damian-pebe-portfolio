@@ -6,6 +6,7 @@ import {
 } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useSite } from "@/features/site/SiteContext";
+import { site } from "@/lib/site";
 
 /** A brief refractive shift accompanies a language change without moving the layout. */
 export function HeroWordmark() {
@@ -40,7 +41,7 @@ export function HeroWordmark() {
   }, [locale, controls, reduced, visible]);
   return (
     <m.span ref={ref} data-language-wordmark initial={false} animate={controls}>
-      damian pérez
+      {site.name}
     </m.span>
   );
 }

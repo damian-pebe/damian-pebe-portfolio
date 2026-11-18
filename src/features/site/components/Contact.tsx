@@ -75,7 +75,7 @@ export function Contact({ t }: { t: Copy }) {
       <footer className="site-footer">
         <BrandLink className="footer-brand" />
         <p>
-          © {new Date().getFullYear()} Damian Pérez — {t.contact.footer}
+          © {new Date().getFullYear()} {site.name} — {t.contact.footer}
         </p>
         <div>
           <a

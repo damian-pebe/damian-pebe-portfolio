@@ -14,7 +14,7 @@ const typeface = Stack_Sans_Headline({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   ...pageMetadata("es", "home"),
-  icons: { icon: "/icon.svg" },
+  icons: { icon: "/icon.svg?v=20261117-name" },
 };
 export const viewport: Viewport = {
   themeColor: "#fafafa",

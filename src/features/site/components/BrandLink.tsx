@@ -2,6 +2,7 @@ import Link from "next/link";
 import { pageHref } from "@/features/navigation/routes";
 import { scrollToSection } from "@/features/navigation/scrollToSection";
 import { useSite } from "../SiteContext";
+import { site } from "@/lib/site";
 export function BrandLink({
   className,
   onNavigate,
@@ -14,9 +15,7 @@ export function BrandLink({
     <Link
       href={pageHref("home", locale)}
       className={className}
-      aria-label={
-        locale === "es" ? "damian pérez — Inicio" : "damian pérez — Home"
-      }
+      aria-label={`${site.name} — ${locale === "es" ? "Inicio" : "Home"}`}
       onClick={(event) => {
         onNavigate?.();
         if (
@@ -31,7 +30,7 @@ export function BrandLink({
         }
       }}
     >
-      damian pérez
+      {site.name}
     </Link>
   );
 }

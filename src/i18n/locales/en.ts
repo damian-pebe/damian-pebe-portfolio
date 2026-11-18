@@ -24,7 +24,8 @@ export const en: typeof es = {
     choose: "Choose a featured project",
   },
   hero: {
-    role: "Software · Design · Artificial intelligence",
+    specialties: "Specialties",
+    badges: ["Full-stack", "Product design", "Applied AI"],
     description: "Good ideas deserve exceptional software.",
     primary: "Let’s talk",
     secondary: "View portfolio",

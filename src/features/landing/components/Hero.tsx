@@ -8,6 +8,7 @@ import { scrollToSection } from "@/features/navigation/scrollToSection";
 import { useSite } from "@/features/site/SiteContext";
 import { HeroWordmark } from "./HeroWordmark";
 import { HeroWork } from "./HeroWork";
+import { HeroBadges } from "./HeroBadges";
 
 export function Hero() {
   const { t, locale } = useSite();
@@ -22,10 +23,7 @@ export function Hero() {
     >
       <div className="hero-layout shell">
         <m.div className="landing-hero-content" style={contentStyle}>
-          <p className="hero-role">
-            <span aria-hidden="true" />
-            <LanguageText effect="wipe">{t.hero.role}</LanguageText>
-          </p>
+          <HeroBadges />
           <h1 id="hero-title">
             <HeroWordmark />
           </h1>

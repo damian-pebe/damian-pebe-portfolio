@@ -1,4 +1,4 @@
-# Damian Pérez · Personal portfolio
+# Damian Perez · Personal portfolio
 
 Bilingual personal portfolio at **https://damianperez.dev**. Built with Next.js, React and Framer Motion; exported as static files and hosted in Damian's personal Cloudflare account.
 

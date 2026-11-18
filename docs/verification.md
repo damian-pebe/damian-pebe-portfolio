@@ -1,5 +1,11 @@
 # Verification — 2026-11-17
 
+## Name and specialty badges
+
+- Standardized the display name to `Damian Perez` through one shared constant, including brand links, hero, footer, project label, 404 page and metadata. Refreshed the share image and favicon with versioned URLs.
+- Replaced the plain specialty line with three bilingual, monochrome badges for full-stack, product design and applied AI. Icons, thin borders and a hover reflection retain the existing font and compact scale. The 320px layout uses tighter horizontal padding.
+- Twelve relevant existing checks passed on the production export: brand navigation, ES/EN and metadata, preview keyboard navigation, accessibility and narrow layouts. Reviewed six Brave views across two themes and three screen widths, plus the rendered share image. Lint, types, formatting and build passed; runtime audit has zero findings. Evidence is stored at `~/.codex/artifacts/damian-portfolio-name-badges-20261117/`.
+
 ## Landing work preview
 
 - Filled the landing's empty right side with two compact glass previews of AgentOS and OmniCube, plus a short bilingual introduction to Damian's end-to-end product work. Existing catalog data, redacted captures and device projections remain the source. The composition stacks below the introduction on mobile and links to the current-language portfolio without URL fragments.

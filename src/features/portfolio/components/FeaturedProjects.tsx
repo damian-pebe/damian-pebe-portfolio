@@ -11,6 +11,7 @@ import type { Copy, Locale } from "@/i18n/copy";
 import { projects, thumbnail, type Project } from "../data/projects";
 import { LanguageText } from "@/features/language/LanguageText";
 import { DeviceMockup } from "./DeviceMockup";
+import { site } from "@/lib/site";
 
 const featured = [
   "omnicube",
@@ -83,7 +84,7 @@ export function FeaturedProjects({
             <LanguageText>{t.work.categories[project.category]}</LanguageText>
           </span>
           <span className="showcase-edition">
-            DAMIAN PÉREZ / {t.featured.edition}
+            {site.name} / {t.featured.edition}
           </span>
         </div>
         <m.div

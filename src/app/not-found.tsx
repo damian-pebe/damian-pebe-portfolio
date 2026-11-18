@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { site } from "@/lib/site";
 export default function NotFound() {
   return (
     <main className="not-found shell">
-      <span className="eyebrow">404 / DAMIAN PÉREZ</span>
+      <span className="eyebrow">404 / {site.name}</span>
       <h1>
         Aquí empieza
         <br />

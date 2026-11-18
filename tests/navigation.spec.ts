@@ -13,7 +13,7 @@ test("brand and page navigation return to the hero without fragment URLs", async
   await page.locator("#contact").scrollIntoViewIfNeeded();
   await page
     .locator("header")
-    .getByRole("link", { name: "damian pérez — Inicio", exact: true })
+    .getByRole("link", { name: "Damian Perez — Inicio", exact: true })
     .click();
   await expect(page).toHaveURL(/:\d+\/$|\.dev\/$/);
   await expect(page.getByRole("heading", { level: 1 })).toBeInViewport();
@@ -21,7 +21,7 @@ test("brand and page navigation return to the hero without fragment URLs", async
   await page.locator("#contact").scrollIntoViewIfNeeded();
   await page
     .locator("header")
-    .getByRole("link", { name: "damian pérez — Inicio", exact: true })
+    .getByRole("link", { name: "Damian Perez — Inicio", exact: true })
     .click();
   await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
   expect(new URL(page.url()).hash).toBe("");
@@ -33,7 +33,7 @@ test("brand and page navigation return to the hero without fragment URLs", async
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await page
     .locator("header")
-    .getByRole("link", { name: "damian pérez — Home", exact: true })
+    .getByRole("link", { name: "Damian Perez — Home", exact: true })
     .click();
   await expect(page).toHaveURL(/\/en\/$/);
   await expect(page.getByRole("heading", { level: 1 })).toBeInViewport();
@@ -79,7 +79,7 @@ test("normal-motion navigation from a direct portfolio entry stays at the hero",
   await page.goto("/portfolio/");
   await page
     .locator("header")
-    .getByRole("link", { name: "damian pérez — Inicio", exact: true })
+    .getByRole("link", { name: "Damian Perez — Inicio", exact: true })
     .click();
   await expect(page.locator("[data-theme-surface]")).toHaveAttribute(
     "data-renderer",

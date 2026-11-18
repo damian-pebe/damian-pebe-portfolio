@@ -23,7 +23,8 @@ export const es = {
     choose: "Elegir proyecto destacado",
   },
   hero: {
-    role: "Software · Diseño · Inteligencia artificial",
+    specialties: "Especialidades",
+    badges: ["Full-stack", "Diseño de producto", "IA aplicada"],
     description: "Las buenas ideas merecen software excepcional.",
     primary: "Hablemos",
     secondary: "Ver portafolio",

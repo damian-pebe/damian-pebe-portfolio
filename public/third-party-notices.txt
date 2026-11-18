@@ -57,7 +57,7 @@ SOFTWARE.
 
 ## Clyra portfolio presentation
 
-Device frame images, screen corner coordinates and the projection helper originate from the owner’s `clyra-dev/clyra` portfolio. Reused for Damian Pérez’s personal portfolio at his request. Product screenshots retain their public redactions and stage labels. Device frames are resized WebP renditions; original source files remain in Clyra.
+Device frame images, screen corner coordinates and the projection helper originate from the owner’s `clyra-dev/clyra` portfolio. Reused for Damian Perez’s personal portfolio at his request. Product screenshots retain their public redactions and stage labels. Device frames are resized WebP renditions; original source files remain in Clyra.
 
 ## Clyra landing presentation (previous revision)
 
